@@ -2,4 +2,4 @@
 
 cd src
 quarto render
-rsync -avz ./_site/* ../docs/
+rsync -avz --delete ./_site/* ../docs/

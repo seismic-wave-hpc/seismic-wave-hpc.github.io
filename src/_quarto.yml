@@ -4,13 +4,14 @@ project:
 
 website:
 
-  title: "Seismo-HPC"
+  title: "Seismic-Wave-HPC"
     
-  announcement: 
-    icon: exclamation-triangle
-    dismissable: true
-    type: primary
-    position: below-navbar
+#  announcement: 
+#    icon: exclamation-triangle
+#    dismissable: true
+#    content: "**Alert** - This web site is under construction. The structure of the web might be significantly changed. Please be patient. Thank you!" 
+#    type: primary
+#    position: below-navbar
 
   body-header: "---"
 
@@ -21,21 +22,18 @@ website:
       - text: Home
         href: index.md
 
-      - text: "Workshop"
-        href: FDM-Workshop/fdm-workshop.md
-
       - text: "HPC"
         href: HPC/hpc-howto.md
 
       - text: "OpenSWPC"
         href: OpenSWPC-Howto/OpenSWPC-00-index.md
+
+      - text: "Workshop"
+        href: FDM-Workshop/fdm-workshop.md
+
         
     
   sidebar: 
-
-    - title: "FDM-Workshop"
-      contents: 
-        -auto: "FDM-Workshop/*"
 
     - title: "HPC-Howto"
       contents: 
@@ -46,16 +44,19 @@ website:
         - auto: "HPC/Wisteria"
         - auto: "HPC/Miyabi"
         - auto: "HPC/Archives/*"
-        
 
     - title: "OpenSWPC-Howto"
       contents: 
         - auto: "OpenSWPC-Howto"
           
+    - title: "FDM-Workshop"
+      contents: 
+        -auto: "FDM-Workshop/*"
+
 format:
   html:
     theme: spacelab
-#    theme: cosmo
+#    theme: flatly
     css: styles.css
     toc: true
     highlight-style: tango
@@ -65,6 +66,3 @@ author: Takuto Maeda
 bibliography: reference.bib
 #suppress-bibliography: true
 csl: american-geophysical-union.csl
-
-resources:
-  - .htaccess

@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Seismic-Wave-HPC Community Web",
+    "title": "Seismo-HPC Community Web",
     "section": "",
     "text": "About this site\n本Webサイトは地震波動伝播数値シミュレーションのHigh Performance Computing (HPC) 活用に関する情報を提供するコミュニティサイトです．\n\n\nCopyright\nCopyright © 2024-2025 Takuto Maeda. All rights reserved.\n\n\nAcknowledgements\n本Webサイトの構築作業の一部には，文部科学省による「災害の軽減に貢献するための地震火山観測研究計画（第３次）」の支援を受けています．"
   },
@@ -377,6 +377,13 @@
       "OpenSWPC Howto",
       "OpenSWPCのビルド"
     ]
+  },
+  {
+    "objectID": "FDM-Workshop/fdm-workshop.html",
+    "href": "FDM-Workshop/fdm-workshop.html",
+    "title": "地震波数値計算講習会",
+    "section": "",
+    "text": "地震波動伝播数値シミュレーション講習会は2025年6月の開催を目指して準備中です．続報をお待ち下さい．"
   },
   {
     "objectID": "OpenSWPC-Howto/OpenSWPC-00-index.html",
