@@ -9,7 +9,6 @@ website:
   announcement: 
     icon: exclamation-triangle
     dismissable: true
-#    content: "**Alert** - This web site is under construction. The structure of the web might be significantly changed. Please be patient. Thank you!" 
     type: primary
     position: below-navbar
 
