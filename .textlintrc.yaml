@@ -1,0 +1,118 @@
+plugins: # プラグインの設定
+  - latex2e
+
+filters: # フィルタの設定
+  allowlist: 
+    allowlistConfigPaths:
+      - textlint/allow.yml
+
+  comments: # textlintの有効無効範囲指定
+    "enablingComment": "textlint-enable"
+    "disablingComment": "textlint-disable"
+
+rules: # ルールの設定
+
+  # preset-ja-technical-writing
+  # https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing
+  # プリセットのすべてのルールを明示的に記載しています．
+  preset-ja-technical-writing: 
+
+    max-comma: # 1文のカンマの最大数
+      max: 3
+
+    max-ten: # 1文の句読点の最大数
+      max: 3
+      touten: "，"
+      kuten : "．"
+
+    max-kanji-continuous-len: # 連続する漢字の最大数
+      max: 10
+
+    sentence-length: # 1文の文字数の最大値
+      max: 120 # 標準の100文字より緩めにした
+      skipPatterns: 
+
+    ja-no-mixed-period: false # 句点の統一→かわりに prh で設定
+
+    no-mix-dearu-desumasu: # ですます調とである調の統一
+      preferInHeader: ""   # 多い方に合わせる
+      preferInBody:   ""   # 多い方に合わせる
+      prefereInList:  ""   # 多い方に合わせる
+
+    no-double-negative-ja: true # 二重否定の禁止
+
+    no-dropping-the-ra: true # 「ら」抜き言葉の禁止
+
+    no-doubled-conjunctive-particle-ga: true # 逆接の接続助詞「が」の連続の禁止
+
+    no-double-conjunction: true # 同じ接続詞の連続の禁止
+
+    no-doubled-joshi: true # 同じ助詞の連続の禁止
+
+    no-nfd: true # UTF8-MAC濁点を使用しない．
+
+    no-invalid-control-character: true # 制御文字の使用禁止
+
+    no-zero-width-spaces: true # ゼロ幅スペースの禁止
+
+    no-exclamation-question-mark: # 感嘆符と疑問符：感嘆符NG疑問符NG
+      allowHalfWidthExclamation: false
+      allowFullWidthExclamation: false
+      allowHalfWidthQuestion: false
+      allowFullWidthQuestion: false
+
+    no-hankaku-kana: true # 半角カタカナの使用禁止
+
+    ja-no-weak-phrase: true # 弱い表現（かもしれない）の禁止
+
+    ja-no-successive-word: true # 同じ単語の連続の禁止
+
+    ja-no-abusage: true # 典型的な誤用の検出
+
+    ja-no-redundant-expression: true # 冗長な表現の禁止
+     
+    ja-unnatural-alphabet: true # 変換ミスの検出
+
+    no-unmatched-pair: true # 閉じ括弧と開き括弧のペアの整合性
+
+  # ToDo検出
+  no-todo: true
+
+  # 空白の制御
+  preset-ja-spacing: 
+    ja-nakaguro-or-halfwidth-space-between-katakana: true
+    ja-no-space-around-parentheses: true
+    ja-no-space-between-full-width: true
+    ja-space-between-half-and-full-width: false
+#      space: never
+    ja-space-after-exclamation: false # 感嘆符のあとに空白を入れない．そもそも感嘆符自体がNG
+    ja-space-after-question: false # 疑問符のあとに空白を入れない．そもそも疑問符自体がNG
+    ja-space-around-code: # コード片前後のスペース
+      before: true
+      after : true
+    ja-space-around-link: # リンク前後のスペース
+      before: true
+      after : true
+
+  no-mixed-zenkaku-and-hankaku-alphabet: 
+    prefer: "半角" # 全角アルファベットはエラーになる
+
+  ja-keishikimeishi: true # 形式名詞はひらがなで表記する
+
+  ja-hiragana-fukushi:  # 副詞をひらがなでわかりやすく
+    rulePath: "textlint/fukushi.yml"
+
+  ja-hiragana-hojodoushi: true # 補助動詞をひらがなでわかりやすく
+
+  "@textlint-ja/textlint-rule-no-insert-dropping-sa": true # さ抜き言葉の禁止
+
+  # 表記揺れの手動チェック
+  prh:
+    rulePaths:
+      - "textlint/prh.yml"
+
+
+  # 同一文書内表記揺れの自動検出
+  "@textlint-ja/no-synonyms": true
+
+  textlint-rule-ja-no-orthographic-variants: true # 同義語の表記揺れの検出

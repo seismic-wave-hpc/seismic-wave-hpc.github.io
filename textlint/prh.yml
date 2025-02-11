@@ -1,0 +1,25 @@
+### ProofRead-Helper dictionary
+
+rules:
+  # 句読点の統一
+  - pattern: "。"
+    expected: "．"
+  - pattern: "、"
+    expected: "，"
+
+  # 人名ベースの用語
+  - pattern: "レイリー波"
+    expected: "Rayleigh波"
+    prh: 人名は原則としてカタカナにしません．
+
+  - pattern: "ラブ波"
+    expected: "Love波"
+    prh: 人名は原則としてカタカナにしません．
+
+  - pattern: "グーテンベルグ"
+    expected: "Gutenberg"
+    prh: 人名は原則としてカタカナにしません．
+
+  - pattern: "リヒター"
+    expected: "Richter"
+    prh: 人名は原則としてカタカナにしません．

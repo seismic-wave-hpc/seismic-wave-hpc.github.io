@@ -1,0 +1,5 @@
+AuthUserFile /home/tktmyd/htpass/htpasswd.hpcweb
+AuthGroupFile /dev/null
+AuthName "ここはコミュニティメンバー向けサイトです．ユーザー名とパスワードを入力してください．"
+AuthType Basic
+require valid-user

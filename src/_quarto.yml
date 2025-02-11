@@ -1,0 +1,71 @@
+project:
+  type: website
+
+
+website:
+
+  title: "Seismo-HPC"
+    
+  announcement: 
+    icon: exclamation-triangle
+    dismissable: true
+    content: "**Alert** - This web site is under construction. The structure of the web might be significantly changed. Please be patient. Thank you!" 
+    type: primary
+    position: below-navbar
+
+  body-header: "---"
+
+  draft-mode: visible
+   
+  navbar:
+    left:
+      - text: Home
+        href: index.md
+
+      - text: "Workshop"
+        href: FDM-Workshop/fdm-workshop.md
+
+      - text: "HPC"
+        href: HPC/hpc-howto.md
+
+      - text: "OpenSWPC"
+        href: OpenSWPC-Howto/OpenSWPC-00-index.md
+        
+    
+  sidebar: 
+
+    - title: "FDM-Workshop"
+      contents: 
+        -auto: "FDM-Workshop/*"
+
+    - title: "HPC-Howto"
+      contents: 
+        - HPC/hpc-howto.md
+        - auto: "HPC/Common"
+        - auto: "HPC/EIC2020"
+        - auto: "HPC/EIC2025"
+        - auto: "HPC/Wisteria"
+        - auto: "HPC/Miyabi"
+        - auto: "HPC/Archives/*"
+        
+
+    - title: "OpenSWPC-Howto"
+      contents: 
+        - auto: "OpenSWPC-Howto"
+          
+format:
+  html:
+    theme: spacelab
+#    theme: cosmo
+    css: styles.css
+    toc: true
+    highlight-style: tango
+    code-overflow: wrap
+
+author: Takuto Maeda
+bibliography: reference.bib
+#suppress-bibliography: true
+csl: american-geophysical-union.csl
+
+resources:
+  - .htaccess

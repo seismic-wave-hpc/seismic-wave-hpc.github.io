@@ -1,0 +1,668 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Seismic-Wave-HPC Community Web",
+    "section": "",
+    "text": "About this site\n本Webサイトは地震波動伝播数値シミュレーションのHigh Performance Computing (HPC) 活用に関する情報を提供するコミュニティサイトです．\n\n\nCopyright\nCopyright © 2024-2025 Takuto Maeda. All rights reserved.\n\n\nAcknowledgements\n本Webサイトの構築作業の一部には，文部科学省による「災害の軽減に貢献するための地震火山観測研究計画（第３次）」の支援を受けています．"
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-00-index.html",
+    "href": "HPC/EIC2020/EIC2020-00-index.html",
+    "title": "はじめに",
+    "section": "",
+    "text": "Warning\n\n\n\nこのセクションで説明されているEIC計算機システムは 2025年2月末で運用を終了し，新しいシステムにリプレースされます．ここの情報は参考情報として残してあり，すでに古いものですのでご注意ください．\n\n\n公式サイト",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "はじめに"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-0A-two-step-connection.html#手動による二段階接続",
+    "href": "HPC/EIC2020/EIC2020-0A-two-step-connection.html#手動による二段階接続",
+    "title": "補遺：EIC接続の踏み台設定",
+    "section": "手動による二段階接続",
+    "text": "手動による二段階接続\n以下では，東京大学情報基盤センターのスパコン（BDEC）を踏み台にすることを前提に説明します．\n$ ssh -Y wisteria.cc.u-tokyo.ac.jp -l USERNAME-of-BDEC\nでWisteria/BDECにまずログインし，そのログイン先から\n$ ssh -Y eic.eri.u-tokyo.ac.jp -l USERNAME-of-EIC\nとすれば，EICに接続きます．\nしかし，毎回二段階でログインするのはとても面倒です． rsync などを使ってファイルを転送する際にも，いちいち踏み台サーバにファイルを置いてからEICに転送することとなり，きわめて非効率です．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "補遺：EIC接続の踏み台設定"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-0A-two-step-connection.html#ssh-configによる自動二段階接続",
+    "href": "HPC/EIC2020/EIC2020-0A-two-step-connection.html#ssh-configによる自動二段階接続",
+    "title": "補遺：EIC接続の踏み台設定",
+    "section": "SSH configによる自動二段階接続",
+    "text": "SSH configによる自動二段階接続\nここでは，踏み台サーバ（この場合はWisteria/BDEC）への接続が公開鍵認証方式であることと，その公開鍵はEICへの接続の公開鍵と同一のものを使っていることを仮定します．\nSSHでは， ~/.ssh/config というファイルを作成し，その中に接続情報を記述することで，ssh コマンドが接続時にその情報を参照できます． まずは，Wisteria/BDECへの接続を単純化してみましょう．\n接続元マシンで，config ファイルを開きます（なければ作成します）．\n$ cd ~/.ssh\n$ code config\n\n\n\n\n\n\nNote\n\n\n\nここではVSCodeのシェルコマンド code がインストールされている前提で例を書いていますが，使うエディタは何でも構いません．ただし，.ssh はドット記号から始まる隠しディレクトリですので，エクスプローラ（Windows）やFinder (macOS) からは見えません．ターミナルで ls -a すると見えるはずです．\n\n\nconfig ファイルに以下の内容を記述します．ただし，USERNAME-of-BDEC は自身のWisteria/BDECユーザー名です． IdentifyFile の行では接続に用いる秘密鍵を指定します．\nHost bdec\n     HostName wisteria.cc.u-tokyo.ac.jp\n     User USERNAME-of-BDEC\n     IdentityFile ~/.ssh/id_rsa\n     ForwardX11 yes\nこの準備をすると，ターミナルから\n$ ssh bdec\nとするだけで，wisteria.cc.u-tokyo.ac.jp に接続できます．\nさらに，EICへの接続設定も config ファイルに追記しましょう．\nHost eic\n     Hostname eic.eri.u-tokyo.ac.jp\n     User USERNAME-of-EIC\n     ProxyCommand ssh -W %h:%p bdec\n     IdentityFile ~/.ssh/id_rsa\n     ForwardX11 yes\nWisteria/BDECとほとんど同様ですが，ProxyCommand の行が増えています．これにより，ssh eic とするだけで，Wisteria/BDECを踏み台にしてEICに接続できます．\n\n\n\n\n\n\nNote\n\n\n\nVSCodeでSSH拡張を利用している場合は，この設定ファイルが自動的に読み込まれます． これ以降は，VSCodeからも eic を選択して接続できます．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "補遺：EIC接続の踏み台設定"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-01-account.html#アカウントの申請",
+    "href": "HPC/EIC2020/EIC2020-01-account.html#アカウントの申請",
+    "title": "アカウントの取得とログイン",
+    "section": "アカウントの申請",
+    "text": "アカウントの申請\nEICを使うためには，EIC計算機システム利用申請 から申請します．\n学生から申請する場合は，指導教員の連絡先を入力する必要があります．また，簡単な研究目的を記入する欄もあります．\n申請して数日すると，地震研究所の担当者から，アカウント通知の発送方法について郵送か電子交付かを回答するようにメールが届きます．特に問題なければ電子交付をすすめます．すると，「地震研なまず便」というファイル送信システムからファイルが届きます． そのパスワードにユーザー名と初期パスワードが書かれています．\n\n\n\n\n\n\nImportant\n\n\n\nこのファイルは重要です．初期パスワードを後で使うことがありますから，捨てずに保管しておいてください． 「なまず便」からは短期間しかダウンロードできません．\n\n\nこのパスワードで，マニュアル https://eic-support.eri.u-tokyo.ac.jp/wiki/ にアクセスできます．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "アカウントの取得とログイン"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-01-account.html#初回ログインまで",
+    "href": "HPC/EIC2020/EIC2020-01-account.html#初回ログインまで",
+    "title": "アカウントの取得とログイン",
+    "section": "初回ログインまで",
+    "text": "初回ログインまで\nEICには公開鍵暗号でアクセスします．この方式では\n\n手元PCで公開鍵ファイルと暗号鍵ファイルを作成\n公開鍵ファイルをEICに登録（初回はウェブシステムから）\n\nという手続きを取る必要があります．\n\n\n\n\n\n\nNote\n\n\n\nEICには大学（ac.jp）と政府（go.jp）ドメインの接続元からしか接続できないという仕組みがあります． しかし，セキュリティのため接続元を明らかにしないポリシーなどの理由で，大学等からでもアクセスできない場合があります．\nそのような場合は，地震研究所日本列島モニタリングセンターと相談して個別対処（たとえば特定のIP番号のマシンからの接続を受け付けてもらうようにする）してもらうこともできます．\n他に，別途東大情報基盤センターのスパコンのアカウントを持っているのであれば，そこを経由してEICに接続する方法もあります．詳しくは こちら を参照してください．\n\n\nもし公開鍵が作成済みでなかったら，こちらの説明をもとに作成をしてください．\n\n公開鍵の登録\nhttps://eic-support.eri.u-tokyo.ac.jp:20000 にWebブラウザからアクセスして，パスワード通知にあるユーザー名とパスワードでログインします．\n左側メニューから SSH Configuration を選び，Add a new SSH 2 authorized key ボタンを押します． すると，テキスト入力フィールドに遷移します．そこで，手元のターミナルから\n$ cat ~/.ssh/id_rsa.pub\nした結果を選択して，入力フィールドにコピー＆ペーストし，Add Authorized Key ボタンを押します．\nこれで登録完了です．\n\n\nEICへの接続\nターミナルで ssh コマンドにより接続します．アカウント通知にあるユーザー名を USERNAME として，\n$ ssh -Y USERNAME@eic.eri.u-tokyo.ac.jp\nあるいは\n$ ssh -Y -l USERNAME eic.eri.u-tokyo.ac.jp\nで接続できます．公開鍵にパスフレーズを設定していた場合には，接続時にそのパスフレーズの入力が求められます．\nログインができたら，まずは passwd コマンド\n$ passwd\nでログインパスワードを変更しておきましょう．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "アカウントの取得とログイン"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-01-account.html#接続元マシンの追加",
+    "href": "HPC/EIC2020/EIC2020-01-account.html#接続元マシンの追加",
+    "title": "アカウントの取得とログイン",
+    "section": "接続元マシンの追加",
+    "text": "接続元マシンの追加\nEICに接続する最初の1台は上記の手続きに則って登録する必要がありますが，2台目からはより簡単です．新しく接続したいマシンで作成した id_rsa.pub ファイルの中身を，EICの ~/.ssh/authorized_keys（~ は自分のホームディレクトリです）に追加するだけで接続できるようになります．1行あたり1エントリで，エントリの途中で改行してはいけません．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "アカウントの取得とログイン"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-01-account.html#アカウントの更新",
+    "href": "HPC/EIC2020/EIC2020-01-account.html#アカウントの更新",
+    "title": "アカウントの取得とログイン",
+    "section": "アカウントの更新",
+    "text": "アカウントの更新\nEICは年度ごとにユーザーを管理しており，年度末にはアカウントの更新が必要です．東京大学地震研究所から届くメールを見逃さないようにしましょう．アカウントを更新しないと，翌年度中に最終警告のメールが流れ，その後アカウントが削除されてしまいます．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "アカウントの取得とログイン"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-A0-acknowledgement.html",
+    "href": "HPC/Common/Common-A0-acknowledgement.html",
+    "title": "謝辞の書き方",
+    "section": "",
+    "text": "東京大学地震研究所の共同利用を通じて大型計算機を利用し，その成果が出版された場合には，適切な謝辞を記載することが求められます．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "謝辞の書き方"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-A0-acknowledgement.html#東京大学地震研究所-eicの場合",
+    "href": "HPC/Common/Common-A0-acknowledgement.html#東京大学地震研究所-eicの場合",
+    "title": "謝辞の書き方",
+    "section": "東京大学地震研究所 EICの場合",
+    "text": "東京大学地震研究所 EICの場合\n参考：東大地震研\nThis study was conducted using the computer systems of the Research Center for Monitoring Japan Arc, Earthquake Research Institute, the University of Tokyo.\n\n\n\n\n\n\nNote\n\n\n\n参考元にある原文は\nFor this study, I (We) have used the computer systems of the Earthquake and Volcano Information Center of the Earthquake Research Institute,the University of Tokyo.\nだったのですが，Earthquake and Volcano Information Centerはもう存在しません．また，英文を修正しました．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "謝辞の書き方"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-A0-acknowledgement.html#東京大学情報基盤センター-wisteriabdec-01の場合",
+    "href": "HPC/Common/Common-A0-acknowledgement.html#東京大学情報基盤センター-wisteriabdec-01の場合",
+    "title": "謝辞の書き方",
+    "section": "東京大学情報基盤センター Wisteria/BDEC-01の場合",
+    "text": "東京大学情報基盤センター Wisteria/BDEC-01の場合\n\n地震研共同利用の場合\n東京大学地震研究所の共同利用（大型計算）を介して東京大学情報基盤センターのWisiteria/BDECを利用した場合は，その両方に対して謝辞の記載が必要です．\n参考：東大地震研 および 東大情報基盤センター\nThis study was supported by ERI JURP `&lt;PROJECT NUBMER&gt;`. This study was conducted using the FUJITSU Supercomputer PRIMEHPC FX1000 and FUJITSU Server PRIMERGY GX2570 (Wisteria/BDEC-01) at the Information Technology Center, The University of Tokyo.\n&lt;PROJECT NUMBER&gt; には，東大地震研のプロジェクト番号を記載してください．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "謝辞の書き方"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2025/EIC2025-00-index.html",
+    "href": "HPC/EIC2025/EIC2025-00-index.html",
+    "title": "はじめに",
+    "section": "",
+    "text": "Warning\n\n\n\nこれはEICの新しいシステムについてのページです．システムについての情報が公開され次第順次記事を公開します．\n\n\n公式サイト",
+    "crumbs": [
+      "HPC",
+      "EIC2025",
+      "はじめに"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-05-OpenSWPC.html#openswpcのダウンロードとコンパイル",
+    "href": "HPC/Wisteria/BDEC-05-OpenSWPC.html#openswpcのダウンロードとコンパイル",
+    "title": "OpenSWPCの利用",
+    "section": "OpenSWPCのダウンロードとコンパイル",
+    "text": "OpenSWPCのダウンロードとコンパイル\nOpenSWPCは https://github.com/OpenSWPC/OpenSWPC で公開されています． このURLから見られる個別のソースコードは，開発の途中で登録されている場合があり，したがって未完成だったりバグを含むこともあります． それに対して，一定のアップデートのまとまりごとに release としてバージョン番号を付与されたものがzip形式で圧縮されて https://github.com/OpenSWPC/OpenSWPC/releases から公開されています． このreleaseはZenodoによりバージョン個別のDOIが付与（たとえば こちら）されており，論文等での引用にも便利です．\nここでは，公開されている最新版Version 24.09.1をダウンロード・コンパイルしてみます．\n$ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/24.09.1.zip\n$ unzip 24.09.1.zip\n$ cd OpenSWPC-24.09.1/src\n$ make arch=bdec-o\nとするだけでコンパイルできます． コンパイル時に，module load は自動的に行われますが，make 前にロードされていたモジュールはpurgeされてしまうので注意してください．\nグループ gv49 については，/work/gv49/share/dataset に構造や観測点位置モデルが配置済みです．あるいは，あらかじめ 構造モデルを作成 して適当なディレクトリに転送しておいてください．\nswpc_** は計算ノードで，tools/* はログインノードで実行できるようにコンパイルされますが，read_snp.x などのツールを動かすためには\n$ module load intel netcdf netcdf-fortran hdf5\nの実行が必要です．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの利用"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-05-OpenSWPC.html#ジョブ投入の例",
+    "href": "HPC/Wisteria/BDEC-05-OpenSWPC.html#ジョブ投入の例",
+    "title": "OpenSWPCの利用",
+    "section": "ジョブ投入の例",
+    "text": "ジョブ投入の例\nそれでは，ジョブスクリプトを書いて投入してみましょう．\n#!/bin/bash\n\n#PJM -L    rscgrp=regular-o\n#PJM -L    node=4x4:mesh     \n#PJM --mpi proc=16\n#PJM -L    elapse=00:30:00\n#PJM -g    ${GROUP}  #&lt;-- 自分の所属グループに変更\n#PJM --omp thread=48\n#PJM -N    bdec-001         \n#PJM -o    bdec-001.out\n#PJM -j \n# ---------- \n\n# 計算に必要なモジュールのロード．OpenSWPCはNetCDFを利用するため，それと関連のモジュールをロードしている\nmodule load fj fjmpi netcdf hdf5 netcdf-fortran\n\n# プログラムの実行．mpiコードの実行コマンドは mpiexec\nmpiexec ./bin/swpc_3d.x -i in/input.inf\nジョブスクリプトの書き方は基本的に 前述 のとおりですが，いくつかの違いがあります．\nまず，#PJM -L node=4x4:mesh は，ノードサイズを指定しています．4x4:mesh は，4x4の2次元メッシュを指定しています．単にノード数を指定するだけでなく，このようにノード間の接続の形状の指定もできます．OpenSWPCは媒質をXY方向の2次元に分割するため，その分割とmesh形状を対応させると速度がやや向上します．ただし，複雑なメッシュ形状を指定すると，その分ジョブが実行開始されるまでの待ち時間が長くなることもあります．\n#PJM --mpi proc=16 は，MPIのプロセス数を指定しています．ノード内をOpenMPで，ノード間この例では16プロセスを指定しています． #PJM --omp thread=48 は，OpenMPのスレッド数を指定しています．この例ではCPUのすべてのスレッド（48スレッド）をまとめて使います．\nプログラムの実行前に，そのプログラムが利用するライブラリを module コマンドでロードする必要があります．この例の場合，OpenSWPCがNetCDFを用いるため，それ（netcdf, netcdf-fortran）と依存ライブラリであるHDF5（hdf5）をロードしています．\nこのジョブスクリプト job.sh を以下のコマンドで投入することで，計算が開始されます．\n$ pjsub job.sh",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの利用"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-05-OpenSWPC.html#既知の問題",
+    "href": "HPC/Wisteria/BDEC-05-OpenSWPC.html#既知の問題",
+    "title": "OpenSWPCの利用",
+    "section": "既知の問題",
+    "text": "既知の問題\n\nread_snp.x\n大きなスナップショット（1辺2000グリッド以上）で実行時エラーが起きる（他のLinux環境では起きない）．回避方法検討中．\n\n\nまれに計算が終わってもなかなか終了しないことがある\n現象観察中．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの利用"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-06-OpenSWPC2.html",
+    "href": "HPC/Wisteria/BDEC-06-OpenSWPC2.html",
+    "title": "OpenSWPCの高速実行",
+    "section": "",
+    "text": "Wisteria/BDEC-01で並列計算を行う際には，\nを強く推奨します．設定はすこしだけ面倒になりますが，これにより計算速度が2倍程度向上します． 計算時間は有限の資源ですので，できるだけ効率的に使うことが重要です．\n以下では，その仕組みを簡単に説明し，ジョブスクリプトの設定方法を示します．仕組みには興味がなく実用的な結果だけ知りたい人は，実践レシピ に進んでください．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの高速実行"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-06-OpenSWPC2.html#前提知識mpiによる領域分割",
+    "href": "HPC/Wisteria/BDEC-06-OpenSWPC2.html#前提知識mpiによる領域分割",
+    "title": "OpenSWPCの高速実行",
+    "section": "前提知識：MPIによる領域分割",
+    "text": "前提知識：MPIによる領域分割\nOpenSWPCは，ノード間通信にMPIを，ノード内通信にOpenMPを用いたハイブリッド並列計算が実装されています． そのため，通常は1ノード（1CPU）あたりに1つのMPIプロセスを立ち上げ，CPU内部ではOpenMPによる並列計算を行うことが多いです．\nBDECは1ノードあたりに1CPUが配置されていますが，そのCPUは内部で4つのコアグループに分かれており，それらが独立に2次キャッシュや直結したメモリを持っています．コアグループをまたいでも明示的な通信をすることなく（OpenMPで）メモリ内容を参照できますが，実際には効率が悪くなります．\n一例として，12ノードを用いた3次元並列計算を行うことを考えましょう．OpenSWPCは3次元空間のうちXY平面を2次元的に分割して，MPIにより各ノードに割り当てます．ここでは，X方向に4ノード，Y方向に3ノードの計12ノードを使うことを考えます．OpenSWPCのパラメタでは\nnproc_x = 4\nnproc_y = 3\nに相当します．このとき，XY平面は下図のように分割されます．\n\n\n\n\n\n\nFigure 1: OpenSWPCのMPIプロセスの標準的な配置\n\n\n\n黒色の正方形が分割された領域です．この場合は1つの領域に1つのMPIプロセス（緑色）が割り当てられています．そのMPIプロセスの内部では，領域内に多数ある空間グリッドの計算をOpenMPにより並列化しています．数値シミュレーションの実行時には，オレンジ色の矢印のように，MPIプロセス間でデータ通信が行われます．\nこのときのジョブスクリプトは\n#PJM -L    node=12 \n#PJM --mpi proc=12         # ノード数と同じ数のプロセスを立ち上げる\n#PJM --omp thread=48       # 1プロセスあたり48スレッドを使う\nとなります．1CPU内に48個のコアがありますので，それら1つあたりに1スレッドを立ち上げています．\n上記の指定では，12個のノードはX方向を優先して連続的に割り当てられます． そのため，例えば5番目のノード（MPIプロセス）は，1, 4, 6, 9番目のプロセスと通信します．5番目から見て4番目と6番目は隣接するプロセスですから通信も速いですが，一般的には1番目や9番目との通信は遅くなりがちです．ただし，Wisteria/BDEC-01では，ジョブスクリプトでのノード数指定を\n#PJM -L node=4x3:mesh\nと分割の形状を指定して mesh オプションを付与することで，Y方向への通信も高速になるようなノードが自動的に割り当てられます．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの高速実行"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-06-OpenSWPC2.html#cpu-a64fx-の特性と効率的なプロセス配置",
+    "href": "HPC/Wisteria/BDEC-06-OpenSWPC2.html#cpu-a64fx-の特性と効率的なプロセス配置",
+    "title": "OpenSWPCの高速実行",
+    "section": "CPU A64FX の特性と効率的なプロセス配置",
+    "text": "CPU A64FX の特性と効率的なプロセス配置\nWisteria/BDEC-01で採用されているCPU (Fujitsu A64FX) の内部構造を以下に示します．\n\n\n\n\n\n\nFigure 2: A64FXの内部構造ブロック図．www.fujitsu.comより引用\n\n\n\nピンク色の小さな正方形で描かれたCPUコアが52個（ただし4つは計算には使われないアシスタントコアですので，実質48個）ありますから，ノード内のOpenMP並列で48スレッドを使うことができます．実際，先の例 で例示したジョブスクリプトでは，\n#PJM --omp thread=48\nという指定によってスレッドを48個立ち上げていました．\nしかし，A64FXのCPUコアは，その内部で4つのコアグループに仕切られています．さらに，それぞれのコアグループはHigh Bandwidth Memory (HBM) という高速なメモリに直結しています． もちろん，CPU内部ではメモリ内のデータは共有されていますから，たとえば図の左上のコアグループから，右下のコアグループに接続されているHBMの情報にもアクセスできます．ただしその場合は，中央のリングバスを経由してアクセスすることとなり，コアグループに直結しているHBMへのアクセスよりもぐっと遅くなります．\n逆に言うと，ほとんどいつでもコアグループに直結したHBMだけを使うようにできれば，その計算は大幅に高速化する可能性があるのです．そのために，1CPUの中にプロセスを4つ配置し，コアグループあたり1つのMPIプロセスを立ち上げます．そのうえで，CPU内部でもコアグループ間はMPIによって通信します．MPI通信に用いられるのは，利用する全メモリのうち境界部分のわずかな部分だけです．そのため，MPIプロセスが増えたことによる通信の増大のデメリットよりも，特に高速なメモリだけにアクセスできることのメリットのほうが上回ると期待できるのです．\n\n\n\n\n\n\nFigure 3: 1ノード（CPU）に4つのMPIプロセスを立ち上げた場合のプロセス配置の例．(左) 標準的な配置 (右) rankmapを併用した効率的な配置．\n\n\n\nA64FXの特性を生かしたプロセス配置の例を Figure 3 に示します．左右の2通りがありますが，どちらも1ノード（黒四角）の中に4つのプロセス（緑四角）が配置されています．結果として，X方向には8つ，Y方向には6つにXY平面が分割されます．一方でCPU内の48コアを4つのプロセスで分け合うことになりますから，1つのMPIプロセスが使えるコアは12個（12スレッド）になります．これらを踏まえると，ジョブ文の指定は\n#PJM -L    node=4x3:mesh   # 変更なし．ノード数は変わらない\n#PJM --mpi proc=48         # ノード数の4倍のプロセスを立ち上げる\n#PJM --omp thread=12       # 1プロセスあたり12スレッドを使う\nまた，パラメタファイルの分割数はXY方向それぞれ2倍されて，\nnproc_x = 8\nnproc_y = 6\nとなります．\n\nRankmap ファイル\n1CPUあたりに4つのMPIプロセスを立ち上げるだけでも，性能が向上します．しかし，もうすこし効率を上げる余地があります． それは，MPIプロセスの配置を明示的に指定することです．\n単にプロセス数を増やしただけだと，MPIプロセスの配置は左図のようになります． 1つのノード内に連続した4つのプロセスが立ち上がるため，結果としてノード間の通信のプロセス番号が互いに離れてしまいました．\nこれを防ぐために rankmap ファイルを用いて，各プロセスがどのノードに配置されるべきなのかを明示的に指定します． rankmapファイルの書式は単純で，1行あたり1つの\n(nodex, nodey)\nの数字の組み合わせです．その行番号-1のプロセスが，X方向に nodex 番目，Y方向に nodey 番目のノードに配置されることを意味します．図 Figure 3 の右図のようにするには，\n\n\nrankmap\n\n(0,0) # 0番目のプロセス\n(0,0) # 1番目のプロセス\n(1,0) # 2番目のプロセス\n(1,0) # 3番目のプロセス\n(2,0) # 4番目のプロセス\n(2,0) # 5番目のプロセス\n(3,0) # 6番目のプロセス\n(3,0) # 7番目のプロセス\n(0,0) # 8番目のプロセス\n(0,0) # 9番目のプロセス\n  .\n  .\n  .\n\nというふうに指定します．このファイルは以下のPythonスクリプトで機械的に生成できます．\nnproc_x = 8 # この数値はOpenSWPCのパラメタファイルと一致させる\nnproc_y = 6 # この数値はOpenSWPCのパラメタファイルと一致させる\n\nwith open(\"rankmap\", \"w\") as f:\n    for j in range(nproc_y):\n        for i in range(nproc_x):\n            f.write(f\"({i//2},{j//2})\\n\")\nなお，上記スクリプトと等価な関数 bdec_rankmap が，OpenSWPCに同梱されている src/tool/swpc.py モジュールにも含まれています．\nこうして作成した rankmap ファイルをジョブスクリプトに指定するには，\n#PJM --mpi rank-map-bynode\n#PJM --mpi rank-map-hostfile=rankmap\nとします．\n\n\nベンチマークテスト\nこのような1ノードあたり4プロセスの指定やrankmap指定により，OpenSWPCがどれだけ高速になるか，ベンチマークテストを実施しました．\n\n\n\n\n\n\n\nFigure 4: Wisteria/BDEC-01のプロセス配置による計算時間の違い．すべて1024x1024x2048を256ノードで10回ずつ計算し，その計算時間の平均と標準偏差を示す．上3つは1ノードあたり1プロセスで，それぞれノード数のみ指定，mesh指定を追加，1ノード1プロセスとしてrankmap指定したもの．下3つは1ノードあたり4プロセスで，それぞれノード数のみ指定，mesh指定を追加，1ノード4プロセスとしてrankmap指定したもの．\n\n\n\n\nその結果を Figure 4 に示します．1ノードあたり4プロセスにするだけで計算時間が大幅に短縮し，rankmap を追加することでさらに高速化されていることがわかります．図中最上段と最下段とを比較すると，同じ計算結果が半分の時間で得られていることがわかります．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの高速実行"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-06-OpenSWPC2.html#sec-BDEC-rankmap-recipe",
+    "href": "HPC/Wisteria/BDEC-06-OpenSWPC2.html#sec-BDEC-rankmap-recipe",
+    "title": "OpenSWPCの高速実行",
+    "section": "実践レシピ",
+    "text": "実践レシピ\n\n使用するノード数と，XY方向のノード分割数を決める．以下では NODE_X, NODE_Y とする．合計利用ノード数は NODE_X * NODE_Y となる．\nOpenSWPCの入力ファイルの nproc_x, nproc_y を NODE_X, NODE_Y のそれぞれ2倍にする\nジョブスクリプトと同じディレクトリで，下記のPythonスクリプト gen_rankmap.py を作成し，nproc_x, nproc_y の値は手順2のものを設定したうえで実行する．結果として同じディレクトリにファイル rankmap が生成される．\nジョブスクリプトの設定は以下の job_example_rankmap.sh のようにする．\n\n\n\ngen_rankmap.py\n\nnproc_x = XX # この数値はOpenSWPCのパラメタファイルと一致させる\nnproc_y = YY # この数値はOpenSWPCのパラメタファイルと一致させる\n\nwith open(\"rankmap\", \"w\") as f:\n    for j in range(nproc_y):\n        for i in range(nproc_x):\n            f.write(f\"({i//2},{j//2})\\n\")\n\n\n\njob_example_rankmap.sh\n\n#!/bin/bash\n\n#PJM -L    rscgrp=regular-o\n#PJM -L    node=${NODE_X}x${NODE_Y}:mesh  # &lt;-- 設定値を代入\n#PJM --mpi proc=${NODE_X}*${NODE_Y}       # &lt;-- 全ノード数を代入\n#PJM --mpi rank-map-bynode\n#PJM --mpi rank-map-hostfile=rankmap\n#PJM --omp thread=12\n#PJM -L    elapse=01:00:00\n#PJM -g    ${GROUP}\n#PJM -N    OpenSWPC\n#PJM -o    OpenSWPC.out\n#PJM -j \n\n# ---------- \nmodule load fj fjmpi netcdf hdf5 netcdf-fortran\n\nmpiexec ./bin/swpc_3d.x -i in/input.inf",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "OpenSWPCの高速実行"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-03-job.html#システム構成",
+    "href": "HPC/Wisteria/BDEC-03-job.html#システム構成",
+    "title": "ジョブ投入の基本",
+    "section": "システム構成",
+    "text": "システム構成\nWisteria/BDEC-01 (Odyssey) は，ひとつのCPUからなる 計算ノード が数千個あり，その中から最大で2304ノードまで同時に使って並列計算ができます． ひとつの計算ノード（CPU）の内部には，48個のコアがあります．したがって，単一のノード内でもコア間の並列計算ができます． OpenSWPCでは，ノード内はOpenMPによる並列計算，ノード間はMPIによる並列計算を行うのが一般的です．\n1ノードあたりの最大メモリ容量は 28GB ですので，実際には計算が必要とするメモリ容量を踏まえてノード数を選択する必要があります．たくさんのノードを使えば使うほど計算が速くなる，というわけではありません．むしろ一定以上に細かく分割すると，通信のオーバーヘッドにより計算時間はむしろ遅くなることがあります．そのような場合でも，利用したノード数✕時間で課金されますので，適切な計算資源量（ノード数）の見積もりは重要です．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ジョブ投入の基本"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-03-job.html#ジョブスクリプト",
+    "href": "HPC/Wisteria/BDEC-03-job.html#ジョブスクリプト",
+    "title": "ジョブ投入の基本",
+    "section": "ジョブスクリプト",
+    "text": "ジョブスクリプト\n以下のような ジョブスクリプト を書いて，それを pjsub コマンドによって投入することでジョブを実行します．まずは非常に単純なものから試してみましょう．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ジョブ投入の基本"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-03-job.html#ジョブの投入",
+    "href": "HPC/Wisteria/BDEC-03-job.html#ジョブの投入",
+    "title": "ジョブ投入の基本",
+    "section": "ジョブの投入",
+    "text": "ジョブの投入\nまずはワークディレクトリ /work/${group}/${user} 以下に適当なディレクトリ bdec-job-example を作成します． そのディレクトリの中で以下のようなFortranコード hello.f90 を作成します．\n\n\n\n\n\n\nImportant\n\n\n\nWisteria/BDEC-01では，ホームディレクトリ以下ではジョブの実行ができません．これは，計算ノードからホームディレクトリ以下のファイルは見えないようになっているためです．実行ファイルや読み込みデータは，かならずワークディレクトリに置いてください．\n\n\nprogram test\n\n    write(*,*) \"Hello Wisteria/BDEC-01!\"\n    write(*,*) \"start sleeping ...\"\n    call sleep(100)\n    write(*,*) \"done\"\n\nend program test\nコンパイルコマンドは frtpx です．もし，コマンドが見つかりません と表示される場合は，module load fj でコンパイラをロードしてください．\n$ frtpx hello.f90 -o hello.x\nfrtpx はクロスコンパイラですから，ログインノードでこの実行ファイルを直接実行しようとしても，以下のようにエラーになってしまいます．\n$ ./hello.x\nbash: ./hello.x: バイナリファイルを実行できません: Exec format error\n次に，以下のようなジョブスクリプト job.sh を作成します．\n#!/bin/bash\n\n#PJM -L rscgrp=short-o\n#PJM -L node=1\n#PJM -L elapse=00:05:00\n#PJM -g ${GROUP}\n#PJM -N testjob\n#PJM -o testjob.out\n#PJM -j\n\nmodule load fj\n./hello.x\nただし，#PJM -g の行は自分のアカウントの属するグループ名に変更してください．\n#PJM から始まる行がジョブスクリプトの設定です．これは，pjsub コマンドによってジョブを投入する際に，そのジョブに対してどのようなリソースを割り当てるかを指定するものです．\nまず，#PJM -L rscgrp=short-o は，リソースグループを指定しています．主に用いられるリソースグループには short-o と regular-o があります． short-o は最大で8時間のジョブに，regular-o は利用ノード（CPU）数に応じて24時間もしくは48時間までが利用可能です． regular-o は実際には利用ノード数に応じて small-o medium-o large-o x-large-o といったグループに自動で割り当てられます． このうち1153ノード〜2304ノードを利用する x-large-o だけが24時間制限で，ほかは48時間まで計算できます．\n#PJM -L node=1 は，利用するノード数を指定しています．今回は単一CPUを利用するため，1ノードを指定しています． #PJM -L elapse=00:05:00 は，計算時間を指定しています．この例では5分です．ここで設定した時間を超えた計算は途中で打ち切られます．だからといって不必要にここの時間を長くしておくと，ジョブが実行開始されるまでの待ち時間が長くなる傾向にあります．\n#PJM -g ${GROUP} は，計算に使うグループを指定しています．実際には ${GROUP} には自分の所属グループ名が入ります． #PJM -N testjob は，ジョブ名を指定しています．ジョブ状況の問い合わせコマンドでこの名前が表示されます． #PJM -o testjob.out は，標準出力の保存先を指定しています． #PJM -j は，標準エラー出力を標準出力にマージする設定です．\n\n\n\n\n\n\nCaution\n\n\n\n\nBDECでは，#PJM の行のオプション指定よりあとに # でコメントを書くことができません．\n#PJM -L オプションの変数と値の間の = の前後にスペースを入れないようにしてください．\n\n\n\nジョブの投入は pjsub コマンドで行います．\n$ pjsub ./job.sh \n[INFO] PJM 0000 pjsub Job 4757341 submitted.\nと submitted. が表示されれば投入成功です．ジョブスクリプトの指定になにか間違いがあるとこの時点でエラーがでます．\n実行中の状況を確認するコマンドは pjstat です．\n$ pjstat\nWisteria/BDEC-01 scheduled stop time: 2024/09/27(Fri) 09:00:00 (Remain: 31days 11:40:58)\n\nJOB_ID       JOB_NAME   STATUS  PROJECT    RSCGROUP          START_DATE        ELAPSE           TOKEN           NODE  GPU\n4757341      testjob    RUNNING gv49       short-o           08/26 21:19:00&lt;   00:00:03           0.0              1    -\n他人のジョブ情報は基本的に見られません． 一番左に表示されているJOB_IDを用いると，投入したジョブを，以下のコマンドで削除できます．\n$ pjdel 4757341\nジョブの実行が終わると，以下のように未完了ジョブのないことが表示されます．\n$ pjstat\nWisteria/BDEC-01 scheduled stop time: 2024/09/27(Fri) 09:00:00 (Remain: 31days 11:38:58)\n\nNo unfinished job found.\nFortranプログラムで標準出力や標準エラー出力に表示したものは，ジョブスクリプトの #PJM -o で指定したファイルに保存されます．\n$ cat testjob.out \n Hello Wisteria/BDEC-01!\n start sleeping ...\n done",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ジョブ投入の基本"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-03-job.html#そのほかのジョブスクリプトオプション",
+    "href": "HPC/Wisteria/BDEC-03-job.html#そのほかのジョブスクリプトオプション",
+    "title": "ジョブ投入の基本",
+    "section": "そのほかのジョブスクリプトオプション",
+    "text": "そのほかのジョブスクリプトオプション\n\nメール通知\nジョブスクリプトに以下の行を追加すると，ジョブの開始時，終了時，リスケジュール時にメール通知が届くようになります．\n#PJM -m b,e,r\nメールの送信元は PJM-admin@cc.u-tokyo.ac.jp です．\nジョブ終了時のメールには，以下のように利用メモリ量などの統計情報が記載されます．\nJob id             : 4758981\nJob name           : testjob\nJob owner          : k64002\nResource group     : short-o\nJob submitted from : wisteria01\nJob submitted on   : /work/04/gv49/k64002/jobs/bdec-job-example\nJob submitted at   : 2024/08/27 09:42:11\nJob started at     : 2024/08/27 09:42:16\nJob ended at       : 2024/08/27 09:43:57\nJob elapase        : 00:01:41 (101)\nExecution node id  : 0x0127000B\nJob nodes          : 1\nUsed memory        : 67.4 MiB (70582272)\nJob return code    : 0\nsignal             : -\nPJM code           : 0\n\nJob 4758981 is completed.\n\n\nジョブの統計情報\nジョブスクリプトに #PJM -s または #PJM -S を追加とすると，各ノードのCPU使用率やメモリ使用量などの統計情報が保存されます．-s は簡易版，-S は詳細版です． かなり詳細な情報が得られますが，チューニングやデバッグの際以外は不要でしょう．\n\n\nジョブ番号の取得\nョブスクリプト内では，ジョブの実行番号（Job ID）を，${PJM_JOBID} 変数から参照できます．結果ファイルをジョブ番号で整理するときなど，便利です．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ジョブ投入の基本"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-02-environment.html",
+    "href": "HPC/Wisteria/BDEC-02-environment.html",
+    "title": "解析環境の構築",
+    "section": "",
+    "text": "ここではPythonの仮想環境基盤としてMiniforgeを導入し，その中でNumPyやPyGMTを含めた仮想環境を作成します．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-02-environment.html#miniforgeのインストール",
+    "href": "HPC/Wisteria/BDEC-02-environment.html#miniforgeのインストール",
+    "title": "解析環境の構築",
+    "section": "Miniforgeのインストール",
+    "text": "Miniforgeのインストール\nまずは適当なディレクトリでMiniforgeを curl コマンドでダウンロードします．\n$ curl -L -O \"https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh\"\nそのディレクトリでダウンロードしたスクリプトを bash で実行します．\n$ bash  ./Miniforge3-Linux-x86_64.sh\nすると，対話的なインストーラが立ち上がります．\nWelcome to Miniforge3 24.3.0-0\n\nIn order to continue the installation process, please review the license\nagreement.\nPlease, press ENTER to continue\n&gt;&gt;&gt; \nEnterで続けると，END USER LICENSE AGREEMENT が表示されます．スペースキーを何度か押して最下部までスクロールすると（読むと），\nDo you accept the license terms? [yes|no]\n&gt;&gt;&gt;  \nと訊かれますから，yes と入力します．\n続けてインストールする場所が訊かれます．デフォルトであれば自分のホームディレクトリの下に miniforge3 が作られます． 特に問題なければそのままEnterします．\nすると，しばらくインストール処理が走り，\nInstalling base environment...\nDownloading and Extracting Packages:\nPreparing transaction: done\nExecuting transaction: done\ninstallation finished.\nDo you wish to update your shell profile to automatically initialize conda?\nThis will activate conda on startup and change the command prompt when activated.\nIf you'd prefer that conda's base environment not be activated on startup,\n   run the following command when conda is activated:\n\nconda config --set auto_activate_base false\n\nYou can undo this by running `conda init --reverse $SHELL`? [yes|no]\n[no] &gt;&gt;&gt; \nと訊かれます．これは設定ファイル .bashrc に自動的に conda を有効化するための設定を追加するかどうかを訊いています．yes が推奨です．\nもし no を選んでしまった場合，手動で .bashrc ファイルに以下の内容を追記してください．\n# &gt;&gt;&gt; conda initialize &gt;&gt;&gt;\n# !! Contents within this block are managed by 'conda init' !!\n__conda_setup=\"$('/home/USERNAME/miniforge3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)\"\nif [ $? -eq 0 ]; then\n    eval \"$__conda_setup\"\nelse\n    if [ -f \"/home/USERNAME/miniforge3/etc/profile.d/conda.sh\" ]; then\n        . \"/home/USERNAME/miniforge3/etc/profile.d/conda.sh\"\n    else\n        export PATH=\"/home/USERNAME/miniforge3/bin:$PATH\"\n    fi\nfi\nunset __conda_setup\n\nif [ -f \"/home/USERNAME/miniforge3/etc/profile.d/mamba.sh\" ]; then\n    . \"/home/USERNAME/miniforge3/etc/profile.d/mamba.sh\"\nfi\n# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;\nただし，USERNAME は自分のユーザー名に置き換えてください．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-02-environment.html#conda仮想環境の作成",
+    "href": "HPC/Wisteria/BDEC-02-environment.html#conda仮想環境の作成",
+    "title": "解析環境の構築",
+    "section": "Conda仮想環境の作成",
+    "text": "Conda仮想環境の作成\nMiniforgeが有効になっていると，Wisteria/BDECのプロンプトが\n(base) [USERNAME@wisteria05 ~]$ \nのように (base) とついたものに変更されているはずです． これはcondaの環境名で，初期状態 base が有効になっているという印です．\nこの状態では，システムに入っているPythonよりも，Miniforgeで自分がインストールしたPythonのほうが優先されます．たとえば，python コマンドの場所を調べてみると，\n$ which python\n~/miniforge3/bin/python\nと表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下にpython本体が入っていること，それがシステムのpythonよりも優先されていることがわかります．\nMiniforgeでは，Python本体と関連ライブラリを丸ごとまとめた 仮想環境をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 seismo24 を作成してみます．\n$ conda create --name seismo24 --channel conda-forge \\\n  python ipykernel pygmt gmt numpy scipy obspy netcdf4 \\\n  matplotlib cartopy ffmpeg\n画面の幅の都合上2行に分かれていますが，これで1つのコマンドです．\n\n\n\n\n\n\nTip\n\n\n\nLinuxのターミナルでは，行末にバックスラッシュ \\ を打つことで，1つのコマンドを複数行に分割できます．\n\n\nここで，1行目はおもにオプション，2行目がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．\n\n--name seismo24 仮想環境の名前を seismo24 に指定します．\n--channel conda-forge パッケージの検索・インストールをする提供元を指定します．conda-forge には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．\n\n\n\n\n\n\n\nTip\n\n\n\nまずパッケージなしで conda create により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます． Web上の解説ではそのようなやり方が多く見られるようです．\nしかし，そのやり方ではバージョンの競合が発生しやすいようです． 必要なパッケージをまとめて指定すると，すべてのパッケージが動作するよう自動的にバージョンが調整されますので，おすすめです．\n\n\nconda create を実行すると，指定したよりも遥かに多いパッケージが表示され（依存関係の問題です）\nProceed ([y]/n)? \nと訊かれますので，y を入力します．すると，しばらく端末上にインストールの経過が表示されます．インストールには多少の時間がかかります．数分待つと，\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done\n#\n# To activate this environment, use\n#\n#     $ conda activate seismo24\n#\n# To deactivate an active environment, use \n# \n#     $ conda deactivate\nと表示され，インストール完了です．このメッセージの通り，condaが有効になった状態で，\n(base) -bash-4.2$ conda activate seismo24 # seismo24環境を有効化\n(seismo24) -bash-4.2$ conda deactivate    # seismo24環境を無効化\n(base) -bash-4.2$ conda deactivate        # conda自体を無効化\n-bash-4.2$\nというように，conda activate と conda deactivate で有効，無効を切り替えられます． さらに base 環境で conda deactivate すると，conda 自体を無効化できます．\nともあれ，これで一通りのツールが使えるようになりました．\nPyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，EICリモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-02-environment.html#jupyterhub-からの利用",
+    "href": "HPC/Wisteria/BDEC-02-environment.html#jupyterhub-からの利用",
+    "title": "解析環境の構築",
+    "section": "JupyterHub からの利用",
+    "text": "JupyterHub からの利用\nBDECにはJupyterHubによりブラウザのPython環境からアクセスでき，そこでも上記で構築した環境を使うことができます．\nそのための準備として，JupyterからPython環境を認識させるために，以下のコマンドを実行します：\n$ ipython kernel install --user --name=seismo24 --display-name=seismo24\n\n\n\n\n\n\nNote\n\n\n\nすでにJupyterHubにログインして利用していた場合は，いったん File-&gt;Log Out して再ログインが必要となります．\n\n\nその後，Wisteriaの JupyterHub にアクセスすると，以下のように構築したseismo24環境が選択肢に現れます．\n\n新しく作ったseismo24でJupyter Notebookを起動すると，以下のようにPyGMTやObsPyをBDEC上で使うことができます．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "OpenSWPC-Howto/OpenSWPC-01-build.html",
+    "href": "OpenSWPC-Howto/OpenSWPC-01-build.html",
+    "title": "OpenSWPCのビルド",
+    "section": "",
+    "text": "公式マニュアルにも記載のとおり，OpenSWPCは\nがあれば動作します． 利用する環境によってこれらのインストール先が異なるため，src/shared/makefile.arch ファイルにコンパイルのための設定を記載する方式を採用しています．\nここでは，動作を確認したいくつかの環境について，関連ライブラリのインストールと makefile.arch ファイルの設定について記載します．",
+    "crumbs": [
+      "OpenSWPC",
+      "OpenSWPC Howto",
+      "OpenSWPCのビルド"
+    ]
+  },
+  {
+    "objectID": "OpenSWPC-Howto/OpenSWPC-01-build.html#macos-apple-silicon",
+    "href": "OpenSWPC-Howto/OpenSWPC-01-build.html#macos-apple-silicon",
+    "title": "OpenSWPCのビルド",
+    "section": "macOS (Apple Silicon)",
+    "text": "macOS (Apple Silicon)\nmacOS はAppleのMac製品のためのオペレーティングシステムです．BSD系とよばれる一種のUnixをベースに開発されており，Mac OS X 10.5 (Leopard) からは公式にUNIXの一種として認証されています．そのため，Terminal.app を通じてUnixコマンドを動作させることができます．\nそれに加えて，パッケージ管理システム Homebrew を用いてOpenSWPCに必要なソフトウェア一式を簡単に導入することができます．そのため，配布パッケージに Homebrewの利用を前提とした macOS でのビルドオプションが用意されています．\n\n\n\n\n\n\nNote\n\n\n\nmacOSのパッケージ管理ツールには，ほかに Fink や MacPorts などがあります．いずれもHomebrewが流行するより前にメジャーだったパッケージツールで，現在も開発やメンテナンスが続いているようです．ただし，macOSにおけるOpenSWPCのビルドはあくまでもHomebrewの利用を前提としています．\n\n\n\nmacOSにおけるビルド\n# Homebrewのインストール（途中で管理者パスワードを要求される）\n$ /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n# brewの動作確認\n$ brew doctor\n$ brew install gcc             # gfortranがこの中に含まれる\n$ brew install open-mpi        # MPIのライブラリと実行環境\n$ brew install netcdf          # NetCDFライブラリ本体\n$ brew install netcdf-fortran  # FortranからNetCDFを利用するためにこちらも必要\nここまでで，/opt/homebrew/bin に gfortran や mpif90 などの実行ファイルが，/opt/homebrew/lib にライブラリ，/opt/homebrew/include にインクルードファイル（この場合は netcdf.mod というFortranからNetCDFを利用するためのモジュール情報ファイル）がインストールされているはずです．また，Homebrewが正常にインストールされていれば，/opt/homebrew/bin には PATHが通っており，その下のファイルはコマンド名だけでどこからでも実行できるはずです．\n# curlコマンドでダウンロードし，unzipで展開．\n# もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない\n$ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip\n$ unzip 25.01.zip\n# ソースコードディレクトリに移動してビルド\n$ cd OpenSWPC-25.01/src\n$ make arch=mac-gfortran\nこれですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると ./bin/ ディレクトリ以下に実行ファイルが生成されます．",
+    "crumbs": [
+      "OpenSWPC",
+      "OpenSWPC Howto",
+      "OpenSWPCのビルド"
+    ]
+  },
+  {
+    "objectID": "OpenSWPC-Howto/OpenSWPC-01-build.html#ubuntu-linux-gfortran",
+    "href": "OpenSWPC-Howto/OpenSWPC-01-build.html#ubuntu-linux-gfortran",
+    "title": "OpenSWPCのビルド",
+    "section": "Ubuntu Linux + gfortran",
+    "text": "Ubuntu Linux + gfortran\nUbuntu Linux は，Debian GNU/Linuxから派生したLinuxディストリビューションです．使いやすさが重視されたディストリビューションで，Linuxの数多くのディストリビューションのなかでも特に利用者の多いディストリビューションのようです．Microsoft WindowsでLinuxを動作させるWindows Subsystem for Linux 2 (WSL2) のデフォルトディストリビューションでもあります．\nUbuntu LinuxはDebianの派生であり，またUbuntuからさらに派生したディストリビューションも多数あります．有名で利用者が多いものに，DebianのほかLinux Mintが挙げられます．それら関連ディストリビューションでは，同じ apt コマンドによるパッケージ管理システムが導入されている場合が多く，以下のビルド方法がそのまま使える必要があります．\n\nUbuntuにおけるビルド\napt コマンドによる関連パッケージのインストールには管理者権限が必要です．Ubuntu Linuxでは sudo コマンドにより管理者としてコマンドを実行します．\n# まずパッケージ一覧を最新の状態にする\n$ sudo apt update\n# 関連ライブラリ \n$ sudo apt install gfortran\n$ sudo apt install openmpi-bin libopenmpi-dev\n$ sudo apt install netcdf-bin libnetcdf-dev libnetcdff-dev\nUbuntuにおいては，MPIライブラリであるOpenMPIやNetCDFが，実行ファイルのパッケージ（**-bin）とコンパイル時にリンクするライブラリ群（lib**-dev）に分かれています．原則として両方のインストールをお勧めします．\n\n\n\n\n\n\nNote\n\n\n\n実はnetcdf-bin はNetCDFファイルに関する実行プログラムで，OpenSWPCのビルドそのものには不要です．ですが，OpenSWPCの入出力ファイルであるnetcdfファイルの内容を確認できる ncdump コマンドが含まれるため，これもあわせてインストールしておくことをお勧めします．\n\n\n# curlコマンドでダウンロードし，unzipで展開．\n# もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない\n$ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip\n$ unzip 25.01.zip\n# ソースコードディレクトリに移動してビルド\n$ cd OpenSWPC-25.01/src\n$ make arch=ubuntu-gfortran\nこれですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると ./bin/ ディレクトリ以下に実行ファイルが生成されます．",
+    "crumbs": [
+      "OpenSWPC",
+      "OpenSWPC Howto",
+      "OpenSWPCのビルド"
+    ]
+  },
+  {
+    "objectID": "OpenSWPC-Howto/OpenSWPC-01-build.html#ubuntu-linux-intel-compiler",
+    "href": "OpenSWPC-Howto/OpenSWPC-01-build.html#ubuntu-linux-intel-compiler",
+    "title": "OpenSWPCのビルド",
+    "section": "Ubuntu Linux + intel compiler",
+    "text": "Ubuntu Linux + intel compiler\nTo be available soon!",
+    "crumbs": [
+      "OpenSWPC",
+      "OpenSWPC Howto",
+      "OpenSWPCのビルド"
+    ]
+  },
+  {
+    "objectID": "OpenSWPC-Howto/OpenSWPC-01-build.html#almalinux",
+    "href": "OpenSWPC-Howto/OpenSWPC-01-build.html#almalinux",
+    "title": "OpenSWPCのビルド",
+    "section": "AlmaLinux",
+    "text": "AlmaLinux\nAlmaLinux は，いわゆるRedHat系のLinuxディストリビューションです．Red Hat Enterprise Linux (RHEL) は非常に有名なLinuxディストリビューションで，商用（有償）ですがその分サポートがつくということもあり，業務系のシステムで多く使われているようです．\n一方，LinuxのカーネルパッケージはGPL (GNU General Public License) のもとで開発されているため，ライセンスの定めるところにより，RHELもまたそのソースコードが公開されていました．その公開されたソースコードを元にして，数多くのオープンソースのLinuxディストリビューションが開発されてきました．そのような一連のディストリビューションは，Red Hat系ディストリビューションと呼ばれています．\n数多くのRed Hat系ディストリビューションのなかで，CentOS が長らくもっとも広く使われるディストリビューションであり続けました．しかし，2020年12月にCentOSの開発停止がアナウンスされ，2024年6月30日にはCentOS 7のサポートが終了しました．CentOSグループは新たにCentOS Streamというディストリビューションを公開していますが，これはRHELのテスト版のような位置づけであり，安定性に欠くため日常的な利用目的にはあまり推奨できません．\nこのような（やや混乱した）状況を受けて，CentOSサポート終了後の後継とみなされているRHEL互換のLinuxディストリビューションの一つがAlma Linuxです．以下ではAlmaLinux9.5で動作確認をしたビルド方法を紹介しますが，多くおRed Hat系のディストリビューションで同様にビルドできると期待されます．\n\nAlmaLinuxにおけるビルド\nAlmaLinuxのパッケージ管理システムは yum と dnf ですが，デフォルトのパッケージ一覧の中には科学技術計算に関するライブラリ群が十分に含まれていません．そこで，まず Extra Packages for Enterprise Linux (EPEL) リポジトリを有効化します．これはRHEL系ディストリビューションの一つであるFedora Projectで開発された追加パッケージの一覧です．\n$ sudo dnf config-manager --set-enabled crb \n$ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm\n$ sudo dnf update\nそのうえで関連パッケージをインストールします．\n\n\n\n\n\n\nNote\n\n\n\n昔からのRHEL系ディストリビューションのユーザーは yum コマンドに慣れ親しんでいるかと思います．dnf は yum の後継として開発されたパッケージ管理コマンドで，2025年時点ではyumもdnfもどちらもコマンドとしては有効になっていますが，実際には yum は dnf のシンボリックリンクになっていて，パッケージ管理コマンドは事実上 dnf に一本化されているようです．\n\n\nその後で関連ライブラリのインストールをします．\n$ sudo yum install gfortran\n$ sudo yum install openmpi openmpi-devel\n$ sudo yum install netcdf netcdf-fortran netcdf-devel netcdf-fortran-devel\n$ sudo yum install git curl\nUbuntu Linuxと同様に，openmpiやnetcdfの本体と開発用のライブラリは別パッケージとなっていますので，ご注意ください．\nなお，AlmaLinuxではOpenMPIはインストールしても mpif90 や mpirun 等のコマンドにPATHが通らないようです．そのため，.bashrc ファイル等に以下のようにインストール先 /usr/lib64/openmpi/bin/ にPATHを設定するコマンドを記述するか，あるいはコンパイルおよび実行時にPATHつきでコマンドを実行することになります．\n# この設定を ~/.bashrc に記載する\nexport PATH=${PATH}:/usr/lib64/openmpi/bin/\nOpenSWPCのビルドでは，（少なくとも v25.01時点では）デフォルト設定にAlmaLinuxが含まれていないため，自分で makefile.arch を編集する必要があります．\n\n\nsrc/shared/makefile.arch\n\nifeq ($(arch), almalinux)\n    FC     = /usr/lib64/openmpi/bin/mpif90\n    FFLAGS = -O2 -ffast-math -fopenmp -cpp\n    NCLIB  = -L/usr/lib64\n    NCINC  = -I/usr/lib64/gfortran/modules\n    NETCDF = -lnetcdf -netcdff\nendif\n\n\n\nsrc/shared/makefile-tools.arch\n\nifeq ($(arch), almalinux)\n    FC     = gfortran\n    FFLAGS = -O2 -ffast-math -fopenmp -cpp\n    NCLIB  = -L/usr/lib64\n    NCINC  = -I/usr/lib64/gfortran/modules\n    NETCDF = -lnetcdf -netcdff\nendif\n\nmakefile.archとmakefile-tools.archそれぞれを上記のように編集してから\n$ cd src\n$ make arch=almalinux\nとすることでビルドできます．\nswpc_sh.x, swpc_psv.x, swpc_3d.x をMPI実行する場合には，前述の export PATH... 設定をしておくか，あるいは実行時に\n$ /usr/lib64/openmpi/bin/mpirun -np 4 ./bin/swpc_3d.x -i example/input.inf\nのように mpirun コマンドを場所つきで指定する必要があります．",
+    "crumbs": [
+      "OpenSWPC",
+      "OpenSWPC Howto",
+      "OpenSWPCのビルド"
+    ]
+  },
+  {
+    "objectID": "OpenSWPC-Howto/OpenSWPC-00-index.html",
+    "href": "OpenSWPC-Howto/OpenSWPC-00-index.html",
+    "title": "OpenSWPC Howto",
+    "section": "",
+    "text": "このページは，今後 講習会 等でうけた質問・議論等を踏まえて更新していきます．\n\n\n\n\n\n\n質問募集\n\n\n\nOpenSWPCの利用に関する質問・疑問等があれば，遠慮なくお寄せください．その内容は，匿名化したうえで本Webサイトや（ゆくゆくは）公式マニュアルに反映される場合があります．\n\n\n\n\n\n\nReferences\n\nMaeda, T., Takemura, S., & Furumura, T. (2017). OpenSWPC: An open-source integrated parallel simulation code for modeling seismic wave propagation in 3D heterogeneous viscoelastic media. Earth, Planets and Space, 69(1), 102. https://doi.org/10.1186/s40623-017-0687-2",
+    "crumbs": [
+      "OpenSWPC",
+      "OpenSWPC Howto",
+      "OpenSWPC Howto"
+    ]
+  },
+  {
+    "objectID": "HPC/Miyabi/Miyabi-00-index.html",
+    "href": "HPC/Miyabi/Miyabi-00-index.html",
+    "title": "はじめに",
+    "section": "",
+    "text": "（順次執筆予定）",
+    "crumbs": [
+      "HPC",
+      "Miyabi",
+      "はじめに"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-00-index.html",
+    "href": "HPC/Wisteria/BDEC-00-index.html",
+    "title": "はじめに",
+    "section": "",
+    "text": "公式サイト\nWisteria/BDEC-01には，主にNVIDIAのGPUからのあるデータ・学習ノード群（Aquarius）と，Fujitsu A64FXというCPUからなるシミュレーションノード群（Odyssey）があります．ここでは，主に後者のOdysseyについて解説します．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "はじめに"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-04-interactive-prepost.html",
+    "href": "HPC/Wisteria/BDEC-04-interactive-prepost.html",
+    "title": "その他のジョブ",
+    "section": "",
+    "text": "Wisteria/BDEC-01のログインノードはいわゆるLinuxマシンですから，先の 環境設営 が済んでいれば，大規模数値シミュレーション以外の地震波解析や可視化などの解析にも活用できます．\nとはいえ，Wisteria/BDEC-01は多くのユーザーが共通で利用するマシンのため，ログインノードで負荷の高い計算をすることは，マナー違反です．あまりにも長い計算は，自動的に打ち切られることもあります．その代わりに，ログインノードあるいは計算ノードのうち1ノード（1CPU）を一定時間のあいだ専有的に使う方法が提供されています．それが，インタラクティブジョブとプリポストジョブです．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "その他のジョブ"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-04-interactive-prepost.html#インタラクティブジョブとプリポストジョブ",
+    "href": "HPC/Wisteria/BDEC-04-interactive-prepost.html#インタラクティブジョブとプリポストジョブ",
+    "title": "その他のジョブ",
+    "section": "インタラクティブジョブとプリポストジョブ",
+    "text": "インタラクティブジョブとプリポストジョブ\nインタラクティブジョブとプリポストジョブ，というのは，いずれも pjsub コマンドにより投入する計算ジョブです．しかし，スクリプトに書かれた内容を実行するのではなく，一定時間の間インタラクティブに計算ノードを使うことができるジョブです．\nインタラクティブジョブは，自分のグループ名を ${group} として，以下のように実行できます．\npjsub --interact -g ${group} -L rscgrp=interactive-o,node=1\n\n\n\n\n\n\nCaution\n\n\n\nrscgrp=interactive-o,node=1 は，rscgrp=interactive-o, node=1 のように空白をいれるとまさしく認識されません．\n\n\n\n\n\n\n\n\nImportant\n\n\n\nインタラクティブジョブは /home/ 以下では実行できません．まず /work/${group} 以下に cd してから使います．また，実行後に /home 以下のファイルにもアクセスできません．\n\n\n同様に，プリポストジョブは，以下のコマンドで実行できます．\npjsub --interact -g ${group} -L rscgrp=prepost,node=1\n一見使い方はほとんど同じですが，インタラクティブジョブとプリポストジョブでは，使える環境が異なります． インタラクティブジョブでは計算ノードが，プリポストジョブはログインノードに似たIntelベースの環境が割り当てられます．\n\nどちらを使うべきか\nプリポストジョブはもともと数値計算結果の可視化処理などに利用することが想定されています．プリポストノードは6時間の時間制限がありますが，338GBもの大容量メモリを使えます．それ以外にも，インテルコンパイラなどが整っていますし，自分で構築した Python環境 も使えますから，通常のデータ解析用のLinuxマシンとしても便利に活用できるでしょう．\n一方でインタラクティブジョブは，いちいちジョブスクリプトを書かずに計算ノードでコードを走らせられるので，スパコンで動作させるための計算プログラムのデバッグや簡単なテストに便利です．インタラクティブジョブではクロスコンパイルは動かず，代わりに frt や fcc がオウンコンパイラ（クロスコンパイラの対義）として使えます．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "その他のジョブ"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-01-login.html#ログインまで",
+    "href": "HPC/Wisteria/BDEC-01-login.html#ログインまで",
+    "title": "ログインと初期設定",
+    "section": "ログインまで",
+    "text": "ログインまで\nWisteria/BDECへのログインは公開鍵方式です． 公開鍵の作成方法の詳細はこちら をご覧ください．\n\n最初の公開鍵は 利用支援ポータル からアップロードします．\nログインのための接続先は wisteria.cc.u-tokyo.ac.jp です．\n\nひとたび最初の1台のマシンからログインできるようになれば，他のマシンの公開鍵（id_rsa.pub）をログインノードの .ssh/authorized_keys に追加することで，そのマシンからもログインできるようになります．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ログインと初期設定"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-01-login.html#ディレクトリ構成",
+    "href": "HPC/Wisteria/BDEC-01-login.html#ディレクトリ構成",
+    "title": "ログインと初期設定",
+    "section": "ディレクトリ構成",
+    "text": "ディレクトリ構成\nアカウントは，申請に応じてグループに紐づいています．以下ではそれを ${group} 変数は上記のどちらかを指しているとします．また，${user} が個人ユーザーIDを表すとします．\nディレクトリは\n\nホーム /home/${user}\nワーク /work/${group}/${user}\n共有 /work/${group}/${share}\n\nです．ホームディレクトリ・ワークディレクトリの基本パーミッションは700で，他の人は読み書きできません．グループ内で共有するファイルは共有ディレクトリをご利用ください．\n自分のグループ番号がわからない場合は，id コマンドで調べることができます．\n$ id\nuid=49177(k64002) gid=20802(gk64) groups=20802(gk64),21639(gv49),21640(gv50),21949(gz06)\ngid のあとの括弧内がグループ番号です．東京大学情報基盤センターでは，複数のルート（予算）で申し込みをすると，同じアカウントで複数のグループに所属することがあります．その場合は，groups の中に複数のグループ番号が表示されます．\nホームディレクトリは容量が小さく，また ホームディレクトリではジョブの実行ができません． コードの開発や管理はホームディレクトリで，計算はワークディレクトリでやることを推奨します．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ログインと初期設定"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-01-login.html#コンパイラとクロスコンパイラ",
+    "href": "HPC/Wisteria/BDEC-01-login.html#コンパイラとクロスコンパイラ",
+    "title": "ログインと初期設定",
+    "section": "コンパイラとクロスコンパイラ",
+    "text": "コンパイラとクロスコンパイラ\nコンパイラやそれに付随するライブラリは，module コマンドを用いてロードし，実行します． Wisteria/BDECではジョブを実行するシステム（実行ノード）のCPUとログインノードのCPUが根本的に違う，という顕著な特徴があります． ログインノードは普通のIntel系のLinuxマシンですが，実行ノードはFujitsuのSPARC64系のCPUが使われています． そのため，ログインノードで動作する実行バイナリは，実行ノードではそのままでは動きません．\nそこで，計算ノードで実行できるバイナリを生成するクロスコンパイラが用意されています． ログインノードにおいて，クロスコンパイラでコンパイルしたバイナリは実行ノードで動作します．しかし，当然ですがログインノードでは動きません．\nこのような特徴のため，計算ジョブとして実行するプログラムのコンパイラと，ログインノードで実行するプリポスト処理などのコンパイラを使い分ける必要があります．\nクロスコンパイルのための環境は\n$ module load fj\nあるいは\n$ module load odyssey\nです．これらのあとに\n$ module avail\nコマンドを実行すると，その環境でロード可能なライブラリの一覧が表示されます．\nクロスコンパイル環境でのFortranコンパイラは frtpx，MPIは mpifrtpx です．Cはそれぞれ fccpx と mpifccpx です． コンパイルオプションの体系は，gfortranやintel fortranとはまったく異なりますので，詳しくはマニュアル等を参照してください．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ログインと初期設定"
+    ]
+  },
+  {
+    "objectID": "HPC/Wisteria/BDEC-01-login.html#jupyterhub",
+    "href": "HPC/Wisteria/BDEC-01-login.html#jupyterhub",
+    "title": "ログインと初期設定",
+    "section": "JupyterHub",
+    "text": "JupyterHub\nBDECの特徴のひとつに，ブラウザからJupyter Notebookを介してスパコンにアクセスできるというものがあります．\nhttps://wisteria08.cc.u-tokyo.ac.jp:8000 からログイン（パスワードは利用支援ポータルのログインパスワード）すると，ログインノード上でJupyter Notebookが動きます．\nノートブックの保存場所は ~/.notebook/ です．ノートブックから /work ディレクトリを含めたBDEC上のファイルすべてにアクセスできます．\n基本はPython環境ですが，文頭に ! をつければシェルコマンドも動きますし，\n%%bash\nをコードの先頭行に書けば，そのコードブロックはbashとして解釈されます．なので，記録を残しながら作業をする環境として使うことができるでしょう．\nシステムに入っているPythonは，そのままでは最低限のライブラリしか入っていません．そこで，自分で仮想環境を構築して，それをJupyterHubから使うことができます．",
+    "crumbs": [
+      "HPC",
+      "Wisteria",
+      "ログインと初期設定"
+    ]
+  },
+  {
+    "objectID": "HPC/Archives/Archives.html",
+    "href": "HPC/Archives/Archives.html",
+    "title": "Archives",
+    "section": "",
+    "text": "ここにはまだなにもありません．",
+    "crumbs": [
+      "HPC",
+      "Archives"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-01-keys.html#sshとその認証",
+    "href": "HPC/Common/Common-01-keys.html#sshとその認証",
+    "title": "公開鍵暗号の準備",
+    "section": "SSHとその認証",
+    "text": "SSHとその認証\nSSH (Secure SHell) とは，暗号技術を用いてネットワーク越しのコンピュータに安全に接続するためのプロトコル（方式）のことです．SSHを用いると，手元にないコンピュータに接続し，操作を行うことができます．しかも，その操作でやり取りされる通信内容はすべて暗号化されるという特徴があります．\nSSHであるサーバ remote_host（IPアドレス xxx.xxx.xxx.xxx）に接続するには，\n$ ssh username@remote-host\nあるいは\n$ ssh -l username remote-host\nとします．サーバ名の代わりにIPアドレスを用いることもできます．接続元のコンピュータでログイン中のユーザー名と接続先におけるユーザー名が異なる場合には，接続先のユーザー名を明記しなければいけません．スーパーコンピュータの多くでは，ユーザー名は自分で選ぶことができず，記号の羅列からなるユーザー名が割り当てられます．\n\n\n\n\n\n\nTip\n\n\n\n$ はプロンプト記号であり，入力しません．\n\n\n\n公開鍵認証方式\nSSHでは，まずネットワーク越しのサーバに接続を試み，アカウントの 認証 をしてログインをします．このときの認証にはいくつかの方法がありますが，主要な方法としてパスワード認証方式と公開鍵認証方式があります．手元のパソコンにログインするときには多くの場合にパスワード認証が利用されていますが，リモートログインにおいてはより安全な公開鍵認証方式の利用が主流です．\n公開鍵認証とは，公開鍵と，その公開鍵とペアで生成された 秘密鍵 の2つの鍵ファイル（データ）を用いる認証方式で，ネットワーク上のサーバにログインするための方式として広く用いられています．これらの鍵は，電子署名 を作成し，検証することに用いられます．ある秘密鍵で作成された電子署名は，その秘密鍵とペアで生成された公開鍵によって正しいものであると検証することができます．公開鍵認証方式では，この特徴を用いて，以下のような手続きで認証が行われます．以下では，接続元（手元）のコンピュータを A，接続先（リモート）のコンピュータを B とします．\n\nA において，セットになった公開鍵と秘密鍵を生成する．秘密鍵は A の特定の場所に保管し，自分のアカウント以外では閲覧できない状態にしておく．\n1.で作成した公開鍵を何らかの方法で B の特定の場所に配置する．これを公開鍵を 登録 すると表現する．\n接続の際，A はログインに必要な情報とともに，秘密鍵で生成した署名を B に送信する．\nB は受信した署名をあらかじめ登録されていた公開鍵によって検証し，それが正しければ認証成功とする\n\nこの方式では，秘密鍵やパスワードそのものはAから外部に送信されません．しかも署名は再利用ができない仕組みです．したがって，上記の通信でパスワードや秘密鍵を盗むことはできず，署名を盗んだとしても再利用できないのです．こうして，安全な接続が確保されています．\n実際の接続の際に 3.と4.の手続きは自動的に行われますので，ユーザーがそれを意識したり煩雑な操作をする必要はありません．一方，1.と2.の手続きは初回接続の際にユーザーが行う必要があります．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "公開鍵暗号の準備"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-01-keys.html#秘密鍵公開鍵の作成",
+    "href": "HPC/Common/Common-01-keys.html#秘密鍵公開鍵の作成",
+    "title": "公開鍵暗号の準備",
+    "section": "秘密鍵・公開鍵の作成",
+    "text": "秘密鍵・公開鍵の作成\n以下では，接続元のPCはLinuxやmacOS，あるいはWindows Subsystem for Linux (WSL) のように，Linux（あるいはそれに類する）シェルが使える環境にあることを前提とします．WindowsでWSLを使わずにTera TermやPuttyなどのソフトウェアによって接続する方法はここでは扱いません．\n接続元のPCで端末を立ち上げて，\n$ cd \n$ ls -a .ssh/id_rsa*\nとします．\nno such file or directory と出れば（つまり，ファイルがなければ）OKです．\nもし id_rsa.pub id_rsa の2つのファイルが表示されたら，公開鍵は作成済みです．作成をスキップするか，あるいは心当たりがなければ rm コマンドで消して，再作成してください．あるいは，別の名前で作成して，.ssh/config ファイルを適切に設定することで，接続先に応じて公開鍵・秘密鍵を使い分けることもできます．\nそのうえで，以下のコマンドを実行します．\n$ ssh-keygen -t rsa\nEnter file in which to save the key (/Users/USERNAME/.ssh/id_rsa): \nのように訊かれます（USERNAME は自分のユーザー名）ので，そのままEnterします．続けて，\nEnter passphrase (empty for no passphrase):\nとでます．パスワードを入力する画面ですが，公開鍵はそれ自体がある程度のセキュリティを持っていますので，パスワードなし，でも構いません（ただし自己責任）．心配なら自分でパスワードを考えて入力しましょう．\nEnter same passphrase again: \nと表示されますので，パスワードを入力したのなら同じパスワードを，パスワードなしを選んだのならそのままEnterを入力します．\nそうすると，画面にいくらか表示がでて，パスワードの秘密鍵ファイル id_rsa と，公開鍵ファイル id_rsa.pub が .ssh/ 以下に作成されます．ls -l すると以下のように表示され， 秘密鍵 id_rsa が自分以外にアクセスできないように自動的に設定されていることがわかります．\n$ ls -l ~/.ssh\ntotal 72\n-rw-r--r--@ 1 username  group   1274  1 19 13:38 config\n-rw-------  1 username  group   2610  2  3  2023 id_rsa\n-rw-r--r--  1 username  group    575  2  3  2023 id_rsa.pub\n\n\n\n\n\n\nWarning\n\n\n\n公開鍵と秘密鍵は鍵と錠前のような関係があります． 公開鍵は外部のサーバに登録する，文字通り公開されるものです． 一方，秘密鍵ファイルは外部に漏らしてはいけません．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "公開鍵暗号の準備"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-01-keys.html#公開鍵の登録",
+    "href": "HPC/Common/Common-01-keys.html#公開鍵の登録",
+    "title": "公開鍵暗号の準備",
+    "section": "公開鍵の登録",
+    "text": "公開鍵の登録\n\n初回の登録\nスーパーコンピュータに公開鍵を登録する方法は，それぞれのスーパーコンピュータで個別の仕組みが用意されています．自分のアカウントでログインできるWebシステムから登録するのが一般的なようです．各システムのマニュアルを参照してください．なお，本Webでも各スパコンの解説で説明しています．\n\n\n複数台の登録\nいったんあるPCから公開鍵を登録し，そこから接続できるようになってしまえば，2台目以降の登録は接続設定済みのPC経由で行えます．\nすでに接続設定済みのコンピュータを A, あらたに接続したいマシンを A2, 接続先を B とします．A2 において秘密鍵 id_rsa と 公開鍵 id_rsa.pub を作成したら，A から A2 にリモートログインするなどして，A2 の公開鍵の内容（文字列）を Aのクリップボードにコピーしておきます． そのうえで，A から Bに接続し，B のホームディレクトリ（~）の下の ~/.ssh/authorized_keys というファイルに公開鍵の内容を追記します．authorized_keys ファイルには，すでに設定済みの A の公開鍵も含まれていますから，その後ろで改行して新しい行をつくり，そこにペーストします．Aの公開鍵を間違って削除しないように注意してください．\n\n\n\n\n\n\nTip\n\n\n\nコマンドラインから使えるエディタに覚えがなければ， nano コマンドが便利です．最小限の機能をもつテキストエディタで，GUIではありませんが，利用方法のショートカットが常に画面下部に表示されるため，はじめてでも問題なく使えるでしょう．なお，メニューにある ^ は ctrl キーのことです．^X とあったら，ctrlキーを押しながらXキーを押す，ということを意味します．\n\n\nこれで登録は完了です．このように，公開鍵認証では，接続先の ~/.ssh/authorized_keys ファイルに記載された公開鍵が用いられます．\nこのページで説明した公開鍵認証の仕組みは，スーパーコンピュータへの接続に限りません．sshで接続できるサーバであれば，authorized_keys ファイルに公開鍵を登録することでパスワード認証のかわりに公開鍵認証を利用できます．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "公開鍵暗号の準備"
+    ]
+  },
+  {
+    "objectID": "HPC/Common/Common-01-keys.html#configファイルによる接続設定",
+    "href": "HPC/Common/Common-01-keys.html#configファイルによる接続設定",
+    "title": "公開鍵暗号の準備",
+    "section": "configファイルによる接続設定",
+    "text": "configファイルによる接続設定\nSSHでは， ~/.ssh/config というファイルによって，接続のデフォルト設定を行うことができます．たとえば以下のように記述します．\nHost (略称)\n     HostName (接続ホスト名)\n     User (接続ユーザー名)\n     IdentityFile ~/.ssh/id_rsa\n     ForwardX11 yes\n括弧つきの日本語で書かれているところは適宜半角英数字で適切な値に置き換える必要があります（その際括弧は不要です）．この設定があれば，\nssh (略称)\nとするだけで接続できます．スーパーコンピュータの多くではユーザー名が記号で与えられるため，configファイルに設定しておくと楽になるでしょう．上記の IdentityFile を変更すると，接続先によって秘密鍵を使い分けることもできます．",
+    "crumbs": [
+      "HPC",
+      "Common",
+      "公開鍵暗号の準備"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-04-job.html#準備",
+    "href": "HPC/EIC2020/EIC2020-04-job.html#準備",
+    "title": "ジョブ投入の基本",
+    "section": "準備",
+    "text": "準備\n以下，自分のユーザー名を user とします．\nVSCodeでEICに接続し，/work/user/jobs/eic-001 というディレクトリを作成します．\n\n\n\n\n\n\nTip\n\n\n\nジョブの管理方法は色々あるでしょうが，たとえば上記のように番号でディレクトリを作って実行するようにしておくと，手元のノート等の記録と対応させやすいでしょう．\n\n\nその中にFortranコード hello.f90 を作成します．\nprogram test\n\n    write(*,*) \"Hello EIC!\"\n    write(*,*) \"start sleeping ...\"\n    call sleep(100)\n    write(*,*) \"done\"\n\nend program test\nこれは文字列を表示して，100秒間待機する，というだけのプログラムです．\n保存したらコンパイルします．コンパイルコマンドは ifort です．\n$ ifort hello.f90 -o hello.x\n\n\n\n\n\n\nTip\n\n\n\n2024年現在，Intelコンパイラ ifort は ifx というあらたなコマンドへの移行が進んでいます． EIC2020ではどちらのコンパイラも利用できます．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "ジョブ投入の基本"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-04-job.html#ジョブの作成投入監視",
+    "href": "HPC/EIC2020/EIC2020-04-job.html#ジョブの作成投入監視",
+    "title": "ジョブ投入の基本",
+    "section": "ジョブの作成・投入・監視",
+    "text": "ジョブの作成・投入・監視\nとりあえず以下のような job.sh を作成してください．詳細についてはまた別途説明します．\n#!/bin/bash\n#PBS -q B \n#PBS -l select=1:ncpus=20:ompthreads=20\n#PBS -N MYJOB\n## -------------------------------------- ##\nsource /etc/profile.d/modules.sh\nmodule load intel mpt\ncd $PBS_O_WORKDIR\n## -------------------------------------- ##\n\ndplace ./hello.x\nこれはシェルスクリプトなので，原則として # から始まる行は実行に影響しないコメントなのですが，#PBS から始まる行に，実行されるジョブの設定を書く必要があります．\nEICのジョブは B 〜 E の クラス に分かれており，それぞれのクラスに応じて利用できるCPU数や利用できる計算時間に制限があります．クラス選択は #PBS -q の行で指示します．ここでは，単一CPUだけを使う単純なプログラムを試しますので，もっとも小さな B クラスを指定しました．\n#PBS -l の行はより詳細なCPU資源等の情報を記載します．これはプログラムの並列化のしかたによってさまざまですので，詳しくは マニュアル を参照してください．\n-N オプションのところの MYJOB は好きな名前に変えて構いません．空白文字は使えません． source, module, cd の行の記述方法はEIC利用上のルールだそうで，固定です．\n最後の行でようやくコンパイルしたプログラムを実行していますが，そに dplace というコマンドがついています．これもEIC特有のルールということで，この通りに従ってください．\nジョブを投入するには qsub コマンドで\n$ qsub job.sh\nとします．\nすぐさま，\n$ qstatus\nあるいは\n$ qstat\nとしてみましょう．どちらも導入されたジョブの状況を確認するコマンドです． qstatus では，以下のようにジョブを実行中のユーザー名とそのジョブの実行時間等が表示されます． なお，プライバシーの観点から，ここでは tktmyd 以外のすべてのユーザー名を xxx... に置き換えてあります．\n$ qstatus\nJobID   username  status Queue hostname      ncpus mpi/omp  walltime cputime      cputime/ usemem\n                                                                                  walltime\n-----   --------  ------ ----- ------------- ----- -------  -------- -----------  -------- ------\n90590   xxxxxxx      H     C                    40  36/1    00:00:00    00:00:00      0.0\n96127   xxxxxxxxx    R     D   eich14           80   -/80   28:47:47  1120:42:47     38.9    8.53\n96128   xxxxx        R     D   eich08           80  80/1    26:24:09  2106:13:53     79.8   14.60\n96131   xxxxx        R     C   eich04           40  40/1    26:20:30  1051:00:37     39.9   12.45\n96136   xxxxx        R     D   eich16           80  10/8    24:20:11  1614:51:30     66.4  490.50\n96138   xxxxxx       R     C   eich04           40   -/40   23:50:20   356:40:43     15.0    1.37\n96147   xxxxxx       R     D   eich18           80   -/80   22:55:39  1829:20:04     79.8  110.98\n96148   xxxxxx       R     D   eich11           80   -/80   22:55:34  1829:16:25     79.8  110.98\n96152   xxxxxxx      R     C   eich05           40   4/10   21:15:33   376:58:46     17.7  163.26\n96153   xxxxxxx      R     C   eich05           40   4/10   21:11:19   404:10:06     19.1  179.51\n96154   xxxxxxx      Q     C                         4/10                             0.0\n96156   xxxxxxx      Q     C                         4/10                             0.0\n96160   xxxxxx       R     D   eich17           80   -/80   19:14:57  1535:22:07     79.8  110.98\n96168   xxxxx        R     C   eich06           40  40/1    16:00:15   636:34:24     39.8   13.02\n96170   xxxxxx       R     D   eich09           80   -/80   15:17:10  1219:12:54     79.8  110.98\n96172   xxxxxxxx     R     D   eich10           80   4/20   02:04:52    78:18:56     37.6   83.57\n96174   xxxxx        R     B   eich02           20   -/20   01:11:03    01:10:46      1.0    0.03\n96175   tktmyd       R     B   eich02           20   -/20   00:00:49    00:00:00      0.0\nユーザー名 tktmyd の右側が R になっているのは，実行中（Running）のあかしです．\nqstat では同じ情報が以下のように表示されます．\n$ qstat\nJob id            Name             User              Time Use S Queue\n----------------  ---------------- ----------------  -------- - -----\n90590.eic         AAA              xxxxxxx           00:00:00 H C               \n96127.eic         AAAA             xxxxxxxxx         1120:42: R D               \n96128.eic         AAAA             xxxxx             2106:13: R D               \n96131.eic         AAAAAA           xxxxx             1051:00: R C               \n96136.eic         AAAAAAAAAAAAA    xxxxx             1614:51: R D               \n96138.eic         AAAAAAAA         xxxxxx            356:40:4 R C               \n96147.eic         AAAAAAA          xxxxxx            1829:20: R D               \n96148.eic         AAAAAAA          xxxxxx            1829:16: R D               \n96152.eic         AAAAAAAAAAAAA    xxxxxxx           376:58:4 R C               \n96153.eic         AAAAAAAAAAAAA    xxxxxxx           404:10:0 R C               \n96154.eic         AAAAAAAAAAAAA    xxxxxxx                  0 Q C               \n96156.eic         AAAAAAAAAAAAA    xxxxxxx                  0 Q C               \n96160.eic         AAAAAAA          xxxxxx            1535:22: R D               \n96168.eic         AAAAAA           xxxxx             636:34:2 R C               \n96170.eic         AAAAAAA          xxxxxx            1219:12: R D               \n96172.eic         AAAAAA           xxxxxxxx          78:18:56 R D               \n96174.eic         AAAAAAAAA        xxxxx             01:10:46 R B               \n96175.eic         MYJOB            tktmyd            00:00:00 R B  \nこちらには投入したスクリプトファイル名か，#PBS -N で指定した名前が表示されます．中身がわかるような名前にしておくと，管理しやすいですが，この名前は qstat コマンドを実行した他のEICユーザーにも見えるので，ご注意ください．\nもし，実行中あるいは実行開始前にジョブをキャンセルしたい場合は，qdel ジョブ番号 でキャンセルできます．\nジョブの実行が完了すると，qstat や qstatus の結果からは表示が消えます． その後カレントディレクトリのファイルを見てみると，\n$ ls\nMYJOB.e96175  MYJOB.o96175  hello.f90  hello.x  job.sh\nのように，(ジョブ名).e(番号)，(ジョブ名).o(番号) のファイルができているはずです．e がエラー出力，o が標準出力です．番号は qstatus や qstat で表示されたジョブ番号に対応します．\nジョブスクリプトによる実行では，出力が対話的に画面に出せませんので，代わりにこうやってファイルに出力されるのです．\n標準出力ファイル MYJOB.o96175 を見てみましょう．\n$ cat MYJOB.o96175\n Hello EIC!\n start sleeping ...\n done\nたしかに，作成したFortranコードの出力が表示されています．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "ジョブ投入の基本"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-03-environment.html",
+    "href": "HPC/EIC2020/EIC2020-03-environment.html",
+    "title": "解析環境の構築",
+    "section": "",
+    "text": "ここではPythonの仮想環境基盤としてMiniforgeを導入し，その中でNumPyやPyGMTを含めた仮想環境を作成します．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-03-environment.html#miniforgeのインストール",
+    "href": "HPC/EIC2020/EIC2020-03-environment.html#miniforgeのインストール",
+    "title": "解析環境の構築",
+    "section": "Miniforgeのインストール",
+    "text": "Miniforgeのインストール\nまずは適当なディレクトリでMiniforgeを curl コマンドでダウンロードします．\n$ curl -L -O \"https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh\"\nそのディレクトリでダウンロードしたスクリプトを bash で実行します．\n$ bash  ./Miniforge3-Linux-x86_64.sh\nすると，対話的なインストーラが立ち上がります．\nWelcome to Miniforge3 24.3.0-0\n\nIn order to continue the installation process, please review the license\nagreement.\nPlease, press ENTER to continue\n&gt;&gt;&gt; \nEnterで続けると，END USER LICENSE AGREEMENT が表示されます．スペースキーを何度か押して最下部までスクロールすると（読むと），\nDo you accept the license terms? [yes|no]\n&gt;&gt;&gt;  \nと訊かれますから，yes と入力します．\n続けて訊かれるのはインストールする場所です．\nMiniconda3 will now be installed into this location:\n/home/(username)/miniforgea3\n\n  - Press ENTER to confirm the location\n  - Press CTRL-C to abort the installation\n  - Or specify a different location below\n\n[/home/(username)/miniforge3] &gt;&gt;&gt; \nデフォルトだと，上記にあるように自分のホームディレクトリ（/home/(username)）の下に miniforge3 が作られます． 特に問題ければこのままEnterします．場所を変えたい場合は，適当な場所を指定してください．\n\n\n\n\n\n\nWarning\n\n\n\nMiniforgeのインストール先として /work/(username)/ 以下は非推奨です．頻繁に更新するファイルではないため，すぐに自動削除されてしまいます．\n\n\nこのあとしばらくインストール処理が走ります．\nInstalling base environment...\nDownloading and Extracting Packages:\nPreparing transaction: done\nExecuting transaction: done\ninstallation finished.\nDo you wish to update your shell profile to automatically initialize conda?\nThis will activate conda on startup and change the command prompt when activated.\nIf you'd prefer that conda's base environment not be activated on startup,\n   run the following command when conda is activated:\n\nconda config --set auto_activate_base false\n\nYou can undo this by running `conda init --reverse $SHELL`? [yes|no]\n[no] &gt;&gt;&gt; \n最後に訊かれるのは，ログイン時に自動的にcondaが使えるようにするかどうかという質問です． デフォルトは no になっていますが， yes を推奨します．\nyes にすると，ホームディレクトリ直下の設定ファイル .bashrc に以下の内容が書き込まれます（user tktmydの場合）．\n# &gt;&gt;&gt; conda initialize &gt;&gt;&gt;\n# !! Contents within this block are managed by 'conda init' !!\n__conda_setup=\"$('/home/tktmyd/miniforge3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)\"\nif [ $? -eq 0 ]; then\n    eval \"$__conda_setup\"\nelse\n    if [ -f \"/home/tktmyd/miniforge3/etc/profile.d/conda.sh\" ]; then\n        . \"/home/tktmyd/miniforge3/etc/profile.d/conda.sh\"\n    else\n        export PATH=\"/home/tktmyd/miniforge3/bin:$PATH\"\n    fi\nfi\nunset __conda_setup\n\nif [ -f \"/home/tktmyd/miniforge3/etc/profile.d/mamba.sh\" ]; then\n    . \"/home/tktmyd/miniforge3/etc/profile.d/mamba.sh\"\nfi\n# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;\nもしインストールの最終段階で no を選んでしまった場合，この内容を（ユーザー名を自分のものに書き換えたうえで）ホームディレクトリ直下の .bashrc ファイルに追記（ファイルがなければ作る）しておきます．\nこれでminiforgeのインストールは終了です．\n\n\n\n\n\n\nImportant\n\n\n\nEICでは，上記の設定をしても，ターミナルからログインしたときに自動で conda が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．\nもし，ターミナルから conda を有効にしたいときには，\n$ source ~/.bashrc\nというコマンドで， .bashrc ファイルの設定を読み込ませてください．あるいは，~/.bash_profile というファイル（なければ作る）に上記 source コマンドを記述しておくと，ログイン時に直接 conda が使えるようになります．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-03-environment.html#conda仮想環境の作成",
+    "href": "HPC/EIC2020/EIC2020-03-environment.html#conda仮想環境の作成",
+    "title": "解析環境の構築",
+    "section": "Conda仮想環境の作成",
+    "text": "Conda仮想環境の作成\nMiniforgeが有効になっていると，EICのプロンプトが\n(base) -bash-4.2$ \nのように (base) とついたものに変更されているはずです． これはcondaの環境名で，初期状態 base が有効になっているという印です．\nこの状態では，システムに入っているPythonよりも，Miniforgeで自分がインストールしたPythonのほうが優先されます．たとえば，python コマンドの場所を調べてみると，\n$ which python\n~/miniforge3/bin/python\nと表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下にpython本体が入っていること，それがシステムのpythonよりも優先されていることがわかります．\nMiniforgeでは，Python本体と関連ライブラリを丸ごとまとめた 仮想環境をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 seismo24 を作成してみます．\n$ conda create --name seismo24 --channel conda-forge \\\n  python ipykernel pygmt gmt numpy scipy obspy netcdf4 \\\n  matplotlib cartopy ffmpeg\n画面の幅の都合上複数行に分かれていますが，これで1つのコマンドです．\n\n\n\n\n\n\nTip\n\n\n\nLinuxのターミナルでは，行末にバックスラッシュ \\ を打つことで，1つのコマンドを複数行に分割できます．\n\n\nここで，1行目はおもにオプション，2行目以降がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．\n\n--name seismo24 仮想環境の名前を seismo24 に指定します．\n--channel conda-forge パッケージの検索・インストールをする提供元を指定します．conda-forge には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．\n\n\n\n\n\n\n\nTip\n\n\n\nまずパッケージなしで conda create により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます．Web上の解説ではそのようなやり方が多く見られるようです．\nしかし，そのやり方ではバージョンの競合の問題が発生しやすいようです． 必要なパッケージをまとめて指定しておくことで，全パッケージが動作するよう，自動的にバージョンが調整されます．\n\n\nconda create を実行すると，指定したよりも遥かに多いパッケージが表示され（依存関係の問題です）\nProceed ([y]/n)? \nと訊かれますので，y を入力します．すると，しばらく端末上にインストールの経過が表示されます．インストールには多少の時間がかかります．数分待つと，\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done\n#\n# To activate this environment, use\n#\n#     $ conda activate seismo24\n#\n# To deactivate an active environment, use \n# \n#     $ conda deactivate\nと表示され，インストール完了です．このメッセージの通り，condaが有効になった状態で，\n(base) -bash-4.2$ conda activate seismo24 # seismo24環境を有効化\n(seismo24) -bash-4.2$ conda deactivate    # seismo24環境を無効化\n(base) -bash-4.2$ conda deactivate        # conda自体を無効化\n-bash-4.2$\nというように，conda activate と conda deactivate で有効，無効を切り替えられます． さらに base 環境で conda deactivate すると，conda 自体を無効化できます．\nともあれ，これで一通りのツールが使えるようになりました．\nPyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，EICリモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．\n\n\n\n\n\n\nNote\n\n\n\nただし，EIC上ではPythonのバージョン表示が 3.1.-1 など不正になり（本当は 3.12.3），選択したPythonのバージョンがサポートされないという警告がでます．ですが，あまり気にしなくて大丈夫そうです．\n\n\n\n上図は，VSCodeでEICに接続し，そこで上述の環境でJupyter Notebookを利用し，PyGMTにより地図を描画したものです．このような環境を整備しておくと，EIC上実施した数値シミュレーションの可視化や事後解析をEIC上でそのまま実施できて，便利になることでしょう．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "解析環境の構築"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-05-OpenSWPC.html#openswpcのダウンロードとコンパイル",
+    "href": "HPC/EIC2020/EIC2020-05-OpenSWPC.html#openswpcのダウンロードとコンパイル",
+    "title": "OpenSWPCの利用",
+    "section": "OpenSWPCのダウンロードとコンパイル",
+    "text": "OpenSWPCのダウンロードとコンパイル\nOpenSWPCは https://github.com/OpenSWPC/OpenSWPC で公開されています． このURLから見られる個別のソースコードは，開発途中で登録されている場合があり，したがって未完成だったりバグを含むこともあります． それに対して，一定のアップデートのまとまりごとに release としてバージョン番号を付与されたものがzip形式で圧縮されて https://github.com/OpenSWPC/OpenSWPC/releases から公開されています． このreleaseはZenodoによりバージョン個別のDOIが付与（たとえば こちら）されており，論文等での引用にも便利です．\nここでは，公開されている最新版Version 25.01 をダウンロード・コンパイルしてみます．\nEICで以下の通り実行します．これはホームディレクトリで行っても /work で行ってもどちらでもかまいません．\n$ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip\n$ unzip 25.01.zip # ダウンロードしたファイルを解凍\n\n\n\n\n\n\nNote\n\n\n\nコマンド curl はWebからデータをダウンロードしたり，あるいはWebページの入力フォームに値を送信したり，ブラウザで作業することの代わりができるものです．\nここでは，進捗状況を表示するオプション -O と，もしURLが他の場所にリダイレクト（ショートカットによるリンクのようなもの）されていた場合も追跡するオプション -L を用いて，公開されているzipファイルを直接ダウンロードしています．\n\n\nすると，ディレクトリ OpenSWPC-25.01 が出来上がるはずです．\n\n\n\n\n\n\nNote\n\n\n\nもし，OpenSWPC-5.3.1 以前のバージョンをお使いの場合には，以下のようにします．この囲み記事の操作は，バージョン24.09以降では不要となりました．\n適当なエディタでOpenSWPC-5.3.1を開き，src/shared/makefile.arch ファイルを開きます．66行目から以下のように書かれている箇所があります．\n##\n## EIC @ ERI,U-TOKYO (2020 System)\n##\nifeq ($(arch),eic)\n  FC      = ifort\n  FFLAGS  = -xCORE-AVX2 -O3 -lmpi -I../include -D_INFO -qopenmp\n  NCFLAG  = -D_NETCDF\n  NCLIB   = -L$(HOME)/local/lib\n  NCINC   = -I$(HOME)/local/include\n  NETCDF  = -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz\n\n  ifeq ($(publish),true)\n    FFLAGS = -xCORE-AVX2 -O3 -lmpi -I../include -D_INFO -static-intel -qopenmp -mcmodel=small\n  endif\n\n  ifeq ($(debug),true)\n    FFLAGS  = -lmpi -qopenmp -CB -traceback -static-intel -I../include -D_INFO -D_DEBUG -mcmodel=small\n  endif\n\nendif\nこれを，以下の通り書き換えてください．\nifeq ($(arch),eic)\n  FC      = module purge; module load intel mpt lib/NetCDF lib/HDF5; ifort\n  FFLAGS  = -xCORE-AVX512 -O3 -I../include -D_INFO -qopenmp -lmpi\n  NCFLAG  = -D_NETCDF\n  NCLIB   = \n  NCINC   = \n  NETCDF  = -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz\nendif\n同様に，src/shared/makefile-tools.arch ファイルも開きます．\nifeq ($(arch),eic)\n  FC      = ifort\n  FFLAGS  = -xAVX -O3 -I../include -D_INFO\n  NCFLAG  = -D_NETCDF\n  NCLIB   = -L$(HOME)/local/lib\n  NCINC   = -I$(HOME)/local/include\n  NETCDF  =  -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz\n\n  ifeq ($(publish),true)\n    FFLAGS = -xHOST -O2 -lmpi -I../include -D_INFO -static-intel -mcmodel=small\n  endif\n\nendif\n上記の部分を，以下のように書き換えます．\nifeq ($(arch),eic)\n  FC      = module purge; module load intel mpt lib/NetCDF lib/HDF5; ifort\n  FFLAGS  = -xCORE-AVX512 -O3 -I../include -D_INFO \n  NCFLAG  = -D_NETCDF\n  NCLIB   = \n  NCINC   = \n  NETCDF  = -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz\nendif\n\n\nコンパイルを実行します．ターミナルから，以下のように実行します．\n$ cd OpenSWPC-25.01 # ディレクトリを移動\n$ cd src            # ソースコードのある場所に移動\n$ make arch=eic     # EIC モードでコンパイル\nすると，しばらくコンパイルのためのメッセージが流れます．終わったら，実行ファイルができていることを確認しましょう．\n$ cd .. # OpenSWPC-25.01/src から OpenSWPC-25.01 の直下に移動\n$ ls bin/\ndiff_snp.x    fs2grd.x        gen_rmed3d.x   ll2xy.x        mapregion.x   \nread_snp.x    swpc_psv.x      timvis.gmt     wvconv.x       fdmcond.x   \ngen_rmed2d.x  grdsnp.x        mapregion.gmt  qmodel_tau.x   swpc_3d.x   \nswpc_sh.x     timvis_abs.gmt  xy2ll.x\nbin ディレクトリの下にたくさんの *.x ファイルができています． OpenSWPCでは x 拡張子は実行ファイルです．\nswpc_*.x は2次元SH問題・2次元P-SV問題・3次元問題のシミュレーションソフトウェア本体です．その他の .x ファイルは，結果データの可視化や処理等に使うためのユーティリティ群です．これらがすべてコンパイルされました．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "OpenSWPCの利用"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-05-OpenSWPC.html#おためし実行",
+    "href": "HPC/EIC2020/EIC2020-05-OpenSWPC.html#おためし実行",
+    "title": "OpenSWPCの利用",
+    "section": "おためし実行",
+    "text": "おためし実行\nそれでは，コンパイルした結果を実行してみます．以下では，自分のホームディレクトリの直下に OpenSWPC-25.01 があるとみなしますが，そうでなかったら適宜読み替えてください．\n$ cd \n$ cd work/jobs  # work以下で作業します．work は /work/${USER} へのシンボリックリンクです．\n$ mkdir eic_002 # ジョブ実行のためのディレクトリを作成．名前や場所はお好みで\n$ cd eic_002    # 作成したディレクトリに移動\n$ cp -rf ~/OpenSWPC-25.01/example .   # OpenSWPCのexampleディレクトリをまるごとコピー\n$ cp -rf ~/OpenSWPC-25.01/bin .       # binディレクトリを中身ごとコピー\nここでは， example ディレクトリにあるサンプルパラメタファイル input_NJapan.inf を用いた北日本における3次元地震波シミュレーションをしてみましょう．エディタ（VSCode）で example/input_NJapan.inf ファイルを開いて，いくつかのパラメタを修正します．\nnproc_x          = 6                !! parallelization in x-dir\nnproc_y          = 6                !! parallelization in y-dir\n上記の部分を，以下のように修正してください．\nnproc_x          = 4                !! parallelization in x-dir\nnproc_y          = 2                !! parallelization in y-dir\n\n\n\n\n\n\nTip\n\n\n\nこれは利用するCPUの数です．日本列島周辺の領域を，X軸方向に4つx Y軸方向には2つの8個に分割して並列計算します．\n\n\nジョブスクリプト job.sh は以下のように作ります．最初の例よりもたくさんのCPUを使うクラスでの実行のため，こまごまと設定が変わっています．\n#!/bin/bash\n#PBS -q E \n#PBS -l select=2:ncpus=80:mpiprocs=4:ompthreads=20:mem=755gb\n#PBS -N OpenSWPC-example\n## -------------------------------------- ##\nsource /etc/profile.d/modules.sh\nmodule load intel mpt lib/NetCDF lib/HDF5 \ncd $PBS_O_WORKDIR\n## -------------------------------------- ##\n# OpenSWPCの構造モデル等の置き場の設定\nexport DATASET=/work/tktmyd/dataset  \n## -------------------------------------- ##\nmpiexec omplace -bs ./bin/swpc_3d.x -i example/input_NJapan.inf\n\n\n\n\n\n\nImportant\n\n\n\nmem=755gb は最近その存在が判明したオプションで，これを付与しないと，メモリを最大限に使い切ることができないようです．755GB以下のメモリしか使わない場合でも，このオプションを指定して不利になることはありませんから，常に付けておくことをお勧めします．\n\n\n特に DATASET 環境変数の設定は重要です． これにより，input_NJapan.inf の ${DATASET} という記述が /work/tktmyd/dataset に展開されます． このディレクトリには日本列島下の3次元不均質構造モデルJIVSMや，Hi-net観測点の一覧などのデータファイルが含まれています．\n\n\n\n\n\n\nNote\n\n\n\n/work/tktmyd/dataset は前田拓人のワーク領域ですが，EICユーザーならどなたでもファイルが見られる（プログラムから読み込める）設定になっていますので，そのままお使いください．OpenSWPC-25.01 直下にも dataset ディレクトリがありますが，その中には構造モデルの生成スクリプトが含まれているのみで，実際の構造モデルデータはありません．もちろん，その生成スクリプトで自分専用の構造モデルを作成してもよいでしょう．\n\n\nジョブの投入は，以下のコマンドで行います．\n$ qsub job.sh\n標準エラー出力の最初の数十行は，以下のような出力が延々続きますが，これはエラーではありません．正常です．\n[info{0}] m_output.F90(649): station N.HRDH is out of the region\n[info{0}] m_output.F90(649): station N.SBNH is out of the region\n[info{0}] m_output.F90(649): station N.KKIH is out of the region\n全国のHi-net全観測点をデータ出力地点として設定しているのにもかかわらず，数値シミュレーションは北日本で実行しているため，西南日本の観測点がモデル中に入らず，警告文が表示されているに過ぎません．\n上記の例のような [info{番号}] という表示は，OpenSWPCの内部情報を表示しているもので，エラーではありません． その他の表示としては， [warning{番号}] や [assert{番号}] があります． warningは，プログラムは止まらないものの，何か問題があることを示しています．assertはいわゆるエラーで，プログラムが止まります． どちらの場合も，その右側に警告やエラーの発生した箇所が書かれていますので，それを参考にしてください．\n以下は実行が始まってしばらくしてからの qstatus の表示です．\n96492   tktmyd       R     E   eich24,eich26   160   8/20   00:06:14    12:45:48    122.9  617.86\n一番右の数字は，この計算ジョブが利用している総メモリ量（GB）です．600GB超もの大容量のメモリを使う数値シミュレーションが動いています． このことは，以下の例のように，計算中逐次更新される標準エラー出力ファイルからも確認できます．\n ------------------------------------------------------------------------------\n  SWPC_3D version 24.09\n ------------------------------------------------------------------------------\n \n  Grid Size               :     3200 x   1600 x    500\n  MPI Partitioning        :        4 x    2\n  Total Memory Size       :         614.426  [GiB]\n  Node Memory Size        :          76.803  [GiB]\n  Stability  Condition c  :           0.817  (c&lt;1)\n  Wavelength Condition r  :           8.949  (r&gt;5-10)\n  Minimum velocity        :           1.491  [km/s]\n  Maximum velocity        :           8.084  [km/s]\n  Maximum frequency       :           0.333  [Hz]\n \n ------------------------------------------------------------------------------\n\n  it=0000050, 2.044 s/loop, eta 013:35:51, ( 0.00E+00  0.00E+00  0.00E+00 )\n  it=0000100, 2.062 s/loop, eta 013:41:26, ( 0.00E+00  0.00E+00  0.00E+00 )\n  it=0000150, 2.068 s/loop, eta 013:41:57, ( 4.77E-31  4.78E-31  7.00E-29 )\n  it=0000200, 2.070 s/loop, eta 013:41:12, ( 2.55E-18  2.73E-18  2.97E-16 )\nただし，後者のメモリ使用量表示は概算値で，微妙に実測と異なります． 表示されているとおり，計算には13時間以上かかります．気長に待ちましょう．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "OpenSWPCの利用"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-05-OpenSWPC.html#出力結果の可視化",
+    "href": "HPC/EIC2020/EIC2020-05-OpenSWPC.html#出力結果の可視化",
+    "title": "OpenSWPCの利用",
+    "section": "出力結果の可視化",
+    "text": "出力結果の可視化\n出力結果は以下の2種類です．\n\n波形 : ./out/wav/*.sac\nスナップショット: ./out/*.nc\n\n\n波形ファイル\n波形はSeismic Analysis Code sac というプログラムの形式で，ObsPyから obspy.read(filename, format='sac') とすることで読み込むことができます．\n\n\n\n\n\n\nNote\n\n\n\nObsPyでは読み込むファイルの自動判別もできるはずです．しかし，OpenSWPCの出力を読み込むには，format を明示的に指定しなければならないことが多いようです．\n\n\n\n上図の例では，Python上で上下動成分の速度波形記録（成分名 Vz）を読み込み，そこからレコードセクション画像を作成しています．ObsPyでレコードセクションをプロットするためには，波形の .stats.distance に震央距離をメートル単位で保持しておく必要があります．一方，SACファイルとしては，dist というヘッダ変数に震央距離がkm単位で書き込まれており，ObsPyで読み込むと .stats.sac.['dist'] でアクセスできます．そこで，すべての波形についてのループで，後者を前者に（単位換算をしつつ）コピーしています．その後，plot(type='section') でレコードセクション画像を作成しました．\n\n\nスナップショットファイル\n地表海底，X, Y, Zのそれぞれの断面を出力でき，その結果を read_snp.x により可視化できます．read_snp.x を利用するためには，まず利用する動的ライブラリのロードが必要です：\n$ module load intel mpt lib/NetCDF lib/HDF5\nもしもロードできない旨のエラーが出た場合には，\n$ module purge\nで現在読み込まれているライブラリをいったん切り離し，もう一度上記コマンドでロードしてください．\n$ cd out\n$ ../bin/read_snp.x -i swpc_N.ob.v.nc -bmp -mul 20 \nとすると，bmp ディレクトリが作られ，その中に連番画像が作られます． 以下のアニメーショんはそれを ffmpeg によって動画化したものです．\n\n\n\n\n\n動画の作成法はたとえば PyGMT-HowTo を参照してください．\n\n\n\n\n\n\nTip\n\n\n\nここでは簡単に表示できるgifアニメーションを選択しました．ただし，gifアニメーションは動画とは違ってスライダで早送りしたり特定の時間を選ぶことはできません．また，画質が少々落ちます．Powerpoint等に取り込むならば，MP4形式のほうが（一般的には）おすすめです．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "OpenSWPCの利用"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-02-directory.html",
+    "href": "HPC/EIC2020/EIC2020-02-directory.html",
+    "title": "ディレクトリ構造",
+    "section": "",
+    "text": "以下ではユーザー名を $user とします．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "ディレクトリ構造"
+    ]
+  },
+  {
+    "objectID": "HPC/EIC2020/EIC2020-02-directory.html#ホームディレクトリとワークディレクトリ",
+    "href": "HPC/EIC2020/EIC2020-02-directory.html#ホームディレクトリとワークディレクトリ",
+    "title": "ディレクトリ構造",
+    "section": "ホームディレクトリとワークディレクトリ",
+    "text": "ホームディレクトリとワークディレクトリ\n\n/home/${user}\n\nログイン時の初期ディレクトリです．基本的な作業はここで行いますが，容量が小さく，600GB程度しかファイルを置けません．\n数値シミュレーションをしていると大容量の出力データを扱うことになりますから，シミュレーション用には後述の /work を使います．\n\n/work/${user}\n\nユーザーあたり7TBまでファイルを置くことができます．数値シミュレーションはこちらで行います．\n簡単にワークディレクトリにアクセスするため，以下のようにしてホームディレクトリからシンボリックリンク（ショートカット）を作成しておくことを勧めます．\n$ cd # まずホームディレクトリに移動\n$ ln -s /work/user work # userは自分のユーザー名に変更\nこれでホームディレクトリに work という名前のリンクが作られました．\n/home は容量が小さいため，ソースコードの開発等はこちらで行い，シミュレーションの実行は /work で行うようにしましょう．\n\n\n\n\n\n\nImportant\n\n\n\nEIC2020では，/work 以下に置かれたファイルは一定期間変更がないと自動的に削除されてしまいます． こまめに結果をローカルにダウンロードするなど，対策を取ってください．",
+    "crumbs": [
+      "HPC",
+      "EIC2020",
+      "ディレクトリ構造"
+    ]
+  }
+]

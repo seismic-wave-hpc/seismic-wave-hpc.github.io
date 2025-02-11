@@ -1,0 +1,40 @@
+---
+title: 謝辞の書き方
+date: 2024-08-27
+date-modified: 2025-01-25
+abstract: ""
+---
+
+東京大学地震研究所の共同利用を通じて大型計算機を利用し，その成果が出版された場合には，適切な**謝辞**を記載することが求められます．
+
+## 東京大学地震研究所 EICの場合
+
+参考：[東大地震研](https://eic-support.eri.u-tokyo.ac.jp)
+
+```markdown
+This study was conducted using the computer systems of the Research Center for Monitoring Japan Arc, Earthquake Research Institute, the University of Tokyo.
+```
+
+::: {.callout-note}
+
+参考元にある原文は 
+```markdown
+For this study, I (We) have used the computer systems of the Earthquake and Volcano Information Center of the Earthquake Research Institute,the University of Tokyo.
+```
+だったのですが，Earthquake and Volcano Information Centerはもう存在しません．また，英文を修正しました．
+:::
+
+## 東京大学情報基盤センター Wisteria/BDEC-01の場合
+
+### 地震研共同利用の場合
+
+東京大学地震研究所の共同利用（大型計算）を介して東京大学情報基盤センターのWisiteria/BDECを利用した場合は，その両方に対して謝辞の記載が必要です．
+
+参考：[東大地震研](https://www.eri.u-tokyo.ac.jp/kyodoriyou/acknowledgments/) および [東大情報基盤センター](https://www.cc.u-tokyo.ac.jp/faq/general.php#RESULT)
+
+```markdown
+This study was supported by ERI JURP `<PROJECT NUBMER>`. This study was conducted using the FUJITSU Supercomputer PRIMEHPC FX1000 and FUJITSU Server PRIMERGY GX2570 (Wisteria/BDEC-01) at the Information Technology Center, The University of Tokyo.
+```
+
+`<PROJECT NUMBER>` には，東大地震研のプロジェクト番号を記載してください．
+
