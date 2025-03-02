@@ -10,7 +10,7 @@ abstract: "Wisteria/BDEC-01 はあらゆる科学技術分野のユーザーが�
 ::: callout-important
 ここで紹介する環境はいわゆる **Anaconda** として知られているPythonのパッケージ管理環境です． Anacondaは研究目的にも広く使われていたのですが，2024年のライセンス改訂によって，研究教育目的であっても無料で利用することが困難になりました．
 
-そこで，その代替としてMiniforgeを用います．MiniforgeはAnacondaのパッケージ管理コマンド `conda` と同等なものを提供する完全なオープンソースなプロジェクトです．
+ここでは，その代替としてMiniforgeを用います．MiniforgeはAnacondaのパッケージ管理コマンド `conda` と同等なものを提供する完全なオープンソースなプロジェクトです．
 :::
 
 ## Miniforgeのインストール
