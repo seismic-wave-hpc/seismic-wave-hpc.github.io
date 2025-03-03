@@ -77,7 +77,7 @@ Original contents retained as /path/to/home/.ssh/known_hosts.old
 
 #### `known_hosts` ファイルの削除
 
-やや（かなり？）乱暴ですが，`~/.ssh/known_hosts` ファイルそのものを強制的に削除してしまっても構いません．その場合，
+やや（かなり？）乱暴ですが，`~/.ssh/known_hosts` ファイルそのものを強制的に削除してしまっても構いません．その場合，`ssh`でこれまで利用していたサーバに接続しようとするたび，本当に接続するかどうかを1回ずつ答えることになります．
 
 ## Miniforgeの再構築
 
