@@ -39,11 +39,11 @@ website:
       contents: 
         - HPC/hpc-howto.md
         - auto: "HPC/Common"
-        - auto: "HPC/EIC2020"
         - auto: "HPC/EIC2025"
         - auto: "HPC/Wisteria"
         - auto: "HPC/Miyabi"
-        - auto: "HPC/Archives/*"
+        - HPC/Archives/Archives.md
+        - auto: "HPC/Archives/EIC2020"
 
     - title: "OpenSWPC-Howto"
       contents: 
