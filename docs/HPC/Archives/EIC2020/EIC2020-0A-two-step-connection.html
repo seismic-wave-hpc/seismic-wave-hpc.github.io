@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Takuto Maeda">
-<meta name="dcterms.date" content="2025-01-25">
+<meta name="dcterms.date" content="2024-08-26">
 
-<title>公開鍵暗号の準備 – Seismic-Wave-HPC</title>
+<title>補遺：EIC接続の踏み台設定 – Seismic-Wave-HPC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,22 +59,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-05fe91a66cf75bbbb8c9664867fe5124.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-00b4494c0a47dae35f63a3434d32d8e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-05fe91a66cf75bbbb8c9664867fe5124.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-00b4494c0a47dae35f63a3434d32d8e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Seismic-Wave-HPC</span>
     </a>
   </div>
@@ -125,19 +125,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../HPC/hpc-howto.html" aria-current="page"> 
+    <a class="nav-link active" href="../../../HPC/hpc-howto.html" aria-current="page"> 
 <span class="menu-text">スパコン利用Howto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
+    <a class="nav-link" href="../../../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
 <span class="menu-text">OpenSWPC関連情報</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../FDM-Workshop/fdm-workshop.html"> 
+    <a class="nav-link" href="../../../FDM-Workshop/fdm-workshop.html"> 
 <span class="menu-text">講習会</span></a>
   </li>  
 </ul>
@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Common/Common-00-index.html">Common</a></li><li class="breadcrumb-item"><a href="../../HPC/Common/Common-01-keys.html">公開鍵暗号の準備</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../HPC/Archives/EIC2020/EIC2020-00-index.html">EIC2020</a></li><li class="breadcrumb-item"><a href="../../../HPC/Archives/EIC2020/EIC2020-0A-two-step-connection.html">補遺：EIC接続の踏み台設定</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/hpc-howto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/hpc-howto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HPC-Howto</span></a>
   </div>
 </li>
@@ -180,19 +180,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Common/Common-00-index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Common/Common-00-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">はじめに</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Common/Common-01-keys.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../HPC/Common/Common-01-keys.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">公開鍵暗号の準備</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Common/Common-A0-acknowledgement.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Common/Common-A0-acknowledgement.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">謝辞の書き方</span></a>
   </div>
 </li>
@@ -209,31 +209,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-00-index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/EIC2025/EIC2025-00-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">はじめに</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-01-renew.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/EIC2025/EIC2025-01-renew.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">アカウント継続者の初期設定</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-02-new.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/EIC2025/EIC2025-02-new.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">新規利用時の設定</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-03-environment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/EIC2025/EIC2025-03-environment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">解析環境の構築</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-0A-two-step-connection.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/EIC2025/EIC2025-0A-two-step-connection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
   </div>
 </li>
@@ -250,43 +250,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-00-index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-00-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">はじめに</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-01-login.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-01-login.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ログインと初期設定</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-02-environment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-02-environment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">解析環境の構築</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-03-job.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-03-job.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ジョブ投入の基本</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-04-interactive-prepost.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-04-interactive-prepost.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">その他のジョブ</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">OpenSWPCの利用</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-06-OpenSWPC2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Wisteria/BDEC-06-OpenSWPC2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">OpenSWPCの高速実行</span></a>
   </div>
 </li>
@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Miyabi/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">はじめに</span></a>
   </div>
 </li>
@@ -311,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/Archives.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/Archives.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Archives</span></a>
   </div>
 </li>
@@ -326,43 +326,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-00-index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-00-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">はじめに</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-01-account.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-01-account.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">アカウントの取得とログイン</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-02-directory.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-02-directory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ディレクトリ構造</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-03-environment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-03-environment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">解析環境の構築</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-04-job.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-04-job.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ジョブ投入の基本</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">OpenSWPCの利用</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/EIC2020/EIC2020-0A-two-step-connection.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../HPC/Archives/EIC2020/EIC2020-0A-two-step-connection.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
   </div>
 </li>
@@ -378,26 +378,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sshとその認証" id="toc-sshとその認証" class="nav-link active" data-scroll-target="#sshとその認証">SSHとその認証</a>
-  <ul class="collapse">
-  <li><a href="#公開鍵認証方式" id="toc-公開鍵認証方式" class="nav-link" data-scroll-target="#公開鍵認証方式">公開鍵認証方式</a></li>
-  </ul></li>
-  <li><a href="#秘密鍵公開鍵の作成" id="toc-秘密鍵公開鍵の作成" class="nav-link" data-scroll-target="#秘密鍵公開鍵の作成">秘密鍵・公開鍵の作成</a></li>
-  <li><a href="#公開鍵の登録" id="toc-公開鍵の登録" class="nav-link" data-scroll-target="#公開鍵の登録">公開鍵の登録</a>
-  <ul class="collapse">
-  <li><a href="#初回の登録" id="toc-初回の登録" class="nav-link" data-scroll-target="#初回の登録">初回の登録</a></li>
-  <li><a href="#複数台の登録" id="toc-複数台の登録" class="nav-link" data-scroll-target="#複数台の登録">複数台の登録</a></li>
-  </ul></li>
-  <li><a href="#configファイルによる接続設定" id="toc-configファイルによる接続設定" class="nav-link" data-scroll-target="#configファイルによる接続設定">configファイルによる接続設定</a></li>
+  <li><a href="#手動による二段階接続" id="toc-手動による二段階接続" class="nav-link active" data-scroll-target="#手動による二段階接続">手動による二段階接続</a></li>
+  <li><a href="#ssh-configによる自動二段階接続" id="toc-ssh-configによる自動二段階接続" class="nav-link" data-scroll-target="#ssh-configによる自動二段階接続">SSH configによる自動二段階接続</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Common/Common-00-index.html">Common</a></li><li class="breadcrumb-item"><a href="../../HPC/Common/Common-01-keys.html">公開鍵暗号の準備</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../HPC/Archives/EIC2020/EIC2020-00-index.html">EIC2020</a></li><li class="breadcrumb-item"><a href="../../../HPC/Archives/EIC2020/EIC2020-0A-two-step-connection.html">補遺：EIC接続の踏み台設定</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">公開鍵暗号の準備</h1>
+<h1 class="title">補遺：EIC接続の踏み台設定</h1>
 </div>
 
 
@@ -414,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 25, 2025</p>
+      <p class="date">August 26, 2024</p>
     </div>
   </div>
   
@@ -424,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    多くのスーパーコンピュータは，リモートログインにあたってSSH（Secure SHell) の<strong>公開鍵認証</strong>という方式を採用しています．ここでは，その概略と接続のための準備を説明します．
+    <a href="../../../HPC/Archives/EIC2020/EIC2020-01-account.html">前述</a>のように，EICは接続元が <code>ac.jp</code> か <code>go.jp</code> で，かつDNSの逆引きに対応していないと接続ができません．そこで，EICに直接は接続できないような環境から，別のEICに接続できるサーバを踏み台にして接続する方法を紹介します．
   </div>
 </div>
 
@@ -432,116 +423,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="sshとその認証" class="level2">
-<h2 class="anchored" data-anchor-id="sshとその認証">SSHとその認証</h2>
-<p>SSH (Secure SHell) とは，暗号技術を用いてネットワーク越しのコンピュータに安全に接続するためのプロトコル（方式）のことです．SSHを用いると，手元にないコンピュータに接続し，操作を行うことができます．しかも，その操作でやり取りされる通信内容はすべて暗号化されるという特徴があります．</p>
-<p>SSHであるサーバ <code>remote_host</code>（IPアドレス <code>xxx.xxx.xxx.xxx</code>）に接続するには，</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh username@remote-host</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>あるいは</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-l</span> username remote-host</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>とします．サーバ名の代わりにIPアドレスを用いることもできます．接続元のコンピュータでログイン中のユーザー名と接続先におけるユーザー名が異なる場合には，接続先のユーザー名を明記しなければいけません．スーパーコンピュータの多くでは，ユーザー名は自分で選ぶことができず，記号の羅列からなるユーザー名が割り当てられます．</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="手動による二段階接続" class="level2">
+<h2 class="anchored" data-anchor-id="手動による二段階接続">手動による二段階接続</h2>
+<p>以下では，東京大学情報基盤センターのスパコン（BDEC）を踏み台にすることを前提に説明します．</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-Y</span> wisteria.cc.u-tokyo.ac.jp <span class="at">-l</span> USERNAME-of-BDEC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>でWisteria/BDECにまずログインし，そのログイン先から</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-Y</span> eic.eri.u-tokyo.ac.jp <span class="at">-l</span> USERNAME-of-EIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>とすれば，EICに接続きます．</p>
+<p>しかし，毎回二段階でログインするのはとても面倒です． <code>rsync</code> などを使ってファイルを転送する際にも，いちいち踏み台サーバにファイルを置いてからEICに転送することとなり，きわめて非効率です．</p>
+</section>
+<section id="ssh-configによる自動二段階接続" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-configによる自動二段階接続">SSH configによる自動二段階接続</h2>
+<p>ここでは，踏み台サーバ（この場合はWisteria/BDEC）への接続が公開鍵認証方式であることと，その公開鍵はEICへの接続の公開鍵と同一のものを使っていることを仮定します．</p>
+<p>SSHでは， <code>~/.ssh/config</code> というファイルを作成し，その中に接続情報を記述することで，<code>ssh</code> コマンドが接続時にその情報を参照できます． まずは，Wisteria/BDECへの接続を単純化してみましょう．</p>
+<p>接続元マシンで，<code>config</code> ファイルを開きます（なければ作成します）．</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/.ssh</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> code config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>$</code> はプロンプト記号であり，入力しません．</p>
+<p>ここではVSCodeのシェルコマンド <code>code</code> がインストールされている前提で例を書いていますが，使うエディタは何でも構いません．ただし，<code>.ssh</code> はドット記号から始まる隠しディレクトリですので，エクスプローラ（Windows）やFinder (macOS) からは見えません．ターミナルで <code>ls -a</code> すると見えるはずです．</p>
 </div>
 </div>
-<section id="公開鍵認証方式" class="level3">
-<h3 class="anchored" data-anchor-id="公開鍵認証方式">公開鍵認証方式</h3>
-<p>SSHでは，まずネットワーク越しのサーバに接続を試み，アカウントの <strong>認証</strong> をしてログインをします．このときの認証にはいくつかの方法がありますが，主要な方法として<strong>パスワード認証</strong>方式と<strong>公開鍵認証</strong>方式があります．手元のパソコンにログインするときには多くの場合にパスワード認証が利用されていますが，リモートログインにおいてはより安全な公開鍵認証方式の利用が主流です．</p>
-<p><strong>公開鍵認証</strong>とは，<strong>公開鍵</strong>と，その公開鍵とペアで生成された <strong>秘密鍵</strong> の2つの鍵ファイル（データ）を用いる認証方式で，ネットワーク上のサーバにログインするための方式として広く用いられています．これらの鍵は，<strong>電子署名</strong> を作成し，検証することに用いられます．ある秘密鍵で作成された電子署名は，その秘密鍵とペアで生成された公開鍵によって正しいものであると<strong>検証</strong>することができます．公開鍵認証方式では，この特徴を用いて，以下のような手続きで認証が行われます．以下では，接続元（手元）のコンピュータを <code>A</code>，接続先（リモート）のコンピュータを <code>B</code> とします．</p>
-<ol type="1">
-<li><code>A</code> において，セットになった公開鍵と秘密鍵を生成する．秘密鍵は <code>A</code> の特定の場所に保管し，自分のアカウント以外では閲覧できない状態にしておく．</li>
-<li>1.で作成した公開鍵を何らかの方法で <code>B</code> の特定の場所に配置する．これを公開鍵を <strong>登録</strong> すると表現する．</li>
-<li>接続の際，<code>A</code> はログインに必要な情報とともに，秘密鍵で生成した署名を <code>B</code> に送信する．</li>
-<li><code>B</code> は受信した署名をあらかじめ登録されていた公開鍵によって検証し，それが正しければ認証成功とする</li>
-</ol>
-<p>この方式では，秘密鍵やパスワードそのものは<code>A</code>から外部に送信されません．しかも署名は再利用ができない仕組みです．したがって，上記の通信でパスワードや秘密鍵を盗むことはできず，署名を盗んだとしても再利用できないのです．こうして，安全な接続が確保されています．</p>
-<p>実際の接続の際に 3.と4.の手続きは自動的に行われますので，ユーザーがそれを意識したり煩雑な操作をする必要はありません．一方，1.と2.の手続きは初回接続の際にユーザーが行う必要があります．</p>
-</section>
-</section>
-<section id="秘密鍵公開鍵の作成" class="level2">
-<h2 class="anchored" data-anchor-id="秘密鍵公開鍵の作成">秘密鍵・公開鍵の作成</h2>
-<p>以下では，接続元のPCはLinuxやmacOS，あるいはWindows Subsystem for Linux (WSL) のように，Linux（あるいはそれに類する）シェルが使える環境にあることを前提とします．WindowsでWSLを使わずにTera TermやPuttyなどのソフトウェアによって接続する方法はここでは扱いません．</p>
-<p>接続元のPCで端末を立ち上げて，</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span> .ssh/id_rsa<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>とします．</p>
-<p><code>no such file or directory</code> と出れば（つまり，ファイルがなければ）OKです．</p>
-<p>もし <code>id_rsa.pub</code> <code>id_rsa</code> の2つのファイルが表示されたら，公開鍵は作成済みです．作成をスキップするか，あるいは心当たりがなければ <code>rm</code> コマンドで消して，再作成してください．あるいは，別の名前で作成して，<code>.ssh/config</code> ファイルを適切に設定することで，接続先に応じて公開鍵・秘密鍵を使い分けることもできます．</p>
-<p>そのうえで，以下のコマンドを実行します．</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh-keygen <span class="at">-t</span> rsa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> file in which to save the key <span class="er">(</span><span class="ex">/Users/USERNAME/.ssh/id_rsa</span><span class="kw">)</span><span class="bu">:</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>のように訊かれます（<code>USERNAME</code> は自分のユーザー名）ので，そのままEnterします．続けて，</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> passphrase <span class="er">(</span><span class="ex">empty</span> for no passphrase<span class="kw">)</span><span class="bu">:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>とでます．パスワードを入力する画面ですが，公開鍵はそれ自体がある程度のセキュリティを持っていますので，パスワードなし，でも構いません（ただし自己責任）．心配なら自分でパスワードを考えて入力しましょう．</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> same passphrase again: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>と表示されますので，パスワードを入力したのなら同じパスワードを，パスワードなしを選んだのならそのままEnterを入力します．</p>
-<p>そうすると，画面にいくらか表示がでて，パスワードの秘密鍵ファイル <code>id_rsa</code> と，公開鍵ファイル <code>id_rsa.pub</code> が <code>.ssh/</code> 以下に作成されます．<code>ls -l</code> すると以下のように表示され， 秘密鍵 <code>id_rsa</code> が自分以外にアクセスできないように自動的に設定されていることがわかります．</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> ~/.ssh</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 72</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--@</span> 1 username  group   1274  1 19 13:38 config</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-------</span>  1 username  group   2610  2  3  2023 id_rsa</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>  1 username  group    575  2  3  2023 id_rsa.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<p><code>config</code> ファイルに以下の内容を記述します．ただし，<code>USERNAME-of-BDEC</code> は自身のWisteria/BDECユーザー名です． <code>IdentifyFile</code> の行では接続に用いる秘密鍵を指定します．</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> bdec</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">HostName</span> wisteria.cc.u-tokyo.ac.jp</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> USERNAME-of-BDEC</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>この準備をすると，ターミナルから</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh bdec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>とするだけで，<code>wisteria.cc.u-tokyo.ac.jp</code> に接続できます．</p>
+<p>さらに，EICへの接続設定も <code>config</code> ファイルに追記しましょう．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> eic</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">Hostname</span> eic.eri.u-tokyo.ac.jp</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> USERNAME-of-EIC</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ProxyCommand</span> ssh <span class="at">-W</span> %h:%p bdec</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wisteria/BDECとほとんど同様ですが，<code>ProxyCommand</code> の行が増えています．これにより，<code>ssh eic</code> とするだけで，Wisteria/BDECを踏み台にしてEICに接続できます．</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>公開鍵と秘密鍵は鍵と錠前のような関係があります． 公開鍵は外部のサーバに登録する，文字通り公開されるものです． 一方，<strong>秘密鍵ファイルは外部に漏らしてはいけません</strong>．</p>
+<p>VSCodeでSSH拡張を利用している場合は，この設定ファイルが自動的に読み込まれます． これ以降は，VSCodeからも <code>eic</code> を選択して接続できます．</p>
 </div>
 </div>
-</section>
-<section id="公開鍵の登録" class="level2">
-<h2 class="anchored" data-anchor-id="公開鍵の登録">公開鍵の登録</h2>
-<section id="初回の登録" class="level3">
-<h3 class="anchored" data-anchor-id="初回の登録">初回の登録</h3>
-<p>スーパーコンピュータに公開鍵を登録する方法は，それぞれのスーパーコンピュータで個別の仕組みが用意されています．自分のアカウントでログインできるWebシステムから登録するのが一般的なようです．各システムのマニュアルを参照してください．なお，本Webでも各スパコンの解説で説明しています．</p>
-</section>
-<section id="複数台の登録" class="level3">
-<h3 class="anchored" data-anchor-id="複数台の登録">複数台の登録</h3>
-<p>いったんあるPCから公開鍵を登録し，そこから接続できるようになってしまえば，2台目以降の登録は接続設定済みのPC経由で行えます．</p>
-<p>すでに接続設定済みのコンピュータを <code>A</code>, あらたに接続したいマシンを <code>A2</code>, 接続先を <code>B</code> とします．<code>A2</code> において秘密鍵 <code>id_rsa</code> と 公開鍵 <code>id_rsa.pub</code> を作成したら，<code>A</code> から <code>A2</code> にリモートログインするなどして，<code>A2</code> の公開鍵の内容（文字列）を <code>A</code>のクリップボードにコピーしておきます． そのうえで，<code>A</code> から <code>B</code>に接続し，<code>B</code> のホームディレクトリ（<code>~</code>）の下の <code>~/.ssh/authorized_keys</code> というファイルに公開鍵の内容を追記します．<code>authorized_keys</code> ファイルには，すでに設定済みの <code>A</code> の公開鍵も含まれていますから，その後ろで改行して新しい行をつくり，そこにペーストします．<code>A</code>の公開鍵を間違って削除しないように注意してください．</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>コマンドラインから使えるエディタに覚えがなければ， <code>nano</code> コマンドが便利です．最小限の機能をもつテキストエディタで，GUIではありませんが，利用方法のショートカットが常に画面下部に表示されるため，はじめてでも問題なく使えるでしょう．なお，メニューにある <code>^</code> は <kbd>ctrl</kbd> キーのことです．<code>^X</code> とあったら，<kbd>ctrl</kbd>キーを押しながら<kbd>X</kbd>キーを押す，ということを意味します．</p>
-</div>
-</div>
-<p>これで登録は完了です．このように，公開鍵認証では，接続先の <code>~/.ssh/authorized_keys</code> ファイルに記載された公開鍵が用いられます．</p>
-<p>このページで説明した公開鍵認証の仕組みは，スーパーコンピュータへの接続に限りません．sshで接続できるサーバであれば，<code>authorized_keys</code> ファイルに公開鍵を登録することでパスワード認証のかわりに公開鍵認証を利用できます．</p>
-</section>
-</section>
-<section id="configファイルによる接続設定" class="level2">
-<h2 class="anchored" data-anchor-id="configファイルによる接続設定">configファイルによる接続設定</h2>
-<p>SSHでは， <code>~/.ssh/config</code> というファイルによって，接続のデフォルト設定を行うことができます．たとえば以下のように記述します．</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> <span class="er">(</span><span class="ex">略称</span><span class="kw">)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">HostName</span> <span class="er">(</span><span class="ex">接続ホスト名</span><span class="kw">)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> <span class="er">(</span><span class="ex">接続ユーザー名</span><span class="kw">)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>括弧つきの日本語で書かれているところは適宜半角英数字で適切な値に置き換える必要があります（その際括弧は不要です）．この設定があれば，</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="er">(</span><span class="ex">略称</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>とするだけで接続できます．スーパーコンピュータの多くではユーザー名が記号で与えられるため，<code>config</code>ファイルに設定しておくと楽になるでしょう．上記の <code>IdentityFile</code> を変更すると，接続先によって秘密鍵を使い分けることもできます．</p>
 
 
 </section>

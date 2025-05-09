@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Takuto Maeda">
 <meta name="dcterms.date" content="2024-08-26">
 
-<title>地震波数値計算講習会 – Seismic-Wave-HPC</title>
+<title>講習会 – Seismic-Wave-HPC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9e1f2a4632985dffc2c80318c992baf5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-05fe91a66cf75bbbb8c9664867fe5124.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-00b4494c0a47dae35f63a3434d32d8e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -68,16 +68,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -97,15 +96,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../HPC/hpc-howto.html"> 
-<span class="menu-text">HPC</span></a>
+<span class="menu-text">スパコン利用Howto</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
-<span class="menu-text">OpenSWPC</span></a>
+<span class="menu-text">OpenSWPC関連情報</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../FDM-Workshop/fdm-workshop.html" aria-current="page"> 
-<span class="menu-text">Workshop</span></a>
+<span class="menu-text">講習会</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -113,20 +112,72 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../FDM-Workshop/fdm-workshop.html">講習会</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FDM-Workshop/fdm-workshop.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">講習会</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">2025年度講習会</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FDM-Workshop/2025年度講習会/fdm25-elementary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">初級編</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FDM-Workshop/2025年度講習会/fdm25-intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">中級編</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#年度講習会" id="toc-年度講習会" class="nav-link active" data-scroll-target="#年度講習会">2025年度講習会</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">地震波数値計算講習会</h1>
+<h1 class="title">講習会</h1>
 </div>
 
 
@@ -150,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 11, 2025</p>
+      <p class="date-modified">May 9, 2025</p>
     </div>
   </div>
     
@@ -159,17 +210,24 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    差分法による地震波数値シミュレーションの講習会に関する情報です．
+    地震波動伝播の数値計算に関する講習会に関する情報です．
   </div>
 </div>
 
 
 </header>
 
+<hr>
+<section id="年度講習会" class="level2">
+<h2 class="anchored" data-anchor-id="年度講習会">2025年度講習会</h2>
+<p>地震波動伝播の数値シミュレーション技術の普及のためのオンライン講習会を開催します．今年度は初級編（2025/10/30）と中級編（2025/11/6）の二本立てで実施します．前者では，基礎から差分法による数値シミュレーションの基本概念を学びます．後者はオープンソースの地震波動伝播数値シミュレーションソフトウェア<a href="https://openswpc.github.io">OpenSWPC</a> を活用するためのより実践的な講習会です．ふるってご参加ください．</p>
+<ul>
+<li><a href="../FDM-Workshop/2025年度講習会/fdm25-elementary.html">初級編</a></li>
+<li><a href="../FDM-Workshop/2025年度講習会/fdm25-intermediate.html">中級編</a></li>
+</ul>
 
-<hr><p>地震波動伝播数値シミュレーション講習会は2025年6月の開催を目指して準備中です．続報をお待ち下さい．</p>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -22,13 +22,13 @@ website:
       - text: Home
         href: index.md
 
-      - text: "HPC"
+      - text: "スパコン利用Howto"
         href: HPC/hpc-howto.md
 
-      - text: "OpenSWPC"
+      - text: "OpenSWPC関連情報"
         href: OpenSWPC-Howto/OpenSWPC-00-index.md
 
-      - text: "Workshop"
+      - text: "講習会"
         href: FDM-Workshop/fdm-workshop.md
 
         
@@ -51,7 +51,8 @@ website:
           
     - title: "FDM-Workshop"
       contents: 
-        -auto: "FDM-Workshop/*"
+        - FDM-Workshop/fdm-workshop.md
+        - auto: "FDM-Workshop/2025年度講習会"
 
 format:
   html:

@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Takuto Maeda">
-<meta name="dcterms.date" content="2024-08-26">
+<meta name="dcterms.date" content="2025-05-09">
 
-<title>補遺：EIC接続の踏み台設定 – Seismic-Wave-HPC</title>
+<title>中級編 – Seismic-Wave-HPC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,7 +37,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-9e1f2a4632985dffc2c80318c992baf5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-05fe91a66cf75bbbb8c9664867fe5124.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-00b4494c0a47dae35f63a3434d32d8e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -129,16 +95,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../HPC/hpc-howto.html" aria-current="page"> 
-<span class="menu-text">HPC</span></a>
+    <a class="nav-link" href="../../HPC/hpc-howto.html"> 
+<span class="menu-text">スパコン利用Howto</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
-<span class="menu-text">OpenSWPC</span></a>
+<span class="menu-text">OpenSWPC関連情報</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../FDM-Workshop/fdm-workshop.html"> 
-<span class="menu-text">Workshop</span></a>
+    <a class="nav-link active" href="../../FDM-Workshop/fdm-workshop.html" aria-current="page"> 
+<span class="menu-text">講習会</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -151,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/EIC2020/EIC2020-00-index.html">EIC2020</a></li><li class="breadcrumb-item"><a href="../../HPC/EIC2020/EIC2020-0A-two-step-connection.html">補遺：EIC接続の踏み台設定</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../FDM-Workshop/2025年度講習会/fdm25-elementary.html">2025年度講習会</a></li><li class="breadcrumb-item"><a href="../../FDM-Workshop/2025年度講習会/fdm25-intermediate.html">中級編</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -165,14 +131,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/hpc-howto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HPC-Howto</span></a>
+  <a href="../../FDM-Workshop/fdm-workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">講習会</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Common</span></a>
+ <span class="menu-text">2025年度講習会</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -180,194 +146,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Common/Common-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
+  <a href="../../FDM-Workshop/2025年度講習会/fdm25-elementary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">初級編</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/Common/Common-01-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">公開鍵暗号の準備</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Common/Common-A0-acknowledgement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">謝辞の書き方</span></a>
+  <a href="../../FDM-Workshop/2025年度講習会/fdm25-intermediate.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">中級編</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">EIC2020</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-01-account.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">アカウントの取得とログイン</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-02-directory.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ディレクトリ構造</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-03-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-04-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ジョブ投入の基本</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの利用</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2020/EIC2020-0A-two-step-connection.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">EIC2025</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-01-renew.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">アカウント継続者の初期設定</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-02-new.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">新規利用時の設定</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-03-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC2025/EIC2025-0A-two-step-connection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Wisteria</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-01-login.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ログインと初期設定</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-02-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-03-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ジョブ投入の基本</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-04-interactive-prepost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">その他のジョブ</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの利用</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-06-OpenSWPC2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの高速実行</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Miyabi</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Archives/Archives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Archives</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -378,17 +168,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#手動による二段階接続" id="toc-手動による二段階接続" class="nav-link active" data-scroll-target="#手動による二段階接続">手動による二段階接続</a></li>
-  <li><a href="#ssh-configによる自動二段階接続" id="toc-ssh-configによる自動二段階接続" class="nav-link" data-scroll-target="#ssh-configによる自動二段階接続">SSH configによる自動二段階接続</a></li>
+  <li><a href="#開催予告" id="toc-開催予告" class="nav-link active" data-scroll-target="#開催予告">開催予告</a>
+  <ul class="collapse">
+  <li><a href="#日時" id="toc-日時" class="nav-link" data-scroll-target="#日時">日時</a></li>
+  <li><a href="#内容" id="toc-内容" class="nav-link" data-scroll-target="#内容">内容</a></li>
+  <li><a href="#対象" id="toc-対象" class="nav-link" data-scroll-target="#対象">対象</a></li>
+  <li><a href="#定員" id="toc-定員" class="nav-link" data-scroll-target="#定員">定員</a></li>
+  <li><a href="#前提知識必要となる準備" id="toc-前提知識必要となる準備" class="nav-link" data-scroll-target="#前提知識必要となる準備">前提知識・必要となる準備</a></li>
+  <li><a href="#参加資格" id="toc-参加資格" class="nav-link" data-scroll-target="#参加資格">参加資格</a></li>
+  </ul></li>
+  <li><a href="#参加申し込み" id="toc-参加申し込み" class="nav-link" data-scroll-target="#参加申し込み">参加申し込み</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/EIC2020/EIC2020-00-index.html">EIC2020</a></li><li class="breadcrumb-item"><a href="../../HPC/EIC2020/EIC2020-0A-two-step-connection.html">補遺：EIC接続の踏み台設定</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../FDM-Workshop/2025年度講習会/fdm25-elementary.html">2025年度講習会</a></li><li class="breadcrumb-item"><a href="../../FDM-Workshop/2025年度講習会/fdm25-intermediate.html">中級編</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">補遺：EIC接続の踏み台設定</h1>
+<h1 class="title">中級編</h1>
 </div>
 
 
@@ -405,83 +203,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2024</p>
+      <p class="date">May 9, 2025</p>
     </div>
   </div>
   
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    <a href="../../HPC/EIC2020/EIC2020-01-account.html">前述</a>のように，EICは接続元が <code>ac.jp</code> か <code>go.jp</code> で，かつDNSの逆引きに対応していないと接続ができません．そこで，EICに直接は接続できないような環境から，別のEICに接続できるサーバを踏み台にして接続する方法を紹介します．
-  </div>
-</div>
 
 
 </header>
 
 <hr>
-<section id="手動による二段階接続" class="level2">
-<h2 class="anchored" data-anchor-id="手動による二段階接続">手動による二段階接続</h2>
-<p>以下では，東京大学情報基盤センターのスパコン（BDEC）を踏み台にすることを前提に説明します．</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-Y</span> wisteria.cc.u-tokyo.ac.jp <span class="at">-l</span> USERNAME-of-BDEC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>でWisteria/BDECにまずログインし，そのログイン先から</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-Y</span> eic.eri.u-tokyo.ac.jp <span class="at">-l</span> USERNAME-of-EIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>とすれば，EICに接続きます．</p>
-<p>しかし，毎回二段階でログインするのはとても面倒です． <code>rsync</code> などを使ってファイルを転送する際にも，いちいち踏み台サーバにファイルを置いてからEICに転送することとなり，きわめて非効率です．</p>
+<section id="開催予告" class="level2">
+<h2 class="anchored" data-anchor-id="開催予告">開催予告</h2>
+<section id="日時" class="level3">
+<h3 class="anchored" data-anchor-id="日時">日時</h3>
+<p>2025年11月6日（木）13:00〜16:00 オンライン（Zoom）</p>
 </section>
-<section id="ssh-configによる自動二段階接続" class="level2">
-<h2 class="anchored" data-anchor-id="ssh-configによる自動二段階接続">SSH configによる自動二段階接続</h2>
-<p>ここでは，踏み台サーバ（この場合はWisteria/BDEC）への接続が公開鍵認証方式であることと，その公開鍵はEICへの接続の公開鍵と同一のものを使っていることを仮定します．</p>
-<p>SSHでは， <code>~/.ssh/config</code> というファイルを作成し，その中に接続情報を記述することで，<code>ssh</code> コマンドが接続時にその情報を参照できます． まずは，Wisteria/BDECへの接続を単純化してみましょう．</p>
-<p>接続元マシンで，<code>config</code> ファイルを開きます（なければ作成します）．</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ~/.ssh</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> code config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>ここではVSCodeのシェルコマンド <code>code</code> がインストールされている前提で例を書いていますが，使うエディタは何でも構いません．ただし，<code>.ssh</code> はドット記号から始まる隠しディレクトリですので，エクスプローラ（Windows）やFinder (macOS) からは見えません．ターミナルで <code>ls -a</code> すると見えるはずです．</p>
-</div>
-</div>
-<p><code>config</code> ファイルに以下の内容を記述します．ただし，<code>USERNAME-of-BDEC</code> は自身のWisteria/BDECユーザー名です． <code>IdentifyFile</code> の行では接続に用いる秘密鍵を指定します．</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> bdec</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">HostName</span> wisteria.cc.u-tokyo.ac.jp</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> USERNAME-of-BDEC</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>この準備をすると，ターミナルから</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh bdec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>とするだけで，<code>wisteria.cc.u-tokyo.ac.jp</code> に接続できます．</p>
-<p>さらに，EICへの接続設定も <code>config</code> ファイルに追記しましょう．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> eic</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">Hostname</span> eic.eri.u-tokyo.ac.jp</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> USERNAME-of-EIC</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ProxyCommand</span> ssh <span class="at">-W</span> %h:%p bdec</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Wisteria/BDECとほとんど同様ですが，<code>ProxyCommand</code> の行が増えています．これにより，<code>ssh eic</code> とするだけで，Wisteria/BDECを踏み台にしてEICに接続できます．</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>VSCodeでSSH拡張を利用している場合は，この設定ファイルが自動的に読み込まれます． これ以降は，VSCodeからも <code>eic</code> を選択して接続できます．</p>
-</div>
-</div>
+<section id="内容" class="level3">
+<h3 class="anchored" data-anchor-id="内容">内容</h3>
+<p>地震波動伝播数値シミュレーション手法の概略の講義ののち，オープンソースソフトウェアOpenSWPCとコンピュータクラスタ（スーパーコンピュータ）を用いた実践的な数値シミュレーションについて，実習形式で学びます．この講習会で，以下のような現実的な3次元的に不均質な日本列島構造下における地震波動伝播数値シミュレーションを実行し，そのシミュレーション結果の地震波形を観測記録と同じように扱えるようになります．</p>
+<p><img src="./swpc-demo.gif" class="img-fluid"></p>
+</section>
+<section id="対象" class="level3">
+<h3 class="anchored" data-anchor-id="対象">対象</h3>
+<p>地震波動伝播数値シミュレーションやそれを用いた研究に興味がある学生や研究者の方．</p>
+</section>
+<section id="定員" class="level3">
+<h3 class="anchored" data-anchor-id="定員">定員</h3>
+<p>最大 XX 名（先着順）</p>
+</section>
+<section id="前提知識必要となる準備" class="level3">
+<h3 class="anchored" data-anchor-id="前提知識必要となる準備">前提知識・必要となる準備</h3>
+<ul>
+<li>Linuxのごく基本的な操作ができること
+<ul>
+<li>具体的には『リモートホストにSSHでログインして，そのホスト上のファイルを編集する』ができれば十分です．標準的な環境構築方法や操作法については別途資料を提供します．</li>
+</ul></li>
+<li>地震学（とくに地震波動）に対する学部講義レベルの知識とそれを理解する程度の初歩的な物理数学の知識</li>
+<li>FortranやPythonなどの何らかのプログラミング言語の経験
+<ul>
+<li>講義ではFortranの文法を用いますが，必要に応じて補足説明がなされます．</li>
+</ul></li>
+<li>実習にあたり東京大学地震研究所が提供する<a href="https://eic-support.eri.u-tokyo.ac.jp">EIC計算機システム</a>のアカウントが必要です．詳しくは申し込みいただいた方に別途ご案内します．</li>
+</ul>
+</section>
+<section id="参加資格" class="level3">
+<h3 class="anchored" data-anchor-id="参加資格">参加資格</h3>
+<p>実習で用いるEIC計算機システムの利用資格が『国立大学法人、公、私立大学および国、公立研究機関の教員・研究者又はこれに準じるもので、利用目的が地震・火山・防災の関連分野の研究遂行にかかわるもの』のとされているため，本講習会の参加資格もそれに準じます． （研究者とは大学院生を含みます．学部生については調整中です）</p>
+</section>
+</section>
+<section id="参加申し込み" class="level2">
+<h2 class="anchored" data-anchor-id="参加申し込み">参加申し込み</h2>
+<p>準備中．2025年8月ごろ申し込み受付開始予定です．</p>
 
 
 </section>

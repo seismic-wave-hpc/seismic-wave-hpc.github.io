@@ -14,25 +14,23 @@ abstract: EICにはWINやSACなど，地震学解析に必要な伝統的なツ�
 ここでは，その代替としてMiniforgeを用います．MiniforgeはAnacondaのパッケージ管理コマンド `conda` と同等なものを提供する完全なオープンソースなプロジェクトです．
 :::
 
-
 ## Miniforgeのインストール
 
 まずは適当なディレクトリでMiniforgeを `curl` コマンドでダウンロードします．
+
 ```bash
-$ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 ```
 
 そのディレクトリでダウンロードしたスクリプトを `bash` で実行します．
+
 ```bash
-$ bash  ./Miniforge3-Linux-x86_64.sh -b
+bash  ./Miniforge3-Linux-x86_64.sh -b
 ```
 
 ::: {.callout-important}
-オプション `-b` は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．
-
-これはライセンス確認を省略することを推奨するものではなく，2025年3月現在Miniforgeの対話的インストールに[障害](https://github.com/mamba-org/mamba/issues/3772)が発生しており，それを回避するためのものです．
+オプション `-b` は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．これはライセンスの確認を省略することを推奨するものではありません．
 :::
-
 
 すると，しばらくメッセージが流れ，最終的に
 
@@ -65,7 +63,6 @@ modified      /home/j0XXXX/.bashrc
 
 ただし，`j0XXXX` はユーザー名です．表示されたとおり，初期設定ファイル `.bashrc` に `conda` コマンドの設定が書き込まれます．
 
-
 ```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -84,29 +81,37 @@ unset __conda_setup
 ```
 
 ::: {.callout-important}
-EICでは，上記の設定をしても，ターミナルからログインしたときには自動で `conda` が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．
+インストールするバージョンによっては，その下にさらにmambaの設定が書き込まれることがあります．
+
+なお，EICでは，上記の設定をしても，ターミナルからログインしたときには自動で `conda` が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．
 
 もし，ターミナルから `conda` を有効にしたいときには，
+
 ```bash
-$ source ~/.bashrc
+source ~/.bashrc
 ```
+
 というコマンドで， `.bashrc` ファイルの設定を読み込ませてください．あるいは，`~/.bash_profile` というファイル（なければ作る）に上記 `source` コマンドを記述しておくと，ログイン時に直接 `conda` が使えるようになります．
 :::
 
 ## Conda仮想環境の作成
 
 Miniforgeが有効になっていると，EICのプロンプトが
+
 ```bash
 (base) -bash-4.2$ 
 ```
+
 のように `(base)` とついたものに変更されているはずです．
 これはcondaの環境名で，初期状態 `base` が有効になっているという印です．もしそうなっていなかったら， `source ~/.bashrc` コマンドを実行して `conda` を有効化してください．
 
 この状態では，システムに入っているPythonよりも，Miniforgeで自分がインストールしたPythonのほうが優先されます．たとえば，`python` コマンドの場所を調べてみると，
+
 ```bash
 $ which python
 ~/miniforge3/bin/python
 ```
+
 と表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下にpython本体が入っていること，それがシステムのpythonよりも優先されていることがわかります．
 
 Miniforgeでは，Python本体と関連ライブラリを丸ごとまとめた **仮想環境**をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 `seismo25` を作成してみます．
@@ -116,6 +121,7 @@ $ conda create --name seismo25 --channel conda-forge \
   python ipykernel pygmt gmt numpy scipy obspy netcdf4 \
   matplotlib cartopy ffmpeg
 ```
+
 画面の幅の都合上複数行に分かれていますが，これで1つのコマンドです．
 
 ::: {.callout-tip}
@@ -157,12 +163,14 @@ Executing transaction: done
 ```
 
 と表示され，インストール完了です．このメッセージの通り，condaが有効になった状態で，
+
 ```bash
 (base) -bash-4.2$ conda activate seismo25 # seismo24環境を有効化
 (seismo25) -bash-4.2$ conda deactivate    # seismo24環境を無効化
 (base) -bash-4.2$ conda deactivate        # conda自体を無効化
 -bash-4.2$
 ```
+
 というように，`conda activate` と `conda deactivate` で有効，無効を切り替えられます．
 さらに `base` 環境で `conda deactivate` すると，`conda` 自体を無効化できます．
 
