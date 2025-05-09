@@ -1,5 +1,5 @@
 ---
-title: OpenSWPCのビルド
+title: 様々な環境におけるOpenSWPCのビルド
 date: 2025-01-25
 ---
 
@@ -35,10 +35,10 @@ $ brew doctor
 ```
 
 ```bash
-$ brew install gcc             # gfortranがこの中に含まれる
-$ brew install open-mpi        # MPIのライブラリと実行環境
-$ brew install netcdf          # NetCDFライブラリ本体
-$ brew install netcdf-fortran  # FortranからNetCDFを利用するためにこちらも必要
+brew install gcc             # gfortranがこの中に含まれる
+brew install open-mpi        # MPIのライブラリと実行環境
+brew install netcdf          # NetCDFライブラリ本体
+brew install netcdf-fortran  # FortranからNetCDFを利用するためにこちらも必要
 ```
 
 ここまでで，`/opt/homebrew/bin` に `gfortran` や `mpif90` などの実行ファイルが，`/opt/homebrew/lib` にライブラリ，`/opt/homebrew/include` にインクルードファイル（この場合は `netcdf.mod` というFortranからNetCDFを利用するためのモジュール情報ファイル）がインストールされているはずです．また，Homebrewが正常にインストールされていれば，`/opt/homebrew/bin` には PATHが通っており，その下のファイルはコマンド名だけでどこからでも実行できるはずです．
@@ -55,11 +55,9 @@ $ make arch=mac-gfortran
 
 これですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると `./bin/` ディレクトリ以下に実行ファイルが生成されます．
 
-
 ## Ubuntu Linux + gfortran
 
 [Ubuntu Linux](https://ubuntu.com) は，[Debian GNU/Linux](https://www.debian.org)から派生したLinuxディストリビューションです．使いやすさが重視されたディストリビューションで，Linuxの数多くのディストリビューションのなかでも特に利用者の多いディストリビューションのようです．Microsoft WindowsでLinuxを動作させるWindows Subsystem for Linux 2 (WSL2) のデフォルトディストリビューションでもあります．
-
 
 Ubuntu LinuxはDebianの派生であり，またUbuntuからさらに派生したディストリビューションも[多数](https://w.atwiki.jp/linuxjapanwiki/pages/55.html)あります．有名で利用者が多いものに，Debianのほか[Linux Mint](https://linuxmint.com)が挙げられます．それら関連ディストリビューションでは，同じ `apt` コマンドによるパッケージ管理システムが導入されている場合が多く，以下のビルド方法がそのまま使える必要があります．
 
@@ -82,7 +80,6 @@ Ubuntuにおいては，MPIライブラリであるOpenMPIやNetCDFが，実行�
 実は`netcdf-bin` はNetCDFファイルに関する実行プログラムで，OpenSWPCのビルドそのものには不要です．ですが，OpenSWPCの入出力ファイルであるnetcdfファイルの内容を確認できる `ncdump` コマンドが含まれるため，これもあわせてインストールしておくことをお勧めします．
 :::
 
-
 ```bash
 # curlコマンドでダウンロードし，unzipで展開．
 # もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない
@@ -92,12 +89,12 @@ $ unzip 25.01.zip
 $ cd OpenSWPC-25.01/src
 $ make arch=ubuntu-gfortran
 ```
+
 これですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると `./bin/` ディレクトリ以下に実行ファイルが生成されます．
 
 ## Ubuntu Linux + intel compiler
 
 To be available soon!
-
 
 ## AlmaLinux
 
@@ -114,9 +111,9 @@ To be available soon!
 AlmaLinuxのパッケージ管理システムは `yum` と `dnf` ですが，デフォルトのパッケージ一覧の中には科学技術計算に関するライブラリ群が十分に含まれていません．そこで，まず [Extra Packages for Enterprise Linux (EPEL)](https://docs.fedoraproject.org/en-US/epel/) リポジトリを有効化します．これはRHEL系ディストリビューションの一つであるFedora Projectで開発された追加パッケージの一覧です．
 
 ```bash
-$ sudo dnf config-manager --set-enabled crb 
-$ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-$ sudo dnf update
+sudo dnf config-manager --set-enabled crb 
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+sudo dnf update
 ```
 
 そのうえで関連パッケージをインストールします．
@@ -128,11 +125,12 @@ $ sudo dnf update
 その後で関連ライブラリのインストールをします．
 
 ```bash
-$ sudo yum install gfortran
-$ sudo yum install openmpi openmpi-devel
-$ sudo yum install netcdf netcdf-fortran netcdf-devel netcdf-fortran-devel
-$ sudo yum install git curl
+sudo yum install gfortran
+sudo yum install openmpi openmpi-devel
+sudo yum install netcdf netcdf-fortran netcdf-devel netcdf-fortran-devel
+sudo yum install git curl
 ```
+
 Ubuntu Linuxと同様に，openmpiやnetcdfの本体と開発用のライブラリは別パッケージとなっていますので，ご注意ください．
 
 なお，AlmaLinuxではOpenMPIはインストールしても `mpif90` や `mpirun` 等のコマンドにPATHが通らないようです．そのため，`.bashrc` ファイル等に以下のようにインストール先 `/usr/lib64/openmpi/bin/` にPATHを設定するコマンドを記述するか，あるいはコンパイルおよび実行時にPATHつきでコマンドを実行することになります．
@@ -167,8 +165,8 @@ endif
 `makefile.arch`と`makefile-tools.arch`それぞれを上記のように編集してから
 
 ```bash
-$ cd src
-$ make arch=almalinux
+cd src
+make arch=almalinux
 ```
 
 とすることでビルドできます．
@@ -176,7 +174,7 @@ $ make arch=almalinux
 `swpc_sh.x`, `swpc_psv.x`, `swpc_3d.x` をMPI実行する場合には，前述の `export PATH...` 設定をしておくか，あるいは実行時に
 
 ```bash
-$ /usr/lib64/openmpi/bin/mpirun -np 4 ./bin/swpc_3d.x -i example/input.inf
+/usr/lib64/openmpi/bin/mpirun -np 4 ./bin/swpc_3d.x -i example/input.inf
 ```
 
 のように `mpirun` コマンドを場所つきで指定する必要があります．

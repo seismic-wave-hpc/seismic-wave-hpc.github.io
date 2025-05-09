@@ -9,7 +9,7 @@
 <meta name="author" content="Takuto Maeda">
 <meta name="dcterms.date" content="2025-01-25">
 
-<title>OpenSWPCのビルド – Seismic-Wave-HPC</title>
+<title>様々な環境におけるOpenSWPCのビルド – Seismic-Wave-HPC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../HPC/hpc-howto.html"> 
-<span class="menu-text">スパコン利用Howto</span></a>
+<span class="menu-text">HPC-Howto</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../OpenSWPC-Howto/OpenSWPC-00-index.html" aria-current="page"> 
@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-00-index.html">OpenSWPC Howto</a></li><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-01-build.html">OpenSWPCのビルド</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-00-index.html">OpenSWPC Howto</a></li><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-01-build.html">様々な環境におけるOpenSWPCのビルド</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -175,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../OpenSWPC-Howto/OpenSWPC-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPC Howto</span></a>
+ <span class="menu-text">OpenSWPC 関連情報</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../OpenSWPC-Howto/OpenSWPC-01-build.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">OpenSWPCのビルド</span></a>
+ <span class="menu-text">様々な環境におけるOpenSWPCのビルド</span></a>
   </div>
 </li>
       </ul>
@@ -215,9 +215,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-00-index.html">OpenSWPC Howto</a></li><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-01-build.html">OpenSWPCのビルド</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-00-index.html">OpenSWPC Howto</a></li><li class="breadcrumb-item"><a href="../OpenSWPC-Howto/OpenSWPC-01-build.html">様々な環境におけるOpenSWPCのビルド</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">OpenSWPCのビルド</h1>
+<h1 class="title">様々な環境におけるOpenSWPCのビルド</h1>
 </div>
 
 
@@ -278,10 +278,10 @@ Note
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># brewの動作確認</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew doctor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew install gcc             <span class="co"># gfortranがこの中に含まれる</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew install open-mpi        <span class="co"># MPIのライブラリと実行環境</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew install netcdf          <span class="co"># NetCDFライブラリ本体</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew install netcdf-fortran  <span class="co"># FortranからNetCDFを利用するためにこちらも必要</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gcc             <span class="co"># gfortranがこの中に含まれる</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install open-mpi        <span class="co"># MPIのライブラリと実行環境</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install netcdf          <span class="co"># NetCDFライブラリ本体</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install netcdf-fortran  <span class="co"># FortranからNetCDFを利用するためにこちらも必要</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ここまでで，<code>/opt/homebrew/bin</code> に <code>gfortran</code> や <code>mpif90</code> などの実行ファイルが，<code>/opt/homebrew/lib</code> にライブラリ，<code>/opt/homebrew/include</code> にインクルードファイル（この場合は <code>netcdf.mod</code> というFortranからNetCDFを利用するためのモジュール情報ファイル）がインストールされているはずです．また，Homebrewが正常にインストールされていれば，<code>/opt/homebrew/bin</code> には PATHが通っており，その下のファイルはコマンド名だけでどこからでも実行できるはずです．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># curlコマンドでダウンロードし，unzipで展開．</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない</span></span>
@@ -343,9 +343,9 @@ Note
 <section id="almalinuxにおけるビルド" class="level3">
 <h3 class="anchored" data-anchor-id="almalinuxにおけるビルド">AlmaLinuxにおけるビルド</h3>
 <p>AlmaLinuxのパッケージ管理システムは <code>yum</code> と <code>dnf</code> ですが，デフォルトのパッケージ一覧の中には科学技術計算に関するライブラリ群が十分に含まれていません．そこで，まず <a href="https://docs.fedoraproject.org/en-US/epel/">Extra Packages for Enterprise Linux (EPEL)</a> リポジトリを有効化します．これはRHEL系ディストリビューションの一つであるFedora Projectで開発された追加パッケージの一覧です．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo dnf config-manager <span class="at">--set-enabled</span> crb </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo dnf update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf config-manager <span class="at">--set-enabled</span> crb </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>そのうえで関連パッケージをインストールします．</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -361,10 +361,10 @@ Note
 </div>
 </div>
 <p>その後で関連ライブラリのインストールをします．</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo yum install gfortran</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo yum install openmpi openmpi-devel</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo yum install netcdf netcdf-fortran netcdf-devel netcdf-fortran-devel</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo yum install git curl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install gfortran</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install openmpi openmpi-devel</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install netcdf netcdf-fortran netcdf-devel netcdf-fortran-devel</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install git curl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ubuntu Linuxと同様に，openmpiやnetcdfの本体と開発用のライブラリは別パッケージとなっていますので，ご注意ください．</p>
 <p>なお，AlmaLinuxではOpenMPIはインストールしても <code>mpif90</code> や <code>mpirun</code> 等のコマンドにPATHが通らないようです．そのため，<code>.bashrc</code> ファイル等に以下のようにインストール先 <code>/usr/lib64/openmpi/bin/</code> にPATHを設定するコマンドを記述するか，あるいはコンパイルおよび実行時にPATHつきでコマンドを実行することになります．</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># この設定を ~/.bashrc に記載する</span></span>
@@ -395,11 +395,11 @@ Note
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">endif</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>makefile.arch</code>と<code>makefile-tools.arch</code>それぞれを上記のように編集してから</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd src</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make arch=almalinux</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> src</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> arch=almalinux</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>とすることでビルドできます．</p>
 <p><code>swpc_sh.x</code>, <code>swpc_psv.x</code>, <code>swpc_3d.x</code> をMPI実行する場合には，前述の <code>export PATH...</code> 設定をしておくか，あるいは実行時に</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> /usr/lib64/openmpi/bin/mpirun <span class="at">-np</span> 4 ./bin/swpc_3d.x <span class="at">-i</span> example/input.inf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/openmpi/bin/mpirun</span> <span class="at">-np</span> 4 ./bin/swpc_3d.x <span class="at">-i</span> example/input.inf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>のように <code>mpirun</code> コマンドを場所つきで指定する必要があります．</p>
 
 

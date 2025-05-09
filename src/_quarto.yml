@@ -22,7 +22,7 @@ website:
       - text: Home
         href: index.md
 
-      - text: "スパコン利用Howto"
+      - text: "HPC-Howto"
         href: HPC/hpc-howto.md
 
       - text: "OpenSWPC関連情報"
