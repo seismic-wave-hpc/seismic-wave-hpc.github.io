@@ -18,6 +18,7 @@ Wisteria/BDEC-01のログインノードはいわゆるLinuxマシンですか�
 ```bash
 pjsub --interact -g ${group} -L rscgrp=interactive-o,node=1
 ```
+
 ::: {.callout-caution}
 `rscgrp=interactive-o,node=1` は，`rscgrp=interactive-o, node=1` のように空白をいれるとまさしく認識されません．
 :::
@@ -27,6 +28,7 @@ pjsub --interact -g ${group} -L rscgrp=interactive-o,node=1
 :::
 
 同様に，プリポストジョブは，以下のコマンドで実行できます．
+
 ```bash
 pjsub --interact -g ${group} -L rscgrp=prepost,node=1
 ```

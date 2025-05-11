@@ -22,48 +22,52 @@ website:
       - text: Home
         href: index.md
 
-      - text: "HPC-Howto"
+      - text: "スパコン利用法"
         href: HPC/hpc-howto.md
 
+      - text: "地震波数値シミュレーション講習会"
+        href: FDM-Workshop/fdm-workshop.md
+ 
       - text: "OpenSWPC関連情報"
         href: OpenSWPC-Howto/OpenSWPC-00-index.md
 
-      - text: "講習会"
-        href: FDM-Workshop/fdm-workshop.md
-
-        
+         
     
   sidebar: 
 
-    - title: "HPC-Howto"
+    - title: "スパコン利用法"
       contents: 
         - HPC/hpc-howto.md
-        - auto: "HPC/Common"
-        - auto: "HPC/EIC2025"
+        - auto: "HPC/共通知識"
+        - auto: "HPC/EIC-2025"
         - auto: "HPC/Wisteria"
         - auto: "HPC/Miyabi"
-        - HPC/Archives/Archives.md
-        - auto: "HPC/Archives/EIC2020"
+#        - HPC/Archives/Archives.md
+#        - auto: "HPC/Archives/EIC2020"
 
-    - title: "OpenSWPC-Howto"
-      contents: 
-        - auto: "OpenSWPC-Howto"
           
-    - title: "FDM-Workshop"
+    - title: "地震波数値シミュレーション講習会"
       contents: 
         - FDM-Workshop/fdm-workshop.md
         - auto: "FDM-Workshop/2025年度講習会"
 
+    - title: "OpenSWPC-Howto"
+      contents: 
+        - OpenSWPC-Howto/OpenSWPC-00-index.md
+        - title: 
+          href: OpenSWPC-Howto/OpenSWPC-01-build.md
+          contents:
+          - auto: "OpenSWPC-Howto/OpenSWPC-01-build/*"
+ 
 format:
   html:
-    theme: spacelab
-#    theme: flatly
+    theme: default
     css: styles.css
     toc: true
     highlight-style: tango
     code-overflow: wrap
 
-author: Takuto Maeda
+#author: Takuto Maeda
 bibliography: reference.bib
 #suppress-bibliography: true
 csl: american-geophysical-union.csl

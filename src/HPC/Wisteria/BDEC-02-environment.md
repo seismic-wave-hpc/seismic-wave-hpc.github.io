@@ -1,7 +1,7 @@
 ---
 title: 解析環境の構築
 date: 2024-08-26
-date-modified: 2024-09-17
+date-modified: 2025-05-11
 abstract: "Wisteria/BDEC-01 はあらゆる科学技術分野のユーザーが利用する汎用のスパコンのため，地震学のための専用ソフトウェアはほとんど導入されていません．そのため，ユーザー自身でソフトウェアを導入する必要があります．ここではMiniforgeを通じた解析環境の構築方法を紹介します．"
 ---
 
@@ -18,13 +18,13 @@ abstract: "Wisteria/BDEC-01 はあらゆる科学技術分野のユーザーが�
 まずは適当なディレクトリでMiniforgeを `curl` コマンドでダウンロードします．
 
 ``` bash
-$ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 ```
 
 そのディレクトリでダウンロードしたスクリプトを `bash` で実行します．
 
 ``` bash
-$ bash  ./Miniforge3-Linux-x86_64.sh
+bash  ./Miniforge3-Linux-x86_64.sh
 ```
 
 すると，対話的なインストーラが立ち上がります．
@@ -108,7 +108,7 @@ Miniforgeが有効になっていると，Wisteria/BDECのプロンプトが
 この状態では，システムに入っているPythonよりも，Miniforgeで自分がインストールしたPythonのほうが優先されます．たとえば，`python` コマンドの場所を調べてみると，
 
 ``` bash
-$ which python
+which python
 ~/miniforge3/bin/python
 ```
 
@@ -117,9 +117,9 @@ $ which python
 Miniforgeでは，Python本体と関連ライブラリを丸ごとまとめた **仮想環境**をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 `seismo24` を作成してみます．
 
 ``` bash
-$ conda create --name seismo24 --channel conda-forge \
-  python ipykernel pygmt gmt numpy scipy obspy netcdf4 \
-  matplotlib cartopy ffmpeg
+conda create --name seismo24 --channel conda-forge \
+python ipykernel pygmt gmt numpy scipy obspy netcdf4 \
+matplotlib cartopy ffmpeg
 ```
 
 画面の幅の都合上2行に分かれていますが，これで1つのコマンドです．
@@ -130,8 +130,8 @@ Linuxのターミナルでは，行末にバックスラッシュ `\` を打つ�
 
 ここで，1行目はおもにオプション，2行目がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．
 
--   `--name seismo24` 仮想環境の名前を `seismo24` に指定します．
--   `--channel conda-forge` パッケージの検索・インストールをする提供元を指定します．`conda-forge` には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．
+- `--name seismo24` 仮想環境の名前を `seismo24` に指定します．
+- `--channel conda-forge` パッケージの検索・インストールをする提供元を指定します．`conda-forge` には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．
 
 ::: callout-tip
 まずパッケージなしで `conda create` により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます． Web上の解説ではそのようなやり方が多く見られるようです．
@@ -174,7 +174,11 @@ Executing transaction: done
 
 ともあれ，これで一通りのツールが使えるようになりました．
 
-PyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，EICリモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．
+PyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，リモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．
+
+:::{.callout-note}
+ログイン元のマシンだけではなくリモート接続したおいてもPythonとJupyter拡張機能をインストールする必要があることにご注意ください．
+:::
 
 ## JupyterHub からの利用
 
@@ -183,7 +187,7 @@ BDECにはJupyterHubによりブラウザのPython環境からアクセスでき
 そのための準備として，JupyterからPython環境を認識させるために，以下のコマンドを実行します：
 
 ``` bash
-$ ipython kernel install --user --name=seismo24 --display-name=seismo24
+ipython kernel install --user --name=seismo24 --display-name=seismo24
 ```
 
 ::: callout-note
