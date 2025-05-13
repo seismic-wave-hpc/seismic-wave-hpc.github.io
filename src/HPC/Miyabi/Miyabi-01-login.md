@@ -1,6 +1,7 @@
 ---
 title: 初回ログイン
 date: 2025-05-11
+date-modified: 2025-05-13
 draft: true
 abstract: "アカウント作成後のログイン方法について詳述します．"
 ---

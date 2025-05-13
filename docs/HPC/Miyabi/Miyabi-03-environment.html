@@ -373,6 +373,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">May 13, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -494,14 +500,14 @@ Warning
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">${HOSTNAME}</span><span class="st">"</span> <span class="ot">==</span> <span class="pp">*</span><span class="st">"miyabi-g"</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'conda init' !!</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/work/gi23/k64002/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/work/${group}/${user}/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$__conda_setup</span><span class="st">"</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"/work/gi23/k64002/miniforge3/etc/profile.d/conda.sh"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> <span class="st">"/work/gi23/k64002/miniforge3/etc/profile.d/conda.sh"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/etc/profile.d/conda.sh"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> <span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/etc/profile.d/conda.sh"</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/work/gi23/k64002/miniforge3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">__conda_setup</span></span>

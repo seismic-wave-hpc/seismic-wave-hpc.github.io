@@ -1,6 +1,7 @@
 ---
 title: 解析環境の構築
 date: 2025-05-11
+date-modified: 2025-05-13
 draft: true
 abstract: "Miyabi-Gのログインノードで研究開発をするための環境を整備します．"
 ---
@@ -125,14 +126,14 @@ unset __conda_setup
 if [[ "${HOSTNAME}" == *"miyabi-g"* ]]; then
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/work/gi23/k64002/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/work/${group}/${user}/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/work/gi23/k64002/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/work/gi23/k64002/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/work/${group}/${user}/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/work/${group}/${user}/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/work/gi23/k64002/miniforge3/bin:$PATH"
+        export PATH="/work/${group}/${user}/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
