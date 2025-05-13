@@ -10,12 +10,13 @@ abstract: "アカウント作成後のログイン方法について詳述しま
 Miyabi はCPUによる計算ノードMiyabi-CとGPUによるノードMiyabi-Gの2つからなり，ログインノードもそれぞれに準備されています．どちらのログインノードも同じRed Hat Enterprise Linuxが稼働しているのですが，そのCPUが
 Miyabi-Cではx86アーキテクチャのIntel Xeon，Miyabi-GではArmベースのNVIDIA Graceで，互いにバイナリの実行互換性がありません．
 
-どちらのログインノードから入ってもファイルシステムは共通なうえ，たとえばMiyabi-GにログインしながらIntel CPU用の実行ファイルをコンパイルしてMiyabi-Cで実行させたり，あるいはその逆もできます．
-しかし，自分のディレクトリ下で動作させるプログラム類はどちらかのアーキテクチャに統一しておいたほうが便利でしょうし，VSCodeでのSSH接続が自動的にホームディレクトリに作成する `.vscode-server` ディレクトリ内に自動作成されるファイルが原因で互換性の問題が発生し，接続ができなくこともあるようです．
+どちらのログインノードから入ってもファイルシステムは共通なうえ，たとえばMiyabi-GにログインしながらIntel CPU用の実行ファイルをコンパイルしてMiyabi-Cで実行させたり，あるいはその逆もできます．ただし，ソースコードのコンパイルはそれぞれのノードでしかできないようです．たとえば，NVIDIA環境でGPUコードのコンパイルをするためには，Miyabi-Gにログインしている必要があります．
 
-そこで，Miyabi-CもしくはMiyabi-Gのどちらかを主なログイン先として選択し，その片方だけを使い続けることを推奨します．もちろん，そうしても計算ノードは必要に応じて両方のものが使えます．
+自分のディレクトリ下で動作させるプログラム類はどちらかのアーキテクチャに統一しておいたほうが便利でしょうし，VSCodeでのSSH接続が自動的にホームディレクトリに作成する `.vscode-server` ディレクトリ内に自動作成されるファイルが原因で互換性の問題が発生し，接続ができなくこともあるようです．
 
-ここでは，より広く使われているx86アーキテクチャのMiyabi-Cにログインし，解析環境を整えることとします．
+そこで，Miyabi-CもしくはMiyabi-Gのどちらかを主なログイン先として選択し，VSCodeではそちらだけから接続するようにすることを勧めます．
+
+ここでは，GPUの利用を重視してMiyabi-Gを選択し，そちらで環境の設営を行います．
 
 ## ログインまで
 
@@ -25,10 +26,10 @@ Miyabiのログインは公開鍵方式に二段階認証の一種であるワ�
 OTP認証のためには，スマートフォンアプリのGoogle AuthenticatorやMicrosoft Authenticatorが便利でしょう．どちらもiPhone/Androidともにアプリが提供されており，職場や学校のOfficeやGoogleアカウントのためにすでに使っている方も多いのではないかと思います．もしインストール済みでしたら，そこにMiyabi用のOTPを追加することができます．
 :::
 
-そうして公開鍵を登録したら，以下のコマンドでMiyabi-CにSSH接続してみます．ただし`username` は自分のアカウント名です．
+そうして公開鍵を登録したら，以下のコマンドでMiyabi-GにSSH接続してみます．ただし`username` は自分のアカウント名です．
 
 ```bash
-ssh username@miyabi-c.jcahpc.jp
+ssh username@miyabi-g.jcahpc.jp
 ```
 
 すると，QRコードとシークレットキーが表示されます．QRコードはOTP認証のためのアプリ（スマートフォン等）で読み取ることで，ログインノード接続のためのOTPを獲得できます．
@@ -51,8 +52,8 @@ ssh username@miyabi-c.jcahpc.jp
 です．接続元マシンの `~/.ssh/config` ファイルに
 
 ```bash
-Host miyabi-c
-    Hostname miyabi-c.jcahpc.jp
+Host miyabi-g
+    Hostname miyabi-g.jcahpc.jp
     User (username)
     IdentityFile ~/.ssh/id_rsa
     ForwardX11 yes
@@ -61,7 +62,7 @@ Host miyabi-c
 と設定しておくと，以降は
 
 ```bash
-ssh miyabi-c
+ssh miyabi-g
 ```
 
 とOTP認証だけで接続できます．

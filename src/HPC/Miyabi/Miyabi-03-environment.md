@@ -2,7 +2,7 @@
 title: 解析環境の構築
 date: 2025-05-11
 draft: true
-abstract: "Miyabi-Cのログインノードで研究開発をするための環境を整備します．"
+abstract: "Miyabi-Gのログインノードで研究開発をするための環境を整備します．"
 ---
 
 以下では， `${user}` が個人ユーザーIDを，`${group}` がグループ名を表すものとします．コマンドを実行する際には読み替え（書き換え）て実行してください．なお，複数のグループに所属している場合は，主に使うひとつを選択してください．
@@ -57,7 +57,7 @@ cd setup
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 ```
 
-すると，(Miyabi-C環境なら) `Miniforge3-Linux-x86_64.sh` が生成されているはずです．これをバッチモード (`-b`) で実行してMiniforgeをインストールします．
+すると，(Miyabi-G環境なら) `Miniforge3-Linux-aarch64.sh` が生成されているはずです．これをバッチモード (`-b`) で実行してMiniforgeをインストールします．
 
 ::: {.callout-important}
 オプション `-b` は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．これはライセンス確認の省略を推奨するものではありません．
@@ -68,7 +68,7 @@ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mi
 :::
 
 ```bash
-bash Miniforge3-Linux-x86_64.sh -b -p ~/work/miniforge3
+bash ./Miniforge3-Linux-aarch64.sh -b -p ~/work/miniforge3
 ```
 
 ここで `-p ~/work/miniforge3` オプション（PREFIX）でインストール先を変更しています．
@@ -118,11 +118,11 @@ unset __conda_setup
 
 ### Miyabi-C&G 共存設定
 
-ログインノードとしてMiyabi-Cだけを使うならばこのままでも問題ないのですが，このままではMiyabi-Gで正常にログインできなくなってしまっています．
-`.bashrc`にかかれている内容はログイン時に読み込まれるのですが，その中の `conda` の設定で実行されるプログラムが，Miyabi-Cの `x86-64` アーキテクチャでしか動作しないためです．そこで，上記の `.bashrc` の設定の前後に `if` 文を追加して，以下のようにします．
+ログインノードとしてMiyabi-Gだけを使うならばこのままでも問題ないのですが，このままではMiyabi-Cで正常にログインできなくなってしまっています．
+`.bashrc`にかかれている内容はログイン時に読み込まれるのですが，その中の `conda` の設定で実行されるプログラムが，Miyabi-Gの `aarch64` アーキテクチャでしか動作しないためです．そこで，上記の `.bashrc` の設定の前後に `if` 文を追加して，以下のようにします．
 
 ```bash
-if [[ "${HOSTNAME}" == *"miyabi-c"* ]]; then
+if [[ "${HOSTNAME}" == *"miyabi-g"* ]]; then
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/work/gi23/k64002/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -140,10 +140,10 @@ unset __conda_setup
 fi
 ```
 
-これで `conda` の設定は Miyabi-C のログインノードにログインしたときだけ実行されるようになりました．
+これで `conda` の設定は Miyabi-G のログインノードにログインしたときだけ実行されるようになりました．
 
 ::: {.callout-tip}
-この方法を応用すれば，Miyabi-G でも別のディレクトリにminiforgeを別途インストールして，ログインノードによって実行されるcondaを切り分けることもできます．
+この方法を応用すれば，Miyabi-C でも別のディレクトリにminiforgeを別途インストールして，ログインノードによって実行されるcondaを切り分けることもできます．
 :::
 
 ### Conda仮想環境の作成
@@ -151,7 +151,7 @@ fi
 Miniforgeが有効になっていると，Wisteria/BDECのプロンプトが
 
 ```bash
-(base) [USERNAME@miyabi-c1 ~]$
+(base) [USERNAME@miyabi-g1 ~]$
 ```
 
 のように `(base)` とついたものに変更されているはずです． これは`conda`の環境名で，初期状態 `base` が有効になっているという印です．
