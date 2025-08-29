@@ -74,4 +74,4 @@ abstract: 地震波動伝播の数値シミュレーション技術の普及の�
 
 ### 参加申し込み
 
-[Google Form](https://docs.google.com/forms/d/1520YtQzGRLajs1LBt-HXqO3CsGnI4CL8XnzskOklYlM/edit) で申し込みを受け付けています．
+[Google Form](https://forms.gle/mnWVqDF3z1knmsqbA) で申し込みを受け付けています．
