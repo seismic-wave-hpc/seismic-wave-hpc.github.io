@@ -36,6 +36,10 @@ abstract: 地震波動伝播の数値シミュレーション技術の普及の�
 - プログラミング（特にPython）の経験があればなおよいですが，必須ではありません（講習会のなかでくわしく説明します）．
 - 講習会中に実施するハンズオン（実習）に参加するためには **Googleアカウント** が必要です．※アカウント名を開催者に伝える必要はありません．
 
+### 公開スライド
+
+<script async class="docswell-embed" src="https://www.docswell.com/assets/libs/docswell-embed/docswell-embed.min.js" data-src="https://www.docswell.com/slide/537QRP/embed" data-aspect="0.5625"></script><div class="docswell-link"></div>
+
 ## 中級編
 
 ### 日時
