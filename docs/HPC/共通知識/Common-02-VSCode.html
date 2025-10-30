@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -67,7 +101,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -76,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -304,8 +337,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#vscodeのインストール" id="toc-vscodeのインストール" class="nav-link active" data-scroll-target="#vscodeのインストール">VSCodeのインストール</a></li>
+  <li><a href="#日本語化" id="toc-日本語化" class="nav-link" data-scroll-target="#日本語化">日本語化</a></li>
+  <li><a href="#コマンドライン導入macos" id="toc-コマンドライン導入macos" class="nav-link" data-scroll-target="#コマンドライン導入macos">コマンドライン導入（macOS）</a></li>
+  <li><a href="#最低限の拡張機能の導入" id="toc-最低限の拡張機能の導入" class="nav-link" data-scroll-target="#最低限の拡張機能の導入">最低限の拡張機能の導入</a></li>
+  <li><a href="#vscode画面解説" id="toc-vscode画面解説" class="nav-link" data-scroll-target="#vscode画面解説">VSCode画面解説</a></li>
+  <li><a href="#word-wrap設定" id="toc-word-wrap設定" class="nav-link" data-scroll-target="#word-wrap設定">Word wrap設定</a></li>
+  <li><a href="#sshによるリモート環境への接続" id="toc-sshによるリモート環境への接続" class="nav-link" data-scroll-target="#sshによるリモート環境への接続">SSHによるリモート環境への接続</a></li>
+  <li><a href="#リモートサーバにおけるvscode拡張の導入" id="toc-リモートサーバにおけるvscode拡張の導入" class="nav-link" data-scroll-target="#リモートサーバにおけるvscode拡張の導入">リモートサーバにおけるVSCode拡張の導入</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -327,23 +373,141 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">October 30, 2025</p>
+    </div>
+  </div>
     
   </div>
   
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    プログラミング用のテキストエディタとして広く使われているVSCodeは，Remote-SSH拡張機能を用いることで，スパコン利用のための端末としても威力を発揮します．
+    プログラミング用のテキストエディタとして広く使われているVSCodeは，Remote-SSH拡張機能を用いることで，スパコン利用のための端末としても威力を発揮します．ここでは，その導入方法と，数あるプラグインや設定項目の中から厳選した最低限の項目を紹介します．
   </div>
 </div>
 
 
 </header>
 
+<hr>
+<section id="vscodeのインストール" class="level2">
+<h2 class="anchored" data-anchor-id="vscodeのインストール">VSCodeのインストール</h2>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code（VSCode）</a>は，Microsoft が提供する軽量かつ高機能なエディタです．まず，公式サイト（<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>）から，自分の環境に合ったインストーラをダウンロードしてインストールします．Windows, macOSそしてLinuxのdebおよびrpmパッケージがそれぞれ提供されています．普通は公式サイトのトップページに，自分の環境のインストーラへのリンクが掲載されています．もしそうでなかったり，他の環境のインストーラが必要でしたら，<a href="https://code.visualstudio.com/Download">other platforms</a> のリンクから所望のインストーラを探してください．</p>
+<p><img src="./fig/VSCode-01-installer.png" class="img-fluid"></p>
+<p>インストール後，アプリケーション一覧から「Visual Studio Code」を起動できれば準備完了です．</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>スクリーンショットは2025年10月時点のもので，アクセス時点での画面とは異なる場合があります．また，以下の操作画面はmacOS Tahoe 26.0.1 で撮影したものです．バージョンや環境により若干の差異があるかもしれません．</p>
+</div>
+</div>
+</section>
+<section id="日本語化" class="level2">
+<h2 class="anchored" data-anchor-id="日本語化">日本語化</h2>
+<p>デフォルトのVSCodeの操作画面およびメニューは英語です．このままでも不都合はありませんが，拡張機能 <strong>Japanese Language Pack for Visual Studio Code</strong> を導入することで，日本語化できます．</p>
+<p>サイドバーの拡張機能アイコン（4つの四角）をクリックします． 検索窓に “Japanese Language Pack” と入力し，Microsoft 公式のパッケージをインストールします． インストール後，再起動するとメニューが日本語表示になります．</p>
+</section>
+<section id="コマンドライン導入macos" class="level2">
+<h2 class="anchored" data-anchor-id="コマンドライン導入macos">コマンドライン導入（macOS）</h2>
+<p>macOS利用の方は，VSCode をコマンドラインから起動できるようにしておくと便利です． VSCode を開いた状態で <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>p</kbd> を押し，“Shell Command” と入力すると， <strong>Shell Command: Install ‘code’ command in PATH</strong> という選択肢が現れますので，それを実行します．</p>
+<p>これにより，ターミナルから次のように起動できるようになります：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>このコマンドは，現在のディレクトリ（<code>.</code>）をVSCodeで開くものです．</p>
+</section>
+<section id="最低限の拡張機能の導入" class="level2">
+<h2 class="anchored" data-anchor-id="最低限の拡張機能の導入">最低限の拡張機能の導入</h2>
+<p>VSCodeは拡張機能（プラグイン）がたくさん開発されており，それらを導入することでより便利に使えます．左側列の拡張機能アイコン（4つの四角）から，以下の拡張機能を検索してインストールしておくことを推奨します．</p>
+<ul>
+<li>Python</li>
+<li>Jupyter</li>
+<li>Remote - SSH</li>
+<li>Modern Fortran</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>VSCodeの拡張機能はだれでも公開できるため，同名の拡張機能が複数存在することがあります．検索したパッケージを選択すると表示されるパッケージ内容詳細画面に<strong>作成者</strong>が明記されていますので，確認したうえでインストールするようにしましょう．上記の推奨パッケージの作成者は，Python, Jupyter, Remote - SSHがMicrosoft，Modern Fortranはfortran-lang.org です．</p>
+</div>
+</div>
+</section>
+<section id="vscode画面解説" class="level2">
+<h2 class="anchored" data-anchor-id="vscode画面解説">VSCode画面解説</h2>
+<p>VSCodeは<strong>テキストエディタ</strong>ですので，プログラムのソースコードや文章などのテキストファイルの編集ができます．しかし，それ以上に<strong>統合環境</strong>としての機能が充実しているのが特徴です．以下の画面はPythonファイル（<code>.py</code>），Fortranファイル（<code>.f90</code>），Jupyter Notebookを同時に開いた状態です．</p>
+<p><img src="./fig/VSCode-02-Screen.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>上記スクリーンショットでは，筆者の環境で上述したもの以外の拡張機能が導入されているため，ウインドウ左側列に様々なアイコンが表示されていますが，とりあえず気にする必要はありません．</p>
+</div>
+</div>
+<p>VSCodeは個々のファイルではなくディレクトリ（フォルダ）を開くことができます．その場合には左列のメニュー（エクスプローラ）に開いているディレクトリ名（この場合は <code>TEST</code>）とその中のファイル一覧が表示され，ここから開くファイルを選ぶことができます．画面右上の広い領域を占めるのがエディタ部分ですが，ここでは<strong>タブ</strong>によって3つのファイルを同時に開いています．FortranとPythonの拡張機能を導入したことによって，それぞれのソースコードについてキーワードが自動的に強調されています．また，Jupyter Notebook (<code>.ipynb</code>) ファイルも開くことができ，Pythonの環境が適切にインストールされていれば，その場で実行もできます．VSCodeが対応するファイル種類の範囲は広く，<code>jpg</code>や<code>png</code>, <code>bmp</code>といった標準的な画像ファイルであれば，VSCode内で表示できます．PDFファイルや動画ファイルについては，適切な拡張機能を導入すれば表示できます．さらに，メニューから “ターミナル” → “新しいターミナル” を選ぶと，画面下部にコマンドライン入力のためのターミナルを表示できます．</p>
+<p>つまり，プログラムを編集してコマンドラインから実行することや，Jupyter NotebookでPythonの対話実行により可視化をしたり，あるいはまとめて可視化した結果の画像ファイルを閲覧したり，といった，Fortran/Pythonプログラミング環境を活用した研究に関わる活動のほとんどがVSCode上で完結させられるのです．</p>
+</section>
+<section id="word-wrap設定" class="level2">
+<h2 class="anchored" data-anchor-id="word-wrap設定">Word wrap設定</h2>
+<p>メニュー Code→基本設定→設定 で設定画面が現れます．設定内容は膨大ですが，検索窓から Wrap を入力し，Editor: Word Wrap というメニューの下の選択肢を on にします． これで（プログラミングなどで）長い行を書いたときに，エディタの右端で自動的に折り返されるようになります．</p>
+</section>
+<section id="sshによるリモート環境への接続" class="level2">
+<h2 class="anchored" data-anchor-id="sshによるリモート環境への接続">SSHによるリモート環境への接続</h2>
+<p>VSCodeにRemote - SSH拡張機能を導入していれば，VSCodeからSSHでリモートサーバに接続し，リモートサーバ上のディレクトリをあたかもローカルのディレクトリと同じように開き，操作できます．</p>
+<p>VSCodeウインドウの左列のアイコンのうち，ディスプレイのマーク右下に丸印中に <code>&gt;&lt;</code> のようなマークがSSH接続のためのアイコンです．押すと，下図のように既知のサーバ一覧が出てきます．</p>
+<p><img src="./fig/VSCode-03-SSHlist.png" class="img-fluid"></p>
+<p>このサーバ一覧は <code>~/.ssh/config</code> に記載されているエントリから読み込まれています．事前にスパコンへの接続の設定を済ませてあれば，その登録名が表示されます．</p>
+<p>あらかじめ登録されているホストに接続するには，そのホスト名にマウスをオーバーレイ（ポインタをその上に持っていくこと）すると，ホスト名右側に <code>→</code> と 四角いマークの左上に <code>+</code> の描かれたアイコンが表示されます．前者は現在のウインドウで，後者は新しいウインドウを立ち上げて，それぞれそのホストに接続するマークです．接続を試みると，必要に応じてパスワードが聞かれます．</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>過去に接続したことがあるホストでは，そのホストで開いたディレクトリ名が一覧で表示されますので，そこからリモートの特定のフォルダをいきなり開くこともできます．</p>
+</div>
+</div>
+<p>登録済みではないサーバにあらたに接続する場合には，<code>SSH</code> と書かれた部分にマウスをオーバーレイすると，右側に<code>+</code>マークが現れます．そのボタンを押すと，画面上部に接続先ホスト名（あるいはIP番号）を入力する画面が現れます．</p>
+<p><img src="./fig/VSCode-04-SSH-IP.png" class="img-fluid"></p>
+<p>あとはパスワードを入力すれば，接続完了です．以下のスクリーンショットは一例として東京大学地震研究所のEIC計算機システムのホームディレクトリに接続した直後の様子です．</p>
+<p><img src="./fig/VSCode-05-EIC.png" class="img-fluid"></p>
+<p>一見ローカルと変わらないようですが，エクスプローラで表示されているファイルとディレクトリはリモートサーバのもの，ターミナルもリモートサーバ上のbashが実行されています．リモートに接続している状態では，画面左下に接続先ホストが表示されますので，それで区別できます．</p>
+</section>
+<section id="リモートサーバにおけるvscode拡張の導入" class="level2">
+<h2 class="anchored" data-anchor-id="リモートサーバにおけるvscode拡張の導入">リモートサーバにおけるVSCode拡張の導入</h2>
+<p>ローカルPCで導入したVSCodeの拡張機能は，リモートサーバでは動作しません．リモートサーバに接続した状態で，あらためて以下の拡張機能を導入しておきましょう．</p>
+<ul>
+<li>Python</li>
+<li>Jupyter</li>
+<li>Modern Fortran</li>
+</ul>
 
-<hr><p>（執筆中）</p>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
