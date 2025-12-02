@@ -59,6 +59,9 @@ website:
           contents:
           - auto: "OpenSWPC-Howto/OpenSWPC-01-build/*"
  
+
+  google-analytics: "G-MZJMGT1XB0"
+
 format:
   html:
     theme: default
