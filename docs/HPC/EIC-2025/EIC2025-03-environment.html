@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>解析環境の構築 – Seismic-Wave-HPC</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-9e5c7bf9fbb22184c3d5797f9fbacf74.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-783c3be22810b68d0f940d6fc8f9f724.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0c2cfa90588a05f4697f68259e448028.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -382,7 +384,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 2, 2025</p>
+      <p class="date-modified">July 19, 2026</p>
     </div>
   </div>
     
@@ -430,7 +432,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>オプション <code>-b</code> は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．これはライセンス確認の省略を推奨するものではありません．</p>
+<p>オプション <code>-b</code> は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．ただし，これはライセンス確認の省略を推奨するものではありません．気になるようでしたら <code>-b</code> オプションをなしで実行し，詳細を確認するようにしてください．</p>
 </div>
 </div>
 <p>すると，しばらくメッセージが流れ，最終的に</p>
@@ -448,12 +450,12 @@ Important
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /home/j0XXXX/miniforge3/etc/fish/conf.d/conda.fish</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /home/j0XXXX/miniforge3/shell/condabin/Conda.psm1</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /home/j0XXXX/miniforge3/shell/condabin/conda-hook.ps1</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /home/j0XXXX/miniforge3/lib/python3.12/site-packages/xontrib/conda.xsh</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /home/j0XXXX/miniforge3/lib/python3.YY/site-packages/xontrib/conda.xsh</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /home/j0XXXX/miniforge3/etc/profile.d/conda.csh</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">modified</span>      /home/j0XXXX/.bashrc</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">==</span><span class="op">&gt;</span> For changes to take effect, close and re-open your current shell. <span class="op">&lt;</span>==</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>ただし，<code>j0XXXX</code> はユーザー名です．表示されたとおり，初期設定ファイル <code>.bashrc</code> に <code>conda</code> コマンドの設定が書き込まれます．</p>
+<p>ただし，<code>j0XXXX</code> はユーザー名です．<code>python3.YY</code>の<code>YY</code>にはインストールされたpythonのバージョンが表示されます． :::{.callout-note} これはminiforgeのデフォルト環境でのPythonのバージョンであり，以下で作成する仮想環境では，その仮想環境で利用するPythonのバージョンを別途指定することもできます． ::: 表示されたとおり，初期設定ファイル <code>.bashrc</code> に <code>conda</code> コマンドの設定が書き込まれます．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'conda init' !!</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/home/j0XXXX/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
@@ -478,9 +480,8 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>インストールするバージョンによっては，その下にさらにmambaの設定が書き込まれることがあります．</p>
-<p>なお，EICでは，上記の設定をしても，ターミナルからログインしたときには自動で <code>conda</code> が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．</p>
-<p>もし，ターミナルから <code>conda</code> を有効にしたいときには，</p>
+<p>EICでは，上記の設定をしても，ターミナルからSSHでログインしたときには自動でこの設定が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．</p>
+<p>もし，ターミナルから <code>conda</code>や<code>mamba</code> を有効にしたいときには，</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>というコマンドで， <code>.bashrc</code> ファイルの設定を読み込ませてください．あるいは，<code>~/.bash_profile</code> というファイル（なければ作る）に上記 <code>source</code> コマンドを記述しておくと，ログイン時に直接 <code>conda</code> が使えるようになります．</p>
 </div>
@@ -495,10 +496,9 @@ Important
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> which python</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">~/miniforge3/bin/python</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>と表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下にpython本体が入っていること，それがシステムのpythonよりも優先されていることがわかります．</p>
-<p>Miniforgeでは，Python本体と関連ライブラリを丸ごとまとめた <strong>仮想環境</strong>をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 <code>seismo25</code> を作成してみます．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda create <span class="at">--name</span> seismo25 <span class="at">--channel</span> conda-forge <span class="dt">\</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  python ipykernel pygmt gmt numpy scipy obspy netcdf4 <span class="dt">\</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  matplotlib cartopy ffmpeg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Miniforgeでは，Python本体と関連ライブラリを丸ごとまとめた <strong>仮想環境</strong>をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 <code>seismo26</code> を作成してみます．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> conda create <span class="at">--name</span> seismo26 <span class="at">--channel</span> conda-forge <span class="dt">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ipykernel marimo numba pygmt obspy netcdf4 matplotlib ffmpeg </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>画面の幅の都合上複数行に分かれていますが，これで1つのコマンドです．</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -515,9 +515,64 @@ Tip
 </div>
 <p>ここで，1行目はおもにオプション，2行目以降がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．</p>
 <ul>
-<li><code>--name seismo25</code> 仮想環境の名前を <code>seismo25</code> に指定します．</li>
+<li><code>--name seismo26</code> 仮想環境の名前を <code>seismo26</code> に指定します．もちろん名前はお好みで変えていただいて構いません．</li>
 <li><code>--channel conda-forge</code> パッケージの検索・インストールをする提供元を指定します．<code>conda-forge</code> には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．</li>
 </ul>
+<p>インストールに指定したライブラリは以下のとおりです．<code>conda create</code>では指定したもの以外にも非常にたくさんの関連ライブラリがインストールされますが，その中で特に直接使用する可能性があるものも以下の表にリストアップしています．</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ライブラリ</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/ipython/ipykernel">ipykernel</a></td>
+<td>VSCodeなどからJupyter Notebookを通じてPythonコードを実行するために必要なフロントエンド</td>
+</tr>
+<tr class="even">
+<td><a href="https://marimo.io">marimo</a></td>
+<td>Jupyter Notebook よりも再現性に優れた新しいノートブック環境</td>
+</tr>
+<tr class="odd">
+<td><a href="https://numba.pydata.org">numba</a></td>
+<td>PythonとNumpyのコードを高速実行するためのJust-in-Time (JIT)コンパイラ</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.pygmt.org">pygmt</a></td>
+<td>可視化ツール群Generic Mapping Tools (GMT)のPythonインターフェース</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.obspy.org">obspy</a></td>
+<td>地震波データ解析のためのパッケージ</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/Unidata/netcdf4-python">netcdf4</a></td>
+<td>標高データ等の地理情報のデータフォーマットNetCDFをPythonから扱う公式パッケージ</td>
+</tr>
+<tr class="odd">
+<td><a href="https://matplotlib.org">matplotlib</a></td>
+<td>Python上の可視化ツールのデファクトスタンダード</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.ffmpeg.org">ffmpeg</a></td>
+<td>動画作成のためのコマンドラインツール</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.generic-mapping-tools.org">gmt</a></td>
+<td>PyGMTが呼び出すGeneric Mapping Tools 本体．もちろん単独でも使える</td>
+</tr>
+<tr class="even">
+<td><a href="https://pandas.pydata.org">pandas</a></td>
+<td>Python上で表形式データを扱うためのライブラリ</td>
+</tr>
+<tr class="odd">
+<td><a href="https://scipy.org/ja/">scipy</a></td>
+<td>科学技術計算のためのさまざまなライブラリの集合体</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -528,34 +583,35 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>まずパッケージなしで <code>conda create</code> により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます．Web上の解説ではそのようなやり方が多く見られるようです．</p>
+<p>まずパッケージなしで <code>conda create</code> により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます．</p>
 <p>しかし，そのやり方では<strong>バージョンの競合</strong>の問題が発生しやすいようです． 必要なパッケージをまとめて指定しておくことで，全パッケージが動作するよう，自動的にバージョンが調整されます．</p>
 </div>
 </div>
-<p><code>conda create</code> を実行すると，指定したよりも遥かに多いパッケージが表示され（依存関係の問題です）</p>
+<p><code>conda create</code> を実行すると，</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>と訊かれますので，<code>y</code> を入力します．すると，しばらく端末上にインストールの経過が表示されます．インストールには多少の時間がかかります．数分待つと，</p>
+<p>と訊かれますので，<code>y</code> を入力します．すると，しばらく端末上にインストールの経過が表示されます．インストールには多少の時間がかかります．しばらくすると，</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> transaction: done</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Verifying</span> transaction: done</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> transaction: done</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># To activate this environment, use</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ conda activate seismo25</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ conda activate seismo26</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># To deactivate an active environment, use </span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ conda deactivate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>と表示され，インストール完了です．このメッセージの通り，condaが有効になった状態で，</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">-bash-4.2$</span> conda activate seismo25 <span class="co"># seismo24環境を有効化</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">seismo25</span><span class="kw">)</span> <span class="ex">-bash-4.2$</span> conda deactivate    <span class="co"># seismo24環境を無効化</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">-bash-4.2$</span> conda deactivate        <span class="co"># conda自体を無効化</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">[j0XXXX@eic</span> ~]$ conda activate seismo26 <span class="co"># seismo26環境を有効化</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">seismo26</span><span class="kw">)</span> <span class="ex">[j0XXXX@eic</span> ~]$ conda deactivate    <span class="co"># seismo26環境を無効化</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">[j0XXXX@eic</span> ~]$ conda deactivate        <span class="co"># conda自体を無効化</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-bash-4.2$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>というように，<code>conda activate</code> と <code>conda deactivate</code> で有効，無効を切り替えられます． さらに <code>base</code> 環境で <code>conda deactivate</code> すると，<code>conda</code> 自体を無効化できます．</p>
 <p>ともあれ，これで一通りのツールが使えるようになりました．</p>
 <p>PyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，EICリモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．</p>
 <p><img src="./fig/EIC-PyGMT.png" class="img-fluid"></p>
 <p>上図は，VSCodeでEICに接続し，そこで上述の環境でJupyter Notebookを利用し，PyGMTにより地図を描画したものです．このような環境を整備しておくと，EIC上実施した数値シミュレーションの可視化や事後解析をEIC上でそのまま実施できて，便利になることでしょう．</p>
+<p>本稿で説明した仮想環境の設定にはEIC特有のものは多くなく，特にminicondaのインストールと仮想環境の構築は他のLinuxやmacOS，WindowsにおけるWSLなどの互換環境においても全く同様に使えるはずです．</p>
 
 
 </section>
