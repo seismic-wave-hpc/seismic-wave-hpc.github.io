@@ -453,9 +453,9 @@ Tip
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> file in which to save the key <span class="er">(</span><span class="ex">/Users/USERNAME/.ssh/id_rsa</span><span class="kw">)</span><span class="bu">:</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>のように訊かれます（<code>USERNAME</code> は自分のユーザー名）ので，そのままEnterします．続けて，</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> passphrase <span class="er">(</span><span class="ex">empty</span> for no passphrase<span class="kw">)</span><span class="bu">:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>とでます．パスワードを入力する画面ですが，公開鍵はそれ自体がある程度のセキュリティを持っていますので，パスワードなし，でも構いません（ただし自己責任）．心配なら自分でパスワードを考えて入力しましょう．</p>
+<p>とでます．パスワードを考えて入力しましょう．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> same passphrase again: </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>と表示されますので，パスワードを入力したのなら同じパスワードを，パスワードなしを選んだのならそのままEnterを入力します．</p>
+<p>と表示されますので，同じパスワードを入力します．</p>
 <p>そうすると，画面にいくらか表示がでて，パスワードの秘密鍵ファイル <code>id_rsa</code> と，公開鍵ファイル <code>id_rsa.pub</code> が <code>.ssh/</code> 以下に作成されます．<code>ls -l</code> すると以下のように表示され， 秘密鍵 <code>id_rsa</code> が自分以外にアクセスできないように自動的に設定されていることがわかります．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> ~/.ssh</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 72</span>
@@ -480,12 +480,12 @@ Warning
 <h2 class="anchored" data-anchor-id="公開鍵の登録">公開鍵の登録</h2>
 <section id="初回の登録" class="level3">
 <h3 class="anchored" data-anchor-id="初回の登録">初回の登録</h3>
-<p>スーパーコンピュータに公開鍵を登録する方法は，それぞれのスーパーコンピュータで個別の仕組みが用意されています．自分のアカウントでログインできるWebシステムから登録するのが一般的なようです．各システムのマニュアルを参照してください．なお，本Webでも各スパコンの解説で説明しています．</p>
+<p>スーパーコンピュータに公開鍵を登録する方法は，それぞれのスーパーコンピュータで個別の仕組みが用意されています．自分のアカウントでログインできるWebシステムから登録するのが一般的なようです．各システムのマニュアルを参照してください．</p>
 </section>
 <section id="複数台の登録" class="level3">
 <h3 class="anchored" data-anchor-id="複数台の登録">複数台の登録</h3>
 <p>いったんあるPCから公開鍵を登録し，そこから接続できるようになってしまえば，2台目以降の登録は接続設定済みのPC経由で行えます．</p>
-<p>すでに接続設定済みのコンピュータを <code>A</code>, あらたに接続したいマシンを <code>A2</code>, 接続先を <code>B</code> とします．<code>A2</code> において秘密鍵 <code>id_rsa</code> と 公開鍵 <code>id_rsa.pub</code> を作成したら，<code>A</code> から <code>A2</code> にリモートログインするなどして，<code>A2</code> の公開鍵の内容（文字列）を <code>A</code>のクリップボードにコピーしておきます． そのうえで，<code>A</code> から <code>B</code>に接続し，<code>B</code> のホームディレクトリ（<code>~</code>）の下の <code>~/.ssh/authorized_keys</code> というファイルに公開鍵の内容を追記します．<code>authorized_keys</code> ファイルには，すでに設定済みの <code>A</code> の公開鍵も含まれていますから，その後ろで改行して新しい行をつくり，そこにペーストします．<code>A</code>の公開鍵を間違って削除しないように注意してください．</p>
+<p>すでに接続設定済みのコンピュータを <code>A</code>, あらたに接続したいマシンを <code>A2</code>, 接続先を <code>B</code> とします．<code>A2</code> において秘密鍵 <code>id_rsa</code> と 公開鍵 <code>id_rsa.pub</code> を作成したら，<code>A</code> から <code>A2</code> にリモートログインするなどして，<code>A2</code> の公開鍵の内容（文字列）を <code>A</code> のクリップボードにコピーしておきます． そのうえで，<code>A</code> から <code>B</code>に接続し，<code>B</code> のホームディレクトリ（<code>~</code>）の下の <code>~/.ssh/authorized_keys</code> というファイルに公開鍵の内容を追記します．<code>authorized_keys</code> ファイルには，すでに設定済みの <code>A</code> の公開鍵も含まれていますから，その後ろで改行して新しい行をつくり，そこにペーストします．<code>A</code> の公開鍵を間違って削除しないように注意してください．</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
