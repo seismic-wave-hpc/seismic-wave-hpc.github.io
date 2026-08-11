@@ -10,7 +10,7 @@ author: ""
 
 ### Copyright
 
-Copyright &copy; 2024-2025 Takuto Maeda. All rights reserved.
+Copyright &copy; 2024-2026 Takuto Maeda. All rights reserved.
 
 
 ### Acknowledgements

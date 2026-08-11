@@ -64,7 +64,7 @@ website:
 
 format:
   html:
-    theme: default
+    theme: cosmo
     css: styles.css
     toc: true
     highlight-style: tango
