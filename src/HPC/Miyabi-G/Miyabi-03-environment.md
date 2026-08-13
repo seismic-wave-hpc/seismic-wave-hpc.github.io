@@ -69,53 +69,62 @@ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mi
 :::
 
 ```bash
-bash ./Miniforge3-Linux-aarch64.sh -b -p ~/work/miniforge3
+bash ./Miniforge3-Linux-aarch64.sh -p ~/work/miniforge3
 ```
 
 ここで `-p ~/work/miniforge3` オプション（PREFIX）でインストール先を変更しています．
-しばらくメッセージが流れ，インストールがなされます．
+メッセージに沿ってライセンスを<kbd>Enter</kbd>キーで表示し，ライセンスに同意する旨の`yes`を入力すると，しばらくメッセージが流れ，インストールがなされます．
 
-続けて，初期化設定です．以下のようにインストールされたディレクトリにある `conda` コマンドを `init` オプションで実行します．
+その後，以下のように初期設定を実行するかどうかが聞かれますので，これも`yes`を入力します．
 
 ```bash
-~/work/miniforge3/bin/conda init
-no change     /work/${group}/${user}/miniforge3/condabin/conda
-no change     /work/${group}/${user}/miniforge3/bin/conda
-no change     /work/${group}/${user}/miniforge3/bin/conda-env
-no change     /work/${group}/${user}/miniforge3/bin/activate
-no change     /work/${group}/${user}/miniforge3/bin/deactivate
-no change     /work/${group}/${user}/miniforge3/etc/profile.d/conda.sh
-no change     /work/${group}/${user}/miniforge3/etc/fish/conf.d/conda.fish
-no change     /work/${group}/${user}/miniforge3/shell/condabin/Conda.psm1
-no change     /work/${group}/${user}/miniforge3/shell/condabin/conda-hook.ps1
-no change     /work/${group}/${user}/miniforge3/lib/python3.12/site-packages/xontrib/conda.xsh
-no change     /work/${group}/${user}/miniforge3/etc/profile.d/conda.csh
-modified      /home/${user}$/.bashrc
+installation finished.
+Do you wish to update your shell profile to automatically initialize conda?
+This will activate conda on startup and change the command prompt when activated.
+If you'd prefer that conda's base environment not be activated on startup,
+   run the following command when conda is activated:
 
-==> For changes to take effect, close and re-open your current shell. <==
+conda config --set auto_activate_base false
+
+Note: You can undo this later by running `conda init --reverse $SHELL`
+
+Proceed with initialization? [yes|no]
+[no] >>> yes
 ```
 
-画面に表示されたとおり，ホームディレクトリの `bash` 設定ファイル `.bashrc` に `conda` の設定が追記されています．
-具体的には
-
+すると，以下のような内容が `~/.bashrc`に書き込まれます．
 ```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/work/${group}/${user}/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/${USERNAME}/work/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/work/${group}/${user}/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/work/${group}/${user}/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/home/${USERNAME}/work/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/${USERNAME}/work/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/work/${group}/${user}/miniforge3/bin:$PATH"
+        export PATH="/home/${USERNAME}/work/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/work/${GROUP}/${USERNAME}/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/work/${GROUP}/${USERNAME}/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
 ```
 
-という記述が追加されているはずです．ここまでくれば，インストーラファイルは削除してしまって差し支えありません．
+ここまでくれば，インストーラファイルは削除してしまって差し支えありません．
 
 ### Miyabi-C&G 共存設定
 
@@ -124,20 +133,36 @@ unset __conda_setup
 
 ```bash
 if [[ "${HOSTNAME}" == *"miyabi-g"* ]]; then
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/work/${group}/${user}/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/${USERNAME}/work/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/work/${group}/${user}/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/work/${group}/${user}/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/home/${USERNAME}/work/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/${USERNAME}/work/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/work/${group}/${user}/miniforge3/bin:$PATH"
+        export PATH="/home/${USERNAME}/work/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/work/${GROUP}/${USERNAME}/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/work/${GROUP}/${USERNAME}/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
 fi
 ```
 
@@ -169,7 +194,7 @@ which python
 Miniforgeでは，`python`本体と関連ライブラリを丸ごとまとめた 仮想環境をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 seismo25 を作成してみます．
 
 ```bash
-conda create --name seismo25 --channel conda-forge \
+conda create --name seismo26 --channel conda-forge \
 python ipykernel pygmt gmt numpy scipy obspy netcdf4 \
 matplotlib cartopy ffmpeg
 ```

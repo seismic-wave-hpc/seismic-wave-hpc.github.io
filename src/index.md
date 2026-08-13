@@ -1,16 +1,22 @@
 ---
-title: Seismo-HPC Community Web
-author: ""
+title: Seismic-Wave-HPC Community Web
+author: "Takuto Maeda"
+date-modified: 2026-08-13
+abstract: 本Webサイトは地震波動伝播数値シミュレーションのHigh Performance Computing (HPC) 活用に関する情報を提供するコミュニティサイトです．
 ---
 
-### About this site
+### 主な更新履歴
 
-本Webサイトは地震波動伝播数値シミュレーションのHigh Performance Computing (HPC) 活用に関する情報を提供するコミュニティサイトです．
-
+- 2026-08 &nbsp; &nbsp; OpenSWPC@DGX-Spark; Miyabi-G & EIC2025情報更新
+- 2025-08 &nbsp; &nbsp; 地震波伝播数値シミュレーション講習会2025
+- 2025-05 &nbsp; &nbsp; スパコン利用法 Miyabi-G
+- 2025-01 &nbsp; &nbsp; スパコン利用法 共通技術編公開
+- 2024-08 &nbsp; &nbsp; OpenSWPC関連情報追加・スパコン利用法 EIC2025情報公開
+- 2024-08 &nbsp; &nbsp; サイト公開
 
 ### Copyright
 
-Copyright &copy; 2024-2026 Takuto Maeda. All rights reserved.
+Copyright &copy; Takuto Maeda. All rights reserved.
 
 
 ### Acknowledgements

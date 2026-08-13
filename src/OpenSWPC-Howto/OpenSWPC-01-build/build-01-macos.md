@@ -34,7 +34,7 @@ $ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip
 $ unzip 25.01.zip
 # ソースコードディレクトリに移動してビルド
 $ cd OpenSWPC-25.01/src
-$ make arch=mac-gfortran
+$ make arch=apple
 ```
 
 これですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると `./bin/` ディレクトリ以下に実行ファイルが生成されます．
