@@ -25,8 +25,8 @@ website:
       - text: "スパコン利用法"
         href: HPC/hpc-howto.md
 
-      - text: "地震波伝播数値シミュレーション講習会"
-        href: FDM-Workshop/fdm-workshop.md
+      - text: "講習会"
+        href: FDM-Workshop/index.md
  
       - text: "OpenSWPC関連情報"
         href: OpenSWPC-Howto/OpenSWPC-00-index.md
@@ -46,10 +46,9 @@ website:
 #        - auto: "HPC/Archives/EIC2020"
 
           
-    - title: "地震波数値シミュレーション講習会"
+    - title: "講習会"
       contents: 
-        - FDM-Workshop/fdm-workshop.md
-        - auto: "FDM-Workshop/2025年度講習会"
+        - auto: "FDM-Workshop/"
 
     - title: "OpenSWPC-Howto"
       contents: 
