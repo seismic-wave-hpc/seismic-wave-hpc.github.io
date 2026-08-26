@@ -19,8 +19,8 @@ website:
    
   navbar:
     left:
-      - text: Home
-        href: index.md
+#      - text: Home
+#        href: index.md
 
       - text: "スパコン利用法"
         href: HPC/hpc-howto.md
@@ -39,9 +39,9 @@ website:
       contents: 
         - HPC/hpc-howto.md
         - auto: "HPC/共通知識"
+        - auto: "HPC/Miyabi-G"
         - auto: "HPC/EIC-2025"
         - auto: "HPC/Wisteria"
-        - auto: "HPC/Miyabi"
 #        - HPC/Archives/Archives.md
 #        - auto: "HPC/Archives/EIC2020"
 
@@ -63,11 +63,12 @@ website:
 
 format:
   html:
-    theme: default
+    theme: cosmo
     css: styles.css
     toc: true
-    highlight-style: tango
     code-overflow: wrap
+    code-line-numbers: false
+    syntax-highlighting: a11y
 
 #author: Takuto Maeda
 bibliography: reference.bib

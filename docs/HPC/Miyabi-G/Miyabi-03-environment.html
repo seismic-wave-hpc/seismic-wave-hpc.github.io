@@ -2,7 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
+<<<<<<< HEAD:docs/HPC/Miyabi/Miyabi-03-environment.html
 <meta name="generator" content="quarto-1.8.26">
+=======
+<meta name="generator" content="quarto-1.10.18">
+>>>>>>> 051bec7389ff724ff1f4c063c67803ec0bbdcafa:docs/HPC/Miyabi-G/Miyabi-03-environment.html
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,10 +14,20 @@
 
 <title>解析環境の構築 – Seismic-Wave-HPC</title>
 <style>
+<<<<<<< HEAD:docs/HPC/Miyabi/Miyabi-03-environment.html
 code{white-space: pre-wrap;}
+=======
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+>>>>>>> 051bec7389ff724ff1f4c063c67803ec0bbdcafa:docs/HPC/Miyabi-G/Miyabi-03-environment.html
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,10 +87,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<<<<<<< HEAD:docs/HPC/Miyabi/Miyabi-03-environment.html
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-783c3be22810b68d0f940d6fc8f9f724.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+=======
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-88bceb56e1b236e7728fc501a4a1925e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+>>>>>>> 051bec7389ff724ff1f4c063c67803ec0bbdcafa:docs/HPC/Miyabi-G/Miyabi-03-environment.html
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,10 +158,6 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="../../HPC/hpc-howto.html" aria-current="page"> 
 <span class="menu-text">スパコン利用法</span></a>
   </li>  
@@ -163,7 +180,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-00-index.html">Miyabi</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-03-environment.html">解析環境の構築</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-00-index.html">Miyabi-G</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-03-environment.html">解析環境の構築</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -219,12 +236,59 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">EIC 2025</span></a>
+ <span class="menu-text">Miyabi-G</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">はじめに</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-01-login.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">初回ログイン</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-02-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">基本コマンド</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-03-environment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">解析環境の構築</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-04-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ジョブ投入</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenSWPCの利用</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">EIC-2025</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../HPC/EIC-2025/EIC2025-00-index.html" class="sidebar-item-text sidebar-link">
@@ -251,6 +315,18 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../HPC/EIC-2025/EIC2025-04-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ジョブ投入</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/EIC-2025/EIC2025-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenSWPCの利用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../HPC/EIC-2025/EIC2025-0A-two-step-connection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
   </div>
@@ -259,13 +335,13 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Wisteria</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../HPC/Wisteria/BDEC-00-index.html" class="sidebar-item-text sidebar-link">
@@ -310,41 +386,6 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Miyabi</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-01-login.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">初回ログイン</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-02-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">基本情報と固有コマンド</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-03-environment.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -368,7 +409,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-00-index.html">Miyabi</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-03-environment.html">解析環境の構築</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-00-index.html">Miyabi-G</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-03-environment.html">解析環境の構築</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">解析環境の構築</h1>
 </div>
@@ -472,59 +513,86 @@ Warning
 <p>これから作成する conda 環境も，数万を超える大量のファイルを生成します．インストーラが仮定するデフォルトのインストール先はホームディレクトリ直下の <code>miniforge3</code> ディレクトリなのですが，前節と同じ理由により，ワーク領域にインストールすることを強く推奨します．</p>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> ./Miniforge3-Linux-aarch64.sh <span class="at">-b</span> <span class="at">-p</span> ~/work/miniforge3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>ここで <code>-p ~/work/miniforge3</code> オプション（PREFIX）でインストール先を変更しています． しばらくメッセージが流れ，インストールがなされます．</p>
-<p>続けて，初期化設定です．以下のようにインストールされたディレクトリにある <code>conda</code> コマンドを <code>init</code> オプションで実行します．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/work/miniforge3/bin/conda</span> init</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/condabin/conda</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/bin/conda</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/bin/conda-env</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/bin/activate</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/bin/deactivate</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/etc/profile.d/conda.sh</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/etc/fish/conf.d/conda.fish</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/shell/condabin/Conda.psm1</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/shell/condabin/conda-hook.ps1</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/lib/python3.12/site-packages/xontrib/conda.xsh</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> change     /work/<span class="va">${group}</span>/<span class="va">${user}</span>/miniforge3/etc/profile.d/conda.csh</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ex">modified</span>      /home/<span class="va">${user}</span>$/.bashrc</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ex">==</span><span class="op">&gt;</span> For changes to take effect, close and re-open your current shell. <span class="op">&lt;</span>==</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>画面に表示されたとおり，ホームディレクトリの <code>bash</code> 設定ファイル <code>.bashrc</code> に <code>conda</code> の設定が追記されています． 具体的には</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> ./Miniforge3-Linux-aarch64.sh <span class="at">-p</span> ~/work/miniforge3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>ここで <code>-p ~/work/miniforge3</code> オプション（PREFIX）でインストール先を変更しています． メッセージに沿ってライセンスを<kbd>Enter</kbd>キーで表示し，ライセンスに同意する旨の<code>yes</code>を入力すると，しばらくメッセージが流れ，インストールがなされます．</p>
+<p>その後，以下のように初期設定を実行するかどうかが聞かれますので，これも<code>yes</code>を入力します．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">installation</span> finished.</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Do</span> you wish to update your shell profile to automatically initialize conda<span class="pp">?</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> will activate conda on startup and change the command prompt when activated.</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">If</span> you<span class="st">'d prefer that conda'</span>s base environment not be activated on startup,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">run</span> the following command when conda is activated:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--set</span> auto_activate_base false</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Note:</span> You can undo this later by running <span class="kw">`</span><span class="ex">conda</span> init <span class="at">--reverse</span> <span class="va">$SHELL</span><span class="kw">`</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> with initialization<span class="pp">?</span> [yes<span class="kw">|</span><span class="ex">no]</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[no]</span> <span class="op">&gt;&gt;&gt;</span> yes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>すると，以下のような内容が <code>~/.bashrc</code>に書き込まれます．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'conda init' !!</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/work/${group}/${user}/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/home/${USERNAME}/work/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$__conda_setup</span><span class="st">"</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/etc/profile.d/conda.sh"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> <span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/etc/profile.d/conda.sh"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"/home/</span><span class="va">${USERNAME}</span><span class="st">/work/miniforge3/etc/profile.d/conda.sh"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> <span class="st">"/home/</span><span class="va">${USERNAME}</span><span class="st">/work/miniforge3/etc/profile.d/conda.sh"</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/home/</span><span class="va">${USERNAME}</span><span class="st">/work/miniforge3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">__conda_setup</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>という記述が追加されているはずです．ここまでくれば，インストーラファイルは削除してしまって差し支えありません．</p>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; mamba initialize &gt;&gt;&gt;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'mamba shell init' !!</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">MAMBA_EXE</span><span class="op">=</span><span class="st">'/work/${GROUP}/${USERNAME}/miniforge3/bin/mamba'</span><span class="kw">;</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">MAMBA_ROOT_PREFIX</span><span class="op">=</span><span class="st">'/work/${GROUP}/${USERNAME}/miniforge3'</span><span class="kw">;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="va">__mamba_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">"</span><span class="va">$MAMBA_EXE</span><span class="st">"</span> shell hook <span class="at">--shell</span> bash <span class="at">--root-prefix</span> <span class="st">"</span><span class="va">$MAMBA_ROOT_PREFIX</span><span class="st">"</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$__mamba_setup</span><span class="st">"</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">alias</span> mamba=<span class="st">"</span><span class="va">$MAMBA_EXE</span><span class="st">"</span>  <span class="co"># Fallback on help from mamba activate</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">__mamba_setup</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt;&lt; mamba initialize &lt;&lt;&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>ここまでくれば，インストーラファイルは削除してしまって差し支えありません．</p>
 <section id="miyabi-cg-共存設定" class="level3">
 <h3 class="anchored" data-anchor-id="miyabi-cg-共存設定">Miyabi-C&amp;G 共存設定</h3>
 <p>ログインノードとしてMiyabi-Gだけを使うならばこのままでも問題ないのですが，このままではMiyabi-Cで正常にログインできなくなってしまっています． <code>.bashrc</code>にかかれている内容はログイン時に読み込まれるのですが，その中の <code>conda</code> の設定で実行されるプログラムが，Miyabi-Gの <code>aarch64</code> アーキテクチャでしか動作しないためです．そこで，上記の <code>.bashrc</code> の設定の前後に <code>if</code> 文を追加して，以下のようにします．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">${HOSTNAME}</span><span class="st">"</span> <span class="ot">==</span> <span class="pp">*</span><span class="st">"miyabi-g"</span><span class="pp">*</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'conda init' !!</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/work/${group}/${user}/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$__conda_setup</span><span class="st">"</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/etc/profile.d/conda.sh"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> <span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/etc/profile.d/conda.sh"</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/work/</span><span class="va">${group}</span><span class="st">/</span><span class="va">${user}</span><span class="st">/miniforge3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">__conda_setup</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'conda init' !!</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="va">__conda_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">'/home/${USERNAME}/work/miniforge3/bin/conda'</span> <span class="st">'shell.bash'</span> <span class="st">'hook'</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$__conda_setup</span><span class="st">"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"/home/</span><span class="va">${USERNAME}</span><span class="st">/work/miniforge3/etc/profile.d/conda.sh"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> <span class="st">"/home/</span><span class="va">${USERNAME}</span><span class="st">/work/miniforge3/etc/profile.d/conda.sh"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"/home/</span><span class="va">${USERNAME}</span><span class="st">/work/miniforge3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">__conda_setup</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; mamba initialize &gt;&gt;&gt;</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># !! Contents within this block are managed by 'mamba shell init' !!</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">MAMBA_EXE</span><span class="op">=</span><span class="st">'/work/${GROUP}/${USERNAME}/miniforge3/bin/mamba'</span><span class="kw">;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">MAMBA_ROOT_PREFIX</span><span class="op">=</span><span class="st">'/work/${GROUP}/${USERNAME}/miniforge3'</span><span class="kw">;</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="va">__mamba_setup</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="st">"</span><span class="va">$MAMBA_EXE</span><span class="st">"</span> shell hook <span class="at">--shell</span> bash <span class="at">--root-prefix</span> <span class="st">"</span><span class="va">$MAMBA_ROOT_PREFIX</span><span class="st">"</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null<span class="va">)</span><span class="st">"</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-eq</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">eval</span> <span class="st">"</span><span class="va">$__mamba_setup</span><span class="st">"</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">alias</span> mamba=<span class="st">"</span><span class="va">$MAMBA_EXE</span><span class="st">"</span>  <span class="co"># Fallback on help from mamba activate</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">__mamba_setup</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;&lt;&lt; mamba initialize &lt;&lt;&lt;</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>これで <code>conda</code> の設定は Miyabi-G のログインノードにログインしたときだけ実行されるようになりました．</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -550,7 +618,7 @@ Tip
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/work/</span><span class="va">${group}</span><span class="ex">/</span><span class="va">${user}</span><span class="ex">/miniforge3/bin/python</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>と表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下に <code>python</code> 本体が入っていること，それがシステムの<code>python</code> よりも優先されていることがわかります．</p>
 <p>Miniforgeでは，<code>python</code>本体と関連ライブラリを丸ごとまとめた 仮想環境をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 seismo25 を作成してみます．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> seismo25 <span class="at">--channel</span> conda-forge <span class="dt">\</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> seismo26 <span class="at">--channel</span> conda-forge <span class="dt">\</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>python ipykernel pygmt gmt numpy scipy obspy netcdf4 <span class="dt">\</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>matplotlib cartopy ffmpeg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>画面の幅の都合上2行に分かれていますが，これで1つのコマンドです．ここで，1行目はおもにオプション，2行目がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．</p>

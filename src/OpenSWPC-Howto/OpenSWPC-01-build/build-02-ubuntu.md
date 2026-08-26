@@ -34,7 +34,3 @@ $ make arch=ubuntu-gfortran
 ```
 
 これですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると `./bin/` ディレクトリ以下に実行ファイルが生成されます．
-
-## Ubuntu Linux + intel compiler
-
-To be available soon!

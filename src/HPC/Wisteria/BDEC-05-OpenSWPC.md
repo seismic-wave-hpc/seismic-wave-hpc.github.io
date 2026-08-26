@@ -12,7 +12,7 @@ OpenSWPCは <https://github.com/OpenSWPC/OpenSWPC> で公開されています�
 それに対して，一定のアップデートのまとまりごとに **release** としてバージョン番号を付与されたものがzip形式で圧縮されて [https://github.com/OpenSWPC/OpenSWPC/releases](https://github.com/OpenSWPC/OpenSWPC/releases) から公開されています．
 このreleaseはZenodoによりバージョン個別のDOIが付与（たとえば [こちら](https://doi.org/10.5281/zenodo.13756043)）されており，論文等での引用にも便利です．
 
-ここでは，公開されている最新版Version 24.09.1をダウンロード・コンパイルしてみます．
+ここでは，Version 24.09.1をダウンロード・コンパイルしてみます．
 
 ```bash
 curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/24.09.1.zip

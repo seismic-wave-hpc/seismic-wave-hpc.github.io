@@ -2,18 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-05-11">
+<meta name="dcterms.date" content="2026-08-13">
 
-<title>初回ログイン – Seismic-Wave-HPC</title>
+<title>OpenSWPCの利用 – Seismic-Wave-HPC</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -68,15 +74,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-783c3be22810b68d0f940d6fc8f9f724.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-88bceb56e1b236e7728fc501a4a1925e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +118,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </script>
-<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -122,7 +126,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -137,16 +141,12 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="../../HPC/hpc-howto.html" aria-current="page"> 
 <span class="menu-text">スパコン利用法</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../FDM-Workshop/index.html"> 
-<span class="menu-text">講習会</span></a>
+    <a class="nav-link" href="../../FDM-Workshop/fdm-workshop.html"> 
+<span class="menu-text">地震波伝播数値シミュレーション講習会</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
@@ -163,7 +163,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-00-index.html">Miyabi</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-01-login.html">初回ログイン</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-00-index.html">Miyabi-G</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-05-OpenSWPC.html">OpenSWPCの利用</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -219,12 +219,59 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">EIC 2025</span></a>
+ <span class="menu-text">Miyabi-G</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">はじめに</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-01-login.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">初回ログイン</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-02-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">基本コマンド</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-03-environment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">解析環境の構築</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-04-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ジョブ投入</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/Miyabi-G/Miyabi-05-OpenSWPC.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">OpenSWPCの利用</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">EIC-2025</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../HPC/EIC-2025/EIC2025-00-index.html" class="sidebar-item-text sidebar-link">
@@ -251,6 +298,18 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../HPC/EIC-2025/EIC2025-04-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ジョブ投入</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../HPC/EIC-2025/EIC2025-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenSWPCの利用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../HPC/EIC-2025/EIC2025-0A-two-step-connection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
   </div>
@@ -259,13 +318,13 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Wisteria</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../HPC/Wisteria/BDEC-00-index.html" class="sidebar-item-text sidebar-link">
@@ -310,41 +369,6 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Miyabi</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-01-login.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">初回ログイン</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-02-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">基本情報と固有コマンド</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi/Miyabi-03-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -355,17 +379,23 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#つのログインノードと選択" id="toc-つのログインノードと選択" class="nav-link active" data-scroll-target="#つのログインノードと選択">2つのログインノードと選択</a></li>
-  <li><a href="#ログインまで" id="toc-ログインまで" class="nav-link" data-scroll-target="#ログインまで">ログインまで</a></li>
+  <li><a href="#openswpcのダウンロードとコンパイル" id="toc-openswpcのダウンロードとコンパイル" class="nav-link active" data-scroll-target="#openswpcのダウンロードとコンパイル">OpenSWPCのダウンロードとコンパイル</a></li>
+  <li><a href="#データセットの準備" id="toc-データセットの準備" class="nav-link" data-scroll-target="#データセットの準備">データセットの準備</a></li>
+  <li><a href="#ジョブ投入の例" id="toc-ジョブ投入の例" class="nav-link" data-scroll-target="#ジョブ投入の例">ジョブ投入の例</a>
+  <ul class="collapse">
+  <li><a href="#mpiopenmpハイブリッドジョブ設定" id="toc-mpiopenmpハイブリッドジョブ設定" class="nav-link" data-scroll-target="#mpiopenmpハイブリッドジョブ設定">MPI/OpenMPハイブリッドジョブ設定</a></li>
+  <li><a href="#モジュールの読み込み" id="toc-モジュールの読み込み" class="nav-link" data-scroll-target="#モジュールの読み込み">モジュールの読み込み</a></li>
+  </ul></li>
+  <li><a href="#環境変数利用についての注意" id="toc-環境変数利用についての注意" class="nav-link" data-scroll-target="#環境変数利用についての注意">環境変数利用についての注意</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-00-index.html">Miyabi</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi/Miyabi-01-login.html">初回ログイン</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-00-index.html">Miyabi-G</a></li><li class="breadcrumb-item"><a href="../../HPC/Miyabi-G/Miyabi-05-OpenSWPC.html">OpenSWPCの利用</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">初回ログイン</h1>
+<h1 class="title">OpenSWPCの利用</h1>
 </div>
 
 
@@ -376,23 +406,17 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 11, 2025</p>
+      <p class="date">August 13, 2026</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 13, 2025</p>
-    </div>
-  </div>
     
   </div>
   
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    アカウント作成後のログイン方法について詳述します．
+    Miyabi-GにおけるOpenSWPCの利用法について説明します．
   </div>
 </div>
 
@@ -400,74 +424,86 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </header>
 
 <hr>
-<section id="つのログインノードと選択" class="level2">
-<h2 class="anchored" data-anchor-id="つのログインノードと選択">2つのログインノードと選択</h2>
-<p>Miyabi はCPUによる計算ノードMiyabi-CとGPUによるノードMiyabi-Gの2つからなり，ログインノードもそれぞれに準備されています．どちらのログインノードも同じRed Hat Enterprise Linuxが稼働しているのですが，そのCPUが Miyabi-Cではx86アーキテクチャのIntel Xeon，Miyabi-GではArmベースのNVIDIA Graceで，互いにバイナリの実行互換性がありません．</p>
-<p>どちらのログインノードから入ってもファイルシステムは共通なうえ，たとえばMiyabi-GにログインしながらIntel CPU用の実行ファイルをコンパイルしてMiyabi-Cで実行させたり，あるいはその逆もできます．ただし，ソースコードのコンパイルはそれぞれのノードでしかできないようです．たとえば，NVIDIA環境でGPUコードのコンパイルをするためには，Miyabi-Gにログインしている必要があります．</p>
-<p>自分のディレクトリ下で動作させるプログラム類はどちらかのアーキテクチャに統一しておいたほうが便利でしょうし，VSCodeでのSSH接続が自動的にホームディレクトリに作成する <code>.vscode-server</code> ディレクトリ内に自動作成されるファイルが原因で互換性の問題が発生し，接続ができなくこともあるようです．</p>
-<p>そこで，Miyabi-CもしくはMiyabi-Gのどちらかを主なログイン先として選択し，VSCodeではそちらだけから接続するようにすることを勧めます．</p>
-<p>ここでは，GPUの利用を重視してMiyabi-Gを選択し，そちらで環境の設営を行います．</p>
+<section id="openswpcのダウンロードとコンパイル" class="level2">
+<h2 class="anchored" data-anchor-id="openswpcのダウンロードとコンパイル">OpenSWPCのダウンロードとコンパイル</h2>
+<p>OpenSWPCは <a href="https://github.com/OpenSWPC/OpenSWPC" class="uri">https://github.com/OpenSWPC/OpenSWPC</a> で公開されています． このURLから見られる個別のソースコードは，開発の途中で登録されている場合があり，したがって未完成だったりバグを含むこともあります． それに対して，一定のアップデートのまとまりごとに <strong>release</strong> としてバージョン番号を付与されたものがzip形式で圧縮されて <a href="https://github.com/OpenSWPC/OpenSWPC/releases">https://github.com/OpenSWPC/OpenSWPC/releases</a> から公開されています． このreleaseはZenodoによりバージョン個別のDOIが付与（たとえば <a href="https://doi.org/10.5281/zenodo.16264099">こちら</a>）されており，論文等での引用にも便利です．</p>
+<p>ここでは，Version 25.05.2をダウンロード・コンパイルしてみます．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> curl <span class="at">-OL</span> https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.05.2.zip</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> unzip 25.05.2.zip</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd OpenSWPC-25.05.2/src</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make arch=miyabi-G</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>でコンパイルできます．</p>
+<p>Miyabi-Gでは，ライブラリや開発環境などを<code>module load</code>コマンドで読み込んで使う仕組みが採用されています．OpenSWPCのコンパイル時に<code>module load</code> は自動的に行われますが，<code>make</code> 前にロードされていたモジュールはpurgeされてしまうので注意してください．</p>
+<p>なお，<code>read_snp.x</code>などの付属ツールをログインノードやインタラクティブノードで利用するためには，実行前に</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> module load nvidia netcdf netcdf-fortran hdf5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>によって必要なライブラリを読み込む必要があります．一度読み込めばそのシェルではずっと有効です．Miyabi-GではNVIDIAによるコンパイラのみを使う，というつもりであれば，上記<code>module load</code>コマンドをシェル設定ファイル<code>~/.bashrc</code>に書いておけば，次回ログイン時からはこれらのモジュールが自動で読み込まれます．</p>
 </section>
-<section id="ログインまで" class="level2">
-<h2 class="anchored" data-anchor-id="ログインまで">ログインまで</h2>
-<p>Miyabiのログインは公開鍵方式に二段階認証の一種であるワンタイムパスコード認証（OTP認証）を組み合わせたものです．公開鍵を作成していなければ，<a href="../../HPC/共通知識/Common-01-keys.html">こちら</a> の記事を参考に作成してください．そのうえで，<a href="https://miyabi-www.jcahpc.jp/login">利用支援ポータル</a> から公開鍵をアップロードします．ただし，利用支援ポータルにログインするためには，OTP認証が必要です．詳しくは<a href="https://www.cc.u-tokyo.ac.jp/events/lectures/239/20250131_0217_login_miyabi.pdf">東京大学情報基盤センターによる講習会資料</a>が詳しく参考になります（PDF中盤からログイン方法の説明があります．すでに公開鍵を作成済みであれば，前半の説明は飛ばして構いません．）．</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>OTP認証のためには，スマートフォンアプリのGoogle AuthenticatorやMicrosoft Authenticatorが便利でしょう．どちらもiPhone/Androidともにアプリが提供されており，職場や学校のOfficeやGoogleアカウントのためにすでに使っている方も多いのではないかと思います．もしインストール済みでしたら，そこにMiyabi用のOTPを追加することができます．</p>
-</div>
-</div>
-<p>そうして公開鍵を登録したら，以下のコマンドでMiyabi-GにSSH接続してみます．ただし<code>username</code> は自分のアカウント名です．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> username@miyabi-g.jcahpc.jp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>すると，QRコードとシークレットキーが表示されます．QRコードはOTP認証のためのアプリ（スマートフォン等）で読み取ることで，ログインノード接続のためのOTPを獲得できます．</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>つまり，Miyabiへの接続には，利用支援ポータルとログインノードそれぞれのための，2つのOTP認証が必要となります．デフォルトではどちらもMiyabiとなり名前で区別しづらいので，適切名前をつけておくと良いかもしれません．</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>シークレットキーはログインできなくなったときのアカウント復元に使うようです．別途保存しておいてください．</p>
-</div>
-</div>
-<p>ここまでで初回ログイン作業は終了です．あとは他のLinuxマシンと同じように，ログインノードの<code>.ssh/authorized_keys</code> ファイルに別のログイン元マシンの公開鍵（ <code>id_rsa.pub</code> の内容）を追加することで，他のマシンからも接続できるようになります．もちろん，利用支援ポータルから追加しても同じことです．</p>
-<p>ここまでで設定したOTPは，Miyabi-CとMiyabi-Gで共通です．どちらのログインノードにも同じようにSSH接続できます．ログインノードは</p>
-<ul>
-<li>Miyabi-C: <code>miyabi-c.jcahpc.jp</code></li>
-<li>Miyabi-G: <code>miyabi-g.jcahpc.jp</code></li>
-</ul>
-<p>です．接続元マシンの <code>~/.ssh/config</code> ファイルに</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> miyabi-g</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Hostname</span> miyabi-g.jcahpc.jp</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">User</span> <span class="er">(</span><span class="ex">username</span><span class="kw">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ForwardX11</span> yes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>と設定しておくと，以降は</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> miyabi-g</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>とOTP認証だけで接続できます．</p>
+<section id="データセットの準備" class="level2">
+<h2 class="anchored" data-anchor-id="データセットの準備">データセットの準備</h2>
+<p>日本周辺のモデルとしてJIVSMを使いたい場合は，公式マニュアルの<a href="https://openswpc.github.io/ja/1._SetUp/0104_dataset/">記述</a>に沿ってデータの準備が必要です．このデータは使い回せるため，共通のディレクトリに保存しておくのが良いでしょう．</p>
+</section>
+<section id="ジョブ投入の例" class="level2">
+<h2 class="anchored" data-anchor-id="ジョブ投入の例">ジョブ投入の例</h2>
+<p>OpenSWPCのジョブスクリプトの例です．これはOpenSWPCに同梱されている西南日本のサンプルジョブの例です．ただし，入力パラメタに若干の修正が必要です．これについては後述します．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -q regular-g</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=48:mpiprocs=1:ompthreads=36</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l walltime=01:00:00</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -W group_list=GROUP</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -j oe</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -N SWPC_W</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -m abe</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l mail_power_info=true</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">${PBS_O_WORKDIR}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load nvidia nv-hpcx netcdf hdf5 netcdf-fortran</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">mpirun</span> ./bin/swpc_3d.x <span class="at">-i</span> ./example/input_WJapan.inf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>基本的なジョブスクリプトの書き方は<a href="../../HPC/Miyabi-G/Miyabi-04-job.html">前節</a>で説明したとおりです．ここでは主な違いについて説明します．</p>
+<section id="mpiopenmpハイブリッドジョブ設定" class="level3">
+<h3 class="anchored" data-anchor-id="mpiopenmpハイブリッドジョブ設定">MPI/OpenMPハイブリッドジョブ設定</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=48:mpiprocs=1:ompthreads=36</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>では，単に48ノードを確保するだけでなく，<strong>ノードあたりのMPIプロセス数</strong>を<code>mpiprocs</code>オプションで，<strong>1プロセスあたりのOpenMPスレッド数</strong>を<code>ompthreads</code>オプションで指定します．</p>
+<p>OpenSWPCでは1ノード（1GPU）あたり1プロセスで実行することが想定されています．より細かく1ノードを複数に分割することもでき，場合によって若干の性能の変化が見られますが，実用上はあまり気にする必要はないと思われます．<code>mpiprocs=1</code>を常に使い，入力パラメタの<code>nproc_x</code>と<code>nproc_y</code>の積が<code>select=</code>の数値と一致するように選べばよいです．</p>
+<p>次の<code>ompthreads</code>のオプションを指定すると，OpenMPによる並列計算が有効となります．OpenSWPCは，Miyabi-GのようなGPUマシンにおいて，（Version25系の時点においては）主要な演算のほぼ全てをGPUで行います．一方，計算の開始前の構造や震源モデルデータの読み込みと差分グリッドへの割り当ては（GPUからはストレージのファイルを直接読めないので必然的に）CPUで行っており，そこではCPU内の複数コアを用いたOpenMP並列化が実装されています．そのため，<code>ompthreads</code>をCPUのコア数以下の範囲で指定することで高速化が期待できます．</p>
+</section>
+<section id="モジュールの読み込み" class="level3">
+<h3 class="anchored" data-anchor-id="モジュールの読み込み">モジュールの読み込み</h3>
+<p>Miyabi-GのOpenSWPCはNVIDIA <a href="https://developer.nvidia.com/networking/hpc-x">HPC-X</a>の環境でコンパイルされているため，そのライブラリと入出力につかうNetCDF関係のライブラリ，さらにそれが依存しているHDFライブラリを読み込む必要があります．<code>swpc_**.x</code>を実行するときには必ず</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load nvidia nv-hpcx netcdf hdf5 netcdf-fortran</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>が必要です．</p>
+</section>
+</section>
+<section id="環境変数利用についての注意" class="level2">
+<h2 class="anchored" data-anchor-id="環境変数利用についての注意">環境変数利用についての注意</h2>
+<p>OpenSWPCの入力パラメタファイルでは<code>export</code>で指定した<strong>環境変数</strong>が読み込めるようになっています．配布ファイルに同梱されている入力パラメタファイルでも，たとえば</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode fortran code-with-copy"><code class="sourceCode fortranfixed"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dir_grd  <span class="kw">=</span> <span class="st">'${DATASET}/vmodel/ejivsm/'</span>  <span class="co">!! directory for grd file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>が指定されており，あらかじめ</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATASET</span><span class="op">=</span>/path/to/dataset</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>という環境変数が設定されていれば，OpenSWPC内部では</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode fortran code-with-copy"><code class="sourceCode fortranfixed"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dir_grd <span class="kw">=</span> <span class="st">'/path/to/dataset/vmodel/ejivsm/'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>に展開されます．これは特に上記データセットをいつでも共通のディレクトリにしておくのに便利な仕組みです．</p>
+<p>ところが，Miyabiの並列実行ジョブでは，ジョブ実行ファイル内で <code>export</code>文により環境変数を設定しても，<strong>すべての計算ノードのうち1ノードにしか環境変数が伝わらない</strong>という問題があります．マニュアルによるとこれは仕様のようです．</p>
+<p><code>mpirun</code>のオプションを用いて，先のジョブスクリプトを以下のようにすることで環境変数を渡すこともできます．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -q regular-g</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=48:mpiprocs=1:ompthreads=36</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l walltime=01:00:00</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -W group_list=GROUP</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -j oe</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -N SWPC_W</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -m abe</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l mail_power_info=true</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">unset</span> <span class="va">OMPI_MCA_mca_base_env_list</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATASET</span><span class="op">=</span>/path/to/dataset</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">${PBS_O_WORKDIR}</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load nvidia nv-hpcx netcdf hdf5 netcdf-fortran</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="ex">mpirun</span> <span class="at">-x</span> PATH <span class="at">-x</span> LD_LIBRARY_PATH <span class="at">-x</span> DATASET <span class="dt">\</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>       ./bin/swpc_3d.x <span class="at">-i</span> ./example/input.inf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>しかしこの方法だと<code>${PATH}</code>と<code>${LD_LIBRARY_PATH}</code>も手動で渡す必要があり，やや煩雑です．Miyabi-Gにおいてはパラメタに環境変数を使わない，ほうが簡単かもしれません．</p>
 
 
 </section>

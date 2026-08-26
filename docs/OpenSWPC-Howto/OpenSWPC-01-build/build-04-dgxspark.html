@@ -2,24 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<<<<<<< HEAD
-<meta name="generator" content="quarto-1.8.26">
-=======
 <meta name="generator" content="quarto-1.10.18">
->>>>>>> 051bec7389ff724ff1f4c063c67803ec0bbdcafa
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-08-11">
 
-<title>build-02-ubuntu – Seismic-Wave-HPC</title>
+<title>NVIDIA DGX Spark – Seismic-Wave-HPC</title>
 <style>
-<<<<<<< HEAD
-code{white-space: pre-wrap;}
-=======
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
->>>>>>> 051bec7389ff724ff1f4c063c67803ec0bbdcafa
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: 1.5em;}
 div.column{flex: auto;}
@@ -81,22 +74,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<<<<<<< HEAD
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-783c3be22810b68d0f940d6fc8f9f724.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-=======
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-88bceb56e1b236e7728fc501a4a1925e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
->>>>>>> 051bec7389ff724ff1f4c063c67803ec0bbdcafa
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -160,8 +145,8 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 <span class="menu-text">スパコン利用法</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../FDM-Workshop/index.html"> 
-<span class="menu-text">講習会</span></a>
+    <a class="nav-link" href="../../FDM-Workshop/fdm-workshop.html"> 
+<span class="menu-text">地震波伝播数値シミュレーション講習会</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../../OpenSWPC-Howto/OpenSWPC-00-index.html" aria-current="page"> 
@@ -178,7 +163,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build.html">OpenSWPCのビルド</a></li><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-02-ubuntu.html">Ubuntu Linux + gfortran</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build.html">OpenSWPCのビルド</a></li><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-04-dgxspark.html">NVIDIA DGX Spark</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -213,7 +198,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-02-ubuntu.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-02-ubuntu.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ubuntu Linux + gfortran</span></a>
   </div>
 </li>
@@ -225,7 +210,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-04-dgxspark.html" class="sidebar-item-text sidebar-link">
+  <a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-04-dgxspark.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">NVIDIA DGX Spark</span></a>
   </div>
 </li>
@@ -241,60 +226,171 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ubuntu-linux-gfortran" id="toc-ubuntu-linux-gfortran" class="nav-link active" data-scroll-target="#ubuntu-linux-gfortran">Ubuntu Linux + gfortran</a>
+  <li><a href="#開発環境の準備" id="toc-開発環境の準備" class="nav-link active" data-scroll-target="#開発環境の準備">開発環境の準備</a>
   <ul class="collapse">
-  <li><a href="#ubuntuにおけるビルド" id="toc-ubuntuにおけるビルド" class="nav-link" data-scroll-target="#ubuntuにおけるビルド">Ubuntuにおけるビルド</a></li>
+  <li><a href="#関連ツールとライブラリのインストール" id="toc-関連ツールとライブラリのインストール" class="nav-link" data-scroll-target="#関連ツールとライブラリのインストール">関連ツールとライブラリのインストール</a></li>
+  <li><a href="#hpc-sdkのインストール" id="toc-hpc-sdkのインストール" class="nav-link" data-scroll-target="#hpc-sdkのインストール">HPC SDKのインストール</a></li>
+  <li><a href="#netcdf-fortranのビルド" id="toc-netcdf-fortranのビルド" class="nav-link" data-scroll-target="#netcdf-fortranのビルド">NetCDF-Fortranのビルド</a></li>
   </ul></li>
+  <li><a href="#openswpcのビルド" id="toc-openswpcのビルド" class="nav-link" data-scroll-target="#openswpcのビルド">OpenSWPCのビルド</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build.html">OpenSWPCのビルド</a></li><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-02-ubuntu.html">Ubuntu Linux + gfortran</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build.html">OpenSWPCのビルド</a></li><li class="breadcrumb-item"><a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-04-dgxspark.html">NVIDIA DGX Spark</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">NVIDIA DGX Spark</h1>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 11, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 <hr>
-<section id="ubuntu-linux-gfortran" class="level2">
-<h2 class="anchored" data-anchor-id="ubuntu-linux-gfortran">Ubuntu Linux + gfortran</h2>
-<p><a href="https://ubuntu.com">Ubuntu Linux</a> は，<a href="https://www.debian.org">Debian GNU/Linux</a>から派生したLinuxディストリビューションです．使いやすさが重視されたディストリビューションで，Linuxの数多くのディストリビューションのなかでも特に利用者の多いディストリビューションのようです．Microsoft WindowsでLinuxを動作させるWindows Subsystem for Linux 2 (WSL2) のデフォルトディストリビューションでもあります．</p>
-<p>Ubuntu LinuxはDebianの派生であり，またUbuntuからさらに派生したディストリビューションも<a href="https://w.atwiki.jp/linuxjapanwiki/pages/55.html">多数</a>あります．有名で利用者が多いものに，Debianのほか<a href="https://linuxmint.com">Linux Mint</a>が挙げられます．それら関連ディストリビューションでは，同じ <code>apt</code> コマンドによるパッケージ管理システムが導入されている場合が多く，以下のビルド方法がそのまま使える必要があります．</p>
-<section id="ubuntuにおけるビルド" class="level3">
-<h3 class="anchored" data-anchor-id="ubuntuにおけるビルド">Ubuntuにおけるビルド</h3>
-<p><code>apt</code> コマンドによる関連パッケージのインストールには管理者権限が必要です．Ubuntu Linuxでは <code>sudo</code> コマンドにより管理者としてコマンドを実行します．</p>
+<p><a href="https://www.nvidia.com/ja-jp/products/workstations/dgx-spark/">NVIDIA DGX Spark</a> はコンパクトなデスクトップマシンで，NVIDIAのARMベースのGrace CPUとBlackwell GPUを統合したGB10 Grace Blackwell Superchipを搭載したマシンです． 多くのGPU計算環境では，CPUとGPUは物理的に独立したメモリを持ちますが，DGX SparkではCPUからもGPUからも共通で使える広帯域のユニファイドメモリが128GB搭載されています（2025年発売当時のスペックです）．</p>
+<p>世間では大規模言語モデル（LLM）をローカルで動かすことのできるマシンとして有名になりましたが，OSがLinuxベースということもあり，GPUを活用した科学技術計算向けのマシンとしても使いやすく優れたスペックを持ちます．一方，OpenSWPCを含む普通のGPUを用いた計算のコードはCPUとGPUのメモリが分かれていることを前提として書かれているため，コンパイル時のオプションに注意が必要です．また，CPUがIntelではなくARMベースであることや，その性能を引き出すためにはNVIDIAコンパイラの導入が必須であることなど，使い始めるまでの準備が少々必要です．ここでは，OpenSWPCを動かすための最小限の準備について説明します．</p>
+<p>この記事の記載事項は，ユニファイドメモリの利用以外の部分については，Intel/AMDのCPUマシンでGPUを用いる際にも参考になるものと思います．</p>
+<section id="開発環境の準備" class="level2">
+<h2 class="anchored" data-anchor-id="開発環境の準備">開発環境の準備</h2>
+<p>DGX SparkにはNVIDIA DGX OSが搭載されています．独自OSではありますが，<a href="../../OpenSWPC-Howto/OpenSWPC-01-build/build-02-ubuntu.html">Ubuntu Linux</a>がベースであり，操作方法も多くが共通です．</p>
+<section id="関連ツールとライブラリのインストール" class="level3">
+<h3 class="anchored" data-anchor-id="関連ツールとライブラリのインストール">関連ツールとライブラリのインストール</h3>
+<p>まずは必要なツール群を <code>apt</code> によりインストールします．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># まずパッケージ一覧を最新の状態にする</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt update</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 関連ライブラリ </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install gfortran</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install openmpi-bin libopenmpi-dev</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install netcdf-bin libnetcdf-dev libnetcdff-dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ubuntuにおいては，MPIライブラリであるOpenMPIやNetCDFが，実行ファイルのパッケージ（<code>**-bin</code>）とコンパイル時にリンクするライブラリ群（<code>lib**-dev</code>）に分かれています．原則として両方のインストールをお勧めします．</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># GNU コンパイラ</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install build-essential g++ gfortran libtool</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># NetCDF（Cライブラリのみ）</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install libnetcdf-dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>MPIライブラリとNetCDFのFortranライブラリはインストール不要です．前者はNVIDIAの開発環境に含まれており，後者はNVIDIAのコンパイラを用いて自力でビルドする必要があります．</p>
+</section>
+<section id="hpc-sdkのインストール" class="level3">
+<h3 class="anchored" data-anchor-id="hpc-sdkのインストール">HPC SDKのインストール</h3>
+<p>NVIDIAの開発環境である<a href="https://developer.nvidia.com/hpc-sdk">NVIDIA HPC SDK</a>をインストールします．公式ページの<a href="https://developer.nvidia.com/hpc-sdk/downloads">Downloads</a>ページでライセンスに同意すると，各種プラットフォーム向けのインストーラの説明のリンクが表示されます．<strong>Linux Arm Server</strong>を選ぶと，<strong>Bundled with CUDA version 13.2</strong> と <strong>Bundled with CUDA versions 13.2 and 12.9</strong> の2種類があります．OpenSWPCのビルドには最新版だけで十分ですので，ここでは13.2のみのバージョンを選び，<strong>Linux Arm Server Ubuntu (apt)</strong>のリンクをクリックします．</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>実は<code>netcdf-bin</code> はNetCDFファイルに関する実行プログラムで，OpenSWPCのビルドそのものには不要です．ですが，OpenSWPCの入出力ファイルであるnetcdfファイルの内容を確認できる <code>ncdump</code> コマンドが含まれるため，これもあわせてインストールしておくことをお勧めします．</p>
+<p>ここではARMベースのNVIDIA Grace CPUを搭載するDGX Spark用のインストーラが目的ですから，<code>Linux x86_64</code>を選んではいけないことにご注意ください．</p>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># curlコマンドでダウンロードし，unzipで展開．</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> curl <span class="at">-OL</span> https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> unzip 25.01.zip</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ソースコードディレクトリに移動してビルド</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd OpenSWPC-25.01/src</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make arch=ubuntu-gfortran</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>これですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると <code>./bin/</code> ディレクトリ以下に実行ファイルが生成されます．</p>
+<p>すると<strong>Installation Instsructions</strong>が表示されますから，そのコマンドをそのままコピーしてDGX Spark上で実行するとインストール完了です．ただし，インストールしただけではPATHが通っていません．ホームディレクトリのシェル設定ファイル（<code>~/.bashrc</code>）に以下の内容を追記し，<code>source ~/.bashrc</code> で有効化するか，再ログインします．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">### NVIDIA HPC SDK</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NVARCH</span><span class="op">=</span>Linux_aarch64</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NVCOMPILERS</span><span class="op">=</span>/opt/nvidia/hpc_sdk</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$NVCOMPILERS</span>/<span class="va">$NVARCH</span>/26.5/compilers/bin:<span class="va">$PATH</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="va">$NVCOMPILERS</span>/<span class="va">$NVARCH</span>/26.5/comm_libs/mpi/bin:<span class="va">$PATH</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>上記の設定に書かれているとおり，HPC SDKは<code>/opt/nvidia/hpc_sdk</code>以下にインストールされます．PATHの設定が有効になれば，以下のように<code>which</code> コマンドでFortranコンパイラ<code>nvfortran</code>とMPIコンパイラ<code>mpifort</code>が見えるはずです．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> which nvfortran</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/nvidia/hpc_sdk/Linux_aarch64/26.5/compilers/bin/nvfortran</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> which mpifort</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/nvidia/hpc_sdk/Linux_aarch64/26.5/comm_libs/mpi/bin/mpifort</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="netcdf-fortranのビルド" class="level3">
+<h3 class="anchored" data-anchor-id="netcdf-fortranのビルド">NetCDF-Fortranのビルド</h3>
+<p>Fortranのモジュールを使うときに必要となるモジュール情報ファイル（<code>*.mod</code>）はコンパイラ依存のバイナリファイルのため，OpenSWPC本体をビルドするコンパイラ（nvfortran）でビルドしなければいけません．<code>apt install</code> でインストールされるものはGNU gfortranでビルドされたもののため，ここでは使いません．</p>
+<p>ここでは，執筆当時最新版の<a href="https://github.com/Unidata/netcdf-fortran/">netcdf-fortran</a> v4.6.4をビルドします．まずは適当なディレクトリでソースコードをダウンロードし，展開します．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ダウンロード</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.4.tar.gz</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 展開して移動</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar xvf v4.6.4.tar.gz</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd netcdf-fortran-4.6.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>インストール先は <code>/opt/netcdf-nv</code> とします．<code>./configure</code>スクリプトで<code>makefile</code>を生成します．その際，変数<code>FC</code>, <code>CC</code> に利用するNVIDIAのコンパイラ名を，また必要なコンパイルオプションも<code>**FLAGS</code>変数に設定しておきます．さらに，<code>--prefix</code>オプションでインストール先を指定します．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export NFDIR=/opt/netcdf-nv</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> FC=nvfortran CC=nvcc FFLAGS=-fPIC FCFLAGS=-fPIC CPPFLAGS=<span class="st">"-I/usr/include"</span> LDFLAGS=-L/usr/lib/aarch64-linux-gnu/ ./configure <span class="at">--prefix</span><span class="op">=</span><span class="va">${NFDIR}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>あとは<code>make</code>, <code>sudo make install</code>するだけです．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -j10 により最大10並列でコンパイルする（必須ではない）</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make <span class="at">-j10</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo make install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>インストールされる <code>nf-config</code>により，コンパイル時に必要なオプションを調べることができます．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> /opt/netcdf-nv/bin/nf-config  <span class="at">--all</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> netCDF-Fortran 4.6.4 has been built with the following features: </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--cc</span>        <span class="at">-</span><span class="op">&gt;</span> nvcc</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--cflags</span>    <span class="at">-</span><span class="op">&gt;</span> -I/opt/netcdf-nv/include <span class="at">-I</span>/usr/include</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--fc</span>        <span class="at">-</span><span class="op">&gt;</span> nvfortran</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--fflags</span>    <span class="at">-</span><span class="op">&gt;</span> -I/opt/netcdf-nv/include <span class="at">-I</span>/opt/netcdf-nv/include</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--flibs</span>     <span class="at">-</span><span class="op">&gt;</span> -L/opt/netcdf-nv/lib <span class="at">-lnetcdff</span> <span class="at">-L</span>/usr/lib/aarch64-linux-gnu/ <span class="at">-lnetcdf</span> <span class="at">-lnetcdf</span> <span class="at">-lm</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--has-f90</span>   <span class="at">-</span><span class="op">&gt;</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--has-f03</span>   <span class="at">-</span><span class="op">&gt;</span> yes</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--has-nc2</span>   <span class="at">-</span><span class="op">&gt;</span> yes</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--has-nc4</span>   <span class="at">-</span><span class="op">&gt;</span> yes</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--prefix</span>    <span class="at">-</span><span class="op">&gt;</span> /opt/netcdf-nv</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--includedir-</span><span class="op">&gt;</span> /opt/netcdf-nv/include</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--version</span>   <span class="at">-</span><span class="op">&gt;</span> netCDF-Fortran 4.6.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="openswpcのビルド" class="level2">
+<h2 class="anchored" data-anchor-id="openswpcのビルド">OpenSWPCのビルド</h2>
+<p>OpenSWPC 26.0 系<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>にはコンパイルオプション<code>arch=dgx-spark</code>が含まれますから，それを使うだけです．参考までオプションの一覧を記載しておきます．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode makefile code-with-copy"><code class="sourceCode makefile"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NVIDIA dgx-spark</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">ifeq</span> (<span class="ch">$(</span><span class="dt">arch</span><span class="ch">)</span>, dgx-spark)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FC</span>      <span class="ch">=</span><span class="st"> mpifort</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FFLAGS</span>  <span class="ch">=</span><span class="st"> -fast -Minfo=all -acc -cpp -mp </span><span class="ch">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">            -gpu=cc121,mem:unified</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">NCLIB</span>   <span class="ch">=</span><span class="st"> -L/opt/netcdf-nv/lib </span><span class="ch">\</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">            -Wl,-rpath,/opt/netcdf-nv/lib</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">NCINC</span>   <span class="ch">=</span><span class="st"> -I/opt/netcdf-nv/include</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">NETCDF</span>  <span class="ch">=</span><span class="st"> -lnetcdff -lnetcdf</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">endif</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>NetCDFライブラリ関係の変数は，基本的には前項の<code>nf-config</code>の出力に沿って設定されています．ただし，<code>NCLIB</code>では<code>-Wl,-rpath,/opt/netcdf-nv/lib</code>とすることで，実行時に参照される動的ライブラリの場所を指定しています．これがあることで，実行時に環境変数<code>$LD_LIBRARY_PATH</code>の設定が不要になります．</p>
+<p>もしnetcdf-fortranライブラリの導入場所が異なる場合には<code>NCLIB</code>, <code>NCINC</code>の設定を適宜変更します．</p>
+<p>DGX Sparkはユニファイドメモリが採用されていますので，<code>-gpu=mem:unified</code>の指定が大変重要です．これがないと，同じ配列に対してCPUとGPUがそれぞれ個別にメモリを確保してしまうため，結果的に必要メモリサイズが倍になってしまいます．</p>
+<p>なお，<code>FFLAGS</code>の<code>-gpu=cc121</code>というオプションは，<strong>Computational Capability</strong>と呼ばれ，NVIDIAのGPUの世代を区別するバージョン番号です．この番号は使うGPUによって異なりますが，<code>nvaccelinfo</code>コマンドで知ることができます．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nvaccelinfo</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">CUDA</span> Driver Version:           13000</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">NVRM</span> version:                  NVIDIA UNIX Open Kernel Module for aarch64  580.173.02  Release Build  <span class="er">(</span><span class="ex">dvs-builder@U22-A24-5-4</span><span class="kw">)</span>  <span class="ex">Tue</span> Jun</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">23</span> 08:34:19 UTC 2026</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Device</span> Number:                 0</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Device</span> Name:                   NVIDIA GB10</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Device</span> Revision Number:        12.1</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">（中略）</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Memory</span> Models Flags:           <span class="at">-gpu</span><span class="op">=</span>mem:separate, <span class="at">-gpu</span><span class="op">=</span>mem:managed, <span class="at">-gpu</span><span class="op">=</span>mem:unified</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="ex">Default</span> Target:                cc121</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>最後の2行に<code>cc</code>の値と，指定できるメモリ利用形態のオプションが記載されています．</p>
+<p>OpenSWPCの実行時は通常どおり <code>mpirun -np XX ./bin/swpc_XX.x</code> で問題ありません．並列計算ですが，DGX Spark1台で計算する場合にMPI分割を行なう積極的なメリットはあまりありません．モデルが小さい場合には分割したほうが若干高速になるケースもあるようですが，<code>-np 1</code>が第1選択肢になると思ってよいでしょう．また，計算を始める前のモデル準備にはOpenMPも使いますから，<code>export OMP_NUM_THREADS=10</code>のように利用コア数を設定しておくとよいでしょう．</p>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>2026年夏公開予定<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
