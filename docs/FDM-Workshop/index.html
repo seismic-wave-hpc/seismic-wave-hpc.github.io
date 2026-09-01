@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-26">
+<meta name="dcterms.date" content="2025-08-26">
 
-<title>補遺：EIC接続の踏み台設定 – Seismic-Wave-HPC</title>
+<title>数値シミュレーション講習会 – Seismic-Wave-HPC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,62 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2ad81b8db16c09a1df706f9b07413c9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2ad81b8db16c09a1df706f9b07413c9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -115,7 +80,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -125,7 +90,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Seismic-Wave-HPC</span>
     </a>
   </div>
@@ -136,15 +101,15 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../HPC/hpc-howto.html" aria-current="page"> 
+    <a class="nav-link" href="../HPC/hpc-howto.html"> 
 <span class="menu-text">スパコン利用法</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../FDM-Workshop/index.html"> 
+    <a class="nav-link active" href="../FDM-Workshop/index.html" aria-current="page"> 
 <span class="menu-text">講習会</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
+    <a class="nav-link" href="../OpenSWPC-Howto/OpenSWPC-00-index.html"> 
 <span class="menu-text">OpenSWPC関連情報</span></a>
   </li>  
 </ul>
@@ -158,7 +123,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/EIC-2025/EIC2025-00-index.html">EIC-2025</a></li><li class="breadcrumb-item"><a href="../../HPC/EIC-2025/EIC2025-0A-two-step-connection.html">補遺：EIC接続の踏み台設定</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../FDM-Workshop/index.html">数値シミュレーション講習会</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -170,16 +135,10 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/hpc-howto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">スパコン利用</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">共通知識</span></a>
+            <a href="../FDM-Workshop/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">数値シミュレーション講習会</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -187,179 +146,14 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/共通知識/Common-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
+  <a href="../FDM-Workshop/workshop-2025.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2025年度講習会</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../HPC/共通知識/Common-01-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">公開鍵暗号の準備</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/共通知識/Common-02-VSCode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">VSCodeの利用</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/共通知識/Common-A0-acknowledgement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">謝辞の書き方</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Miyabi-G</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi-G/Miyabi-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi-G/Miyabi-01-login.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">初回ログイン</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi-G/Miyabi-02-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">基本コマンド</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi-G/Miyabi-03-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi-G/Miyabi-04-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ジョブ投入</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Miyabi-G/Miyabi-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの利用</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">EIC-2025</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-01-renew.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">アカウント継続者の初期設定</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-02-new.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">新規利用時の設定</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-03-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-04-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ジョブ投入</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの利用</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/EIC-2025/EIC2025-0A-two-step-connection.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">補遺：EIC接続の踏み台設定</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Wisteria</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-00-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">はじめに</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-01-login.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ログインと初期設定</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-02-environment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">解析環境の構築</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-03-job.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ジョブ投入の基本</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-04-interactive-prepost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">その他のジョブ</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-05-OpenSWPC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの利用</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../HPC/Wisteria/BDEC-06-OpenSWPC2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenSWPCの高速実行</span></a>
+  <a href="../FDM-Workshop/workshop-2026.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2026年度講習会</span></a>
   </div>
 </li>
       </ul>
@@ -374,17 +168,17 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#手動による二段階接続" id="toc-手動による二段階接続" class="nav-link active" data-scroll-target="#手動による二段階接続">手動による二段階接続</a></li>
-  <li><a href="#ssh-configによる自動二段階接続" id="toc-ssh-configによる自動二段階接続" class="nav-link" data-scroll-target="#ssh-configによる自動二段階接続">SSH configによる自動二段階接続</a></li>
+  <li><a href="#年度講習会" id="toc-年度講習会" class="nav-link active" data-scroll-target="#年度講習会">2026年度講習会</a></li>
+  <li><a href="#年度講習会-1" id="toc-年度講習会-1" class="nav-link" data-scroll-target="#年度講習会-1">2025年度講習会</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../HPC/EIC-2025/EIC2025-00-index.html">EIC-2025</a></li><li class="breadcrumb-item"><a href="../../HPC/EIC-2025/EIC2025-0A-two-step-connection.html">補遺：EIC接続の踏み台設定</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">補遺：EIC接続の踏み台設定</h1>
+<h1 class="title">数値シミュレーション講習会</h1>
 </div>
 
 
@@ -395,14 +189,14 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 26, 2024</p>
+      <p class="date">August 26, 2025</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 2, 2025</p>
+      <p class="date-modified">August 26, 2026</p>
     </div>
   </div>
     
@@ -411,7 +205,7 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    EICでは接続元が <code>ac.jp</code> か <code>go.jp</code> で，かつDNSの逆引きに対応していないと接続ができません．そのような場合に，EICに接続できる別のサーバを踏み台にして接続する方法を紹介します．ここでは東京大学情報基盤センターのスパコン（Wisteria/BDEC-01）を踏み台にすることを前提に説明しますが，接続元の組織内の特定のIPアドレスのマシンからのみ接続ができるような場合にもほとんど同じ設定方法が利用できます．
+    地震学分野の学生および研究者を対象に，地震波動伝播の数値シミュレーション技術の普及のためのオンライン講習会を開催しています．
   </div>
 </div>
 
@@ -419,65 +213,15 @@ gtag('config', 'G-MZJMGT1XB0', { 'anonymize_ip': true});
 </header>
 
 <hr>
-<section id="手動による二段階接続" class="level2">
-<h2 class="anchored" data-anchor-id="手動による二段階接続">手動による二段階接続</h2>
-<p>まずはWisteria/BDECに接続します．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-Y</span> wisteria.cc.u-tokyo.ac.jp <span class="at">-l</span> USERNAME-of-BDEC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>さらにそこから</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-Y</span> eic.eri.u-tokyo.ac.jp <span class="at">-l</span> USERNAME-of-EIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>とすれば，EICに接続できます．</p>
-<p>しかし，毎回二段階でログインするのはとても面倒です． <code>rsync</code> などを使ってファイルを転送する際にも，いちいち踏み台サーバにファイルを置いてからEICに転送することとなり，非効率です．</p>
+<section id="年度講習会" class="level2">
+<h2 class="anchored" data-anchor-id="年度講習会">2026年度講習会</h2>
+<ul>
+<li><a href="../FDM-Workshop/workshop-2026.html">2026年度講習会</a> 2026年9月受付開始予定</li>
+</ul>
 </section>
-<section id="ssh-configによる自動二段階接続" class="level2">
-<h2 class="anchored" data-anchor-id="ssh-configによる自動二段階接続">SSH configによる自動二段階接続</h2>
-<p>ここでは，踏み台サーバ（この場合はWisteria/BDEC）への接続が公開鍵認証方式であることと，その公開鍵はEICへの接続の公開鍵と同一のものを使っていることを仮定します．</p>
-<p>SSHでは， <code>~/.ssh/config</code> というファイルを作成し，その中に接続情報を記述することで，<code>ssh</code> コマンドが接続時にその情報を参照できます． まずは，Wisteria/BDECへの接続を単純化してみましょう．</p>
-<p>接続元マシンで，<code>config</code> ファイルを開きます（なければ作成します）．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/.ssh</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> config</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>ここではVSCodeのシェルコマンド <code>code</code> がインストールされている前提で例を書いていますが，使うエディタは何でも構いません．ただし，<code>.ssh</code> はドット記号から始まる隠しディレクトリですので，エクスプローラ（Windows）やFinder (macOS) からは見えません．ターミナルで <code>ls -a</code> すると見えるはずです．</p>
-</div>
-</div>
-<p><code>config</code> ファイルに以下の内容を記述します．ただし，<code>USERNAME-of-BDEC</code> は自身のWisteria/BDECユーザー名です． <code>IdentifyFile</code> の行では接続に用いる秘密鍵を指定します．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> bdec</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">HostName</span> wisteria.cc.u-tokyo.ac.jp</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> USERNAME-of-BDEC</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>この準備をすると，ターミナルから</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> bdec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>とするだけで，<code>wisteria.cc.u-tokyo.ac.jp</code> に接続できます．</p>
-<p>さらに，EICへの接続設定も <code>config</code> ファイルに追記しましょう．</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> eic</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="ex">Hostname</span> eic.eri.u-tokyo.ac.jp</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="ex">User</span> USERNAME-of-EIC</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ProxyCommand</span> ssh <span class="at">-W</span> %h:%p bdec</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="ex">IdentityFile</span> ~/.ssh/id_rsa</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="ex">ForwardX11</span> yes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Wisteria/BDECとほとんど同様ですが，<code>ProxyCommand</code> の行が増えています．これにより，<code>ssh eic</code> とするだけで，Wisteria/BDECを踏み台にしてEICに接続できます．</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>VSCodeでSSH拡張を利用している場合は，この設定ファイルが自動的に読み込まれます． これ以降は，VSCodeからも <code>eic</code> を選択して接続できます．</p>
-</div>
-</div>
+<section id="年度講習会-1" class="level2">
+<h2 class="anchored" data-anchor-id="年度講習会-1">2025年度講習会</h2>
+<p>終了しました．開催の記録：<a href="../FDM-Workshop/workshop-2025.html">2025年度講習会</a></p>
 
 
 </section>

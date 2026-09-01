@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Seismic-Wave-HPC Community Web",
     "section": "",
-    "text": "主な更新履歴\n\n2026-08     OpenSWPC@DGX-Spark; Miyabi-G & EIC2025情報更新\n2025-08     地震波伝播数値シミュレーション講習会2025\n2025-05     スパコン利用法 Miyabi-G\n2025-01     スパコン利用法 共通技術編公開\n2024-08     OpenSWPC関連情報追加・スパコン利用法 EIC2025情報公開\n2024-08     サイト公開\n\n\n\nCopyright\nCopyright © Takuto Maeda. All rights reserved.\n\n\nAcknowledgements\n本Webサイトの構築作業の一部には，文部科学省による「災害の軽減に貢献するための地震火山観測研究計画（第３次）」の支援を受けています．"
+    "text": "主な更新履歴\n\n2026-08     2026講習会; OpenSWPC@DGX-Spark; Miyabi-G & EIC2025情報更新\n2025-08     地震波伝播数値シミュレーション講習会2025\n2025-05     スパコン利用法 Miyabi-G\n2025-01     スパコン利用法 共通技術編公開\n2024-08     OpenSWPC関連情報追加・スパコン利用法 EIC2025情報公開\n2024-08     サイト公開\n\n\n\nCopyright\nCopyright © Takuto Maeda. All rights reserved.\n\n\nAcknowledgements\n本Webサイトの構築作業の一部には，文部科学省による「災害の軽減に貢献するための地震火山観測研究計画（第３次）」の支援を受けています．"
   },
   {
     "objectID": "HPC/Miyabi-G/Miyabi-02-basics.html",
@@ -535,13 +535,73 @@
     ]
   },
   {
-    "objectID": "FDM-Workshop/fdm-workshop.html#年度講習会",
-    "href": "FDM-Workshop/fdm-workshop.html#年度講習会",
-    "title": "地震波伝播数値シミュレーション講習会",
-    "section": "2025年度講習会",
-    "text": "2025年度講習会\n\n初級編中級編\n\n\n\n日時\n2025年10月30日（木）13:00〜16:00 オンライン（Zoom）\n\n\n内容\n地震学における波動方程式の半直感的な紹介からはじめ，差分法を用いた地震波の数値シミュレーションを，基本概念から座学＋クラウド上のプログラミング環境を用いたハンズオン形式を用いて学びます．以下の動画のような簡単な地震波伝播数値シミュレーションの原理を理解し，また実行できるようになることが目標です．\n\n\n\nおもな対象\n地震波動伝播数値シミュレーションに興味はあるが，その方法をほとんどあるいはまったく学習したことのない学部生や大学院生の方．\n\n\n定員\n30名\n\n\n前提知識・必要となる準備\n\n大学理系初年度で習う程度の微分積分（Taylor展開や偏微分を含む）の知識を必要とします．\nプログラミング（特にPython）の経験があればなおよいですが，必須ではありません（講習会のなかでくわしく説明します）．\n講習会中に実施するハンズオン（実習）に参加するためには Googleアカウント が必要です．※アカウント名を開催者に伝える必要はありません．\n\n\n\n公開スライド\n\n\n\n\n\n\n\n\n日時\n2025年11月13日（木）13:00〜16:00 オンライン（Zoom）\n\n\n内容\n差分法による地震波動伝播数値シミュレーション手法の概略を紹介したのち，オープンソースソフトウェアOpenSWPCとコンピュータクラスタ（スーパーコンピュータ）を用いた実践的な数値シミュレーションについて，実演および実習を通じて学びます．この講習会では，以下のような現実的な3次元的に不均質な日本列島構造下における地震波動伝播数値シミュレーションを実行できるようになるとともに，そのパラメタ設定法の基礎を理解し，今後の研究活動に活用できるようになることを目指します．\n\n\n\nおもな対象\n地震波動伝播数値シミュレーションやそれを用いた研究に興味がある学生や研究者の方．\n\n\n定員\n30名\n\n\n前提知識・必要となる準備\n\n地震学（とくに地震波）に関する学部レベルの知識と，それを理解するのに必要な程度の初歩的な物理数学の知識を前提とします．\nFortranやPythonなどの，何らかのプログラミング言語の利用経験があることが望ましいです．\n\n講習会では主にFortranを用いますが，不慣れな方向けに文法の補足説明がなされます．\n\n実習に参加するためには，Linuxのごく基本的な操作ができることが必要です．\n\n具体的には『リモートホストにSSHでログインして，そのホスト上のテキストファイルを編集する』ことができれば十分です．\n\n実習および実演は，東京大学地震研究所附属日本列島モニタリング研究センターが提供する計算機システムを用いて行います．実演にはどなたでもご参加いただけますが，実習に参加するためには講習会当日までに同計算機システムのアカウントをご準備ください．アカウントの申し込み方法は上記公式ページのほか，当ウェブのこちらにも解説があります．\n同計算機システムの利用資格は『国立大学法人、公、私立大学および国、公立研究機関の教員・研究者又はこれに準じるもので、利用目的が地震・火山・防災の関連分野の研究遂行にかかわるもの』とされています．ここでの「研究者」には大学院生を含みますが，学部生は含まないため，今回は学部生の方は実演の聴講のみとなります．また，アカウントの作成には時間がかかりますため，余裕を持ってお申し込みください．\nアカウントのご準備が講習会開催日程に間に合わなかった場合には，聴講でのご参加となりますことをあらかじめご了承ください．\n\n\n\n\n\n\n参加申し込み\n参加受付は締め切りました．",
+    "objectID": "FDM-Workshop/workshop-2026.html#sec-workshop-2026-elementary",
+    "href": "FDM-Workshop/workshop-2026.html#sec-workshop-2026-elementary",
+    "title": "2026年度講習会",
+    "section": "初級編",
+    "text": "初級編\n地震波動論の入門的な紹介からはじめ，差分法を用いた地震波の数値シミュレーションの基本を，座学とクラウド上のプログラミング環境を用いた数値実験を通じて学びます．この講習会を通じて，地震波数値シミュレーションの基本的アイディア，その実装方法ならびに原理的な限界について理解を深めることができます．一方，既存のシミュレーションソフトウェアの使い方に関する説明は中級編で行います．\n\n日時\n2026年11月26日（木）15:00〜17:30\n\n\n開催方式\nZoom\n\n\nおもな対象\n地震波動伝播数値シミュレーションに興味はあるが，その方法をほとんどあるいはまったく学習したことのない学部生や大学院生，あるいは研究者の方．\n\n\n定員\n30名（先着順）\n\n\nご注意\n\n座学部分の内容を理解するために，大学理系学部前半で習う程度の物理数学の知識を必要とします．具体的には，多変数関数の微分とテイラー展開，時間と周波数に関するフーリエ解析のごく基本的な知識を用います．\n地球物理学的な意味での地震学と弾性体力学の初歩を知っていることが望ましいです．具体的には，連続体の運動方程式，線形弾性体の構成関係式，ならびに波動方程式がどういうものかを知っていれば十分です．\n何らかのプログラミング言語（特にPython）の経験があると理解しやすいですが，必須ではありません．必要事項はその場で説明します．\n扱う内容の範囲は2025年度の初級編とおおむね同じです．\n講習会中に実施するハンズオン（実習）ではGoogleのクラウド環境であるGoogle Colaboratoryを用いるため，Googleアカウントをご準備いただく必要があります．ただし，開催者がアカウント情報を収集することはありません．\n講習会は日本語で実施します．\n講習会は録画し，終了後に参加登録者が一定期間視聴できるようにする予定です．",
     "crumbs": [
-      "地震波伝播数値シミュレーション講習会"
+      "講習会",
+      "数値シミュレーション講習会",
+      "2026年度講習会"
+    ]
+  },
+  {
+    "objectID": "FDM-Workshop/workshop-2026.html#中級編",
+    "href": "FDM-Workshop/workshop-2026.html#中級編",
+    "title": "2026年度講習会",
+    "section": "中級編",
+    "text": "中級編\n\n日時\n2025年12月3日（木）15:00〜17:30\n\n\n開催方式\nZoom\n\n\n内容\n差分法による地震波動伝播数値シミュレーション手法の概略を紹介したのち，オープンソースソフトウェアOpenSWPCを用いた数値シミュレーションについて，クラウド環境を用いた実演および実習を通じて学びます．インストールからパラメタの設定とシミュレーション実行，可視化処理までを体験し，今後の研究活動に活用するための第一歩を踏み出すことが目標です．\n\n\nおもな対象\n地震波動伝播数値シミュレーションやそれを用いた研究・教育に興味がある学生や研究者の方．\n\n\n定員\n30名（先着順）\n\n\nご注意\n\n地震波動伝播の差分法による数値シミュレーションの原理についての基礎的理解が必要です．講習会中でも簡単に解説をしますが，詳細な説明が必要なかたには初級編の受講をお勧めします．\nLinuxなどにおけるコマンドライン操作の経験がある，必須ではありません．\n解説するソフトウェアはFortranで記述されていますが，この講習会の内容に限ればFortranの利用経験は必要としません．\n講習会中に実施するハンズオン（実習）ではGoogleのクラウド環境であるGoogle Colaboratoryを用います．講習会の参加にあたり，参加者が計算機環境を用意する必要はありませんが，Googleアカウントをご準備いただく必要があります．なお，開催者がGoogleアカウント情報を収集することはありません．\n講習会は日本語で実施します．\n講習会は録画し，終了後に参加登録者が一定期間視聴できるようにする予定です．",
+    "crumbs": [
+      "講習会",
+      "数値シミュレーション講習会",
+      "2026年度講習会"
+    ]
+  },
+  {
+    "objectID": "FDM-Workshop/workshop-2026.html#参加申し込み",
+    "href": "FDM-Workshop/workshop-2026.html#参加申し込み",
+    "title": "2026年度講習会",
+    "section": "参加申し込み",
+    "text": "参加申し込み\n2026年9月から受付開始予定です．",
+    "crumbs": [
+      "講習会",
+      "数値シミュレーション講習会",
+      "2026年度講習会"
+    ]
+  },
+  {
+    "objectID": "FDM-Workshop/workshop-2025.html",
+    "href": "FDM-Workshop/workshop-2025.html",
+    "title": "2025年度講習会",
+    "section": "",
+    "text": "初級編中級編\n\n\n\n日時\n2025年10月30日（木）13:00〜16:00 オンライン（Zoom）\n\n\n内容\n地震学における波動方程式の半直感的な紹介からはじめ，差分法を用いた地震波の数値シミュレーションを，基本概念から座学＋クラウド上のプログラミング環境を用いたハンズオン形式を用いて学びます．以下の動画のような簡単な地震波伝播数値シミュレーションの原理を理解し，また実行できるようになることが目標です．\n\n\n\nおもな対象\n地震波動伝播数値シミュレーションに興味はあるが，その方法をほとんどあるいはまったく学習したことのない学部生や大学院生の方．\n\n\n定員\n30名\n\n\n前提知識・必要となる準備\n\n大学理系初年度で習う程度の微分積分（Taylor展開や偏微分を含む）の知識を必要とします．\nプログラミング（特にPython）の経験があればなおよいですが，必須ではありません（講習会のなかでくわしく説明します）．\n講習会中に実施するハンズオン（実習）に参加するためには Googleアカウント が必要です．※アカウント名を開催者に伝える必要はありません．\n\n\n\n公開スライド\n\n\n\n\n\n\n\n\n日時\n2025年11月13日（木）13:00〜16:00 オンライン（Zoom）\n\n\n内容\n差分法による地震波動伝播数値シミュレーション手法の概略を紹介したのち，オープンソースソフトウェアOpenSWPCとコンピュータクラスタ（スーパーコンピュータ）を用いた実践的な数値シミュレーションについて，実演および実習を通じて学びます．この講習会では，以下のような現実的な3次元的に不均質な日本列島構造下における地震波動伝播数値シミュレーションを実行できるようになるとともに，そのパラメタ設定法の基礎を理解し，今後の研究活動に活用できるようになることを目指します．\n\n\n\nおもな対象\n地震波動伝播数値シミュレーションやそれを用いた研究に興味がある学生や研究者の方．\n\n\n定員\n30名\n\n\n前提知識・必要となる準備\n\n地震学（とくに地震波）に関する学部レベルの知識と，それを理解するのに必要な程度の初歩的な物理数学の知識を前提とします．\nFortranやPythonなどの，何らかのプログラミング言語の利用経験があることが望ましいです．\n\n講習会では主にFortranを用いますが，不慣れな方向けに文法の補足説明がなされます．\n\n実習に参加するためには，Linuxのごく基本的な操作ができることが必要です．\n\n具体的には『リモートホストにSSHでログインして，そのホスト上のテキストファイルを編集する』ことができれば十分です．\n\n実習および実演は，東京大学地震研究所附属日本列島モニタリング研究センターが提供する計算機システムを用いて行います．実演にはどなたでもご参加いただけますが，実習に参加するためには講習会当日までに同計算機システムのアカウントをご準備ください．アカウントの申し込み方法は上記公式ページのほか，当ウェブのこちらにも解説があります．\n同計算機システムの利用資格は『国立大学法人、公、私立大学および国、公立研究機関の教員・研究者又はこれに準じるもので、利用目的が地震・火山・防災の関連分野の研究遂行にかかわるもの』とされています．ここでの「研究者」には大学院生を含みますが，学部生は含まないため，今回は学部生の方は実演の聴講のみとなります．また，アカウントの作成には時間がかかりますため，余裕を持ってお申し込みください．\nアカウントのご準備が講習会開催日程に間に合わなかった場合には，聴講でのご参加となりますことをあらかじめご了承ください．\n\n\n\n\n\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:src/FDM-Workshop/workshop-2025.md\n\n参加申し込み\n参加受付は締め切りました． &gt;&gt;&gt;&gt;&gt;&gt;&gt; 051bec7389ff724ff1f4c063c67803ec0bbdcafa:src/FDM-Workshop/fdm-workshop.md",
+    "crumbs": [
+      "講習会",
+      "数値シミュレーション講習会",
+      "2025年度講習会"
+    ]
+  },
+  {
+    "objectID": "FDM-Workshop/index.html#年度講習会",
+    "href": "FDM-Workshop/index.html#年度講習会",
+    "title": "数値シミュレーション講習会",
+    "section": "2026年度講習会",
+    "text": "2026年度講習会\n\n2026年度講習会 2026年9月受付開始予定",
+    "crumbs": [
+      "講習会",
+      "数値シミュレーション講習会"
+    ]
+  },
+  {
+    "objectID": "FDM-Workshop/index.html#年度講習会-1",
+    "href": "FDM-Workshop/index.html#年度講習会-1",
+    "title": "数値シミュレーション講習会",
+    "section": "2025年度講習会",
+    "text": "2025年度講習会\n終了しました．開催の記録：2025年度講習会",
+    "crumbs": [
+      "講習会",
+      "数値シミュレーション講習会"
     ]
   },
   {
@@ -1014,7 +1074,7 @@
     "href": "HPC/EIC-2025/EIC2025-03-environment.html#miniforgeのインストール",
     "title": "解析環境の構築",
     "section": "Miniforgeのインストール",
-    "text": "Miniforgeのインストール\nまずは適当なディレクトリでMiniforgeを curl コマンドでダウンロードします．\ncurl -L -O \"https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh\"\nそのディレクトリでダウンロードしたスクリプトを bash で実行します．\nbash  ./Miniforge3-Linux-x86_64.sh -b\n\n\n\n\n\n\nImportant\n\n\n\nオプション -b は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．ただし，これはライセンス確認の省略を推奨するものではありません．気になるようでしたら -b オプションをなしで実行し，詳細を確認するようにしてください．\n\n\nすると，しばらくメッセージが流れ，最終的に\ninstallation finished.\nと表示されてインストールが終わります．この方法では，ホームディレクトリの直下に miniforge3 ディレクトリが作られ，そこに関連ファイルがインストールされています．\n続いて，初期化設定です．以下のようにインストールされたディレクトリにある conda コマンドを init オプションで実行します．\n$ cd  # ホームディレクトリに移動\n$ ./miniforge3/bin/conda init\nno change     /home/j0XXXX/miniforge3/condabin/conda\nno change     /home/j0XXXX/miniforge3/bin/conda\nno change     /home/j0XXXX/miniforge3/bin/conda-env\nno change     /home/j0XXXX/miniforge3/bin/activate\nno change     /home/j0XXXX/miniforge3/bin/deactivate\nno change     /home/j0XXXX/miniforge3/etc/profile.d/conda.sh\nno change     /home/j0XXXX/miniforge3/etc/fish/conf.d/conda.fish\nno change     /home/j0XXXX/miniforge3/shell/condabin/Conda.psm1\nno change     /home/j0XXXX/miniforge3/shell/condabin/conda-hook.ps1\nno change     /home/j0XXXX/miniforge3/lib/python3.YY/site-packages/xontrib/conda.xsh\nno change     /home/j0XXXX/miniforge3/etc/profile.d/conda.csh\nmodified      /home/j0XXXX/.bashrc\n\n==&gt; For changes to take effect, close and re-open your current shell. &lt;==\nただし，j0XXXX はユーザー名です．python3.YYのYYにはインストールされたpythonのバージョンが表示されます． :::{.callout-note} これはminiforgeのデフォルト環境でのPythonのバージョンであり，以下で作成する仮想環境では，その仮想環境で利用するPythonのバージョンを別途指定することもできます． ::: 表示されたとおり，初期設定ファイル .bashrc に conda コマンドの設定が書き込まれます．\n# &gt;&gt;&gt; conda initialize &gt;&gt;&gt;\n# !! Contents within this block are managed by 'conda init' !!\n__conda_setup=\"$('/home/j0XXXX/miniforge3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)\"\nif [ $? -eq 0 ]; then\n    eval \"$__conda_setup\"\nelse\n    if [ -f \"/home/j0XXXX/miniforge3/etc/profile.d/conda.sh\" ]; then\n        . \"/home/j0XXXX/miniforge3/etc/profile.d/conda.sh\"\n    else\n        export PATH=\"/home/j0XXXX/miniforge3/bin:$PATH\"\n    fi\nfi\nunset __conda_setup\n# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;\n\n\n\n\n\n\nImportant\n\n\n\nEICでは，上記の設定をしても，ターミナルからSSHでログインしたときには自動でこの設定が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．\nもし，ターミナルから condaやmamba を有効にしたいときには，\nsource ~/.bashrc\nというコマンドで， .bashrc ファイルの設定を読み込ませてください．あるいは，~/.bash_profile というファイル（なければ作る）に上記 source コマンドを記述しておくと，ログイン時に直接 conda が使えるようになります．",
+    "text": "Miniforgeのインストール\nまずは適当なディレクトリでMiniforgeを curl コマンドでダウンロードします．\ncurl -L -O \"https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh\"\nそのディレクトリでダウンロードしたスクリプトを bash で実行します．\nbash  ./Miniforge3-Linux-x86_64.sh -b\n\n\n\n\n\n\nImportant\n\n\n\nオプション -b は batch modeで，本来対話的に確認されるべきend user licence agreementやインストール先の指定などがすべて省略されます．上記コマンドを実行した時点で自動的にライセンスに同意したとみなされますので，ご注意ください．ただし，これはライセンス確認の省略を推奨するものではありません．気になるようでしたら -b オプションをなしで実行し，詳細を確認するようにしてください．\n\n\nすると，しばらくメッセージが流れ，最終的に\ninstallation finished.\nと表示されてインストールが終わります．この方法では，ホームディレクトリの直下に miniforge3 ディレクトリが作られ，そこに関連ファイルがインストールされています．\n続いて，初期化設定です．以下のようにインストールされたディレクトリにある conda コマンドを init オプションで実行します．\n$ cd  # ホームディレクトリに移動\n$ ./miniforge3/bin/conda init\nno change     /home/j0XXXX/miniforge3/condabin/conda\nno change     /home/j0XXXX/miniforge3/bin/conda\nno change     /home/j0XXXX/miniforge3/bin/conda-env\nno change     /home/j0XXXX/miniforge3/bin/activate\nno change     /home/j0XXXX/miniforge3/bin/deactivate\nno change     /home/j0XXXX/miniforge3/etc/profile.d/conda.sh\nno change     /home/j0XXXX/miniforge3/etc/fish/conf.d/conda.fish\nno change     /home/j0XXXX/miniforge3/shell/condabin/Conda.psm1\nno change     /home/j0XXXX/miniforge3/shell/condabin/conda-hook.ps1\nno change     /home/j0XXXX/miniforge3/lib/python3.YY/site-packages/xontrib/conda.xsh\nno change     /home/j0XXXX/miniforge3/etc/profile.d/conda.csh\nmodified      /home/j0XXXX/.bashrc\n\n==&gt; For changes to take effect, close and re-open your current shell. &lt;==\nただし，j0XXXX はユーザー名です．python3.YYのYYにはインストールされたpythonのバージョンが表示されます．\n\n\n\n\n\n\nNote\n\n\n\nこれはminiforgeのデフォルト環境でのPythonのバージョンであり，以下で作成する仮想環境では，必要があればその仮想環境で利用するPythonのバージョンを指定できます．\n\n\n表示されたとおり，初期設定ファイル .bashrc に conda コマンドの設定が書き込まれます．\n# &gt;&gt;&gt; conda initialize &gt;&gt;&gt;\n# !! Contents within this block are managed by 'conda init' !!\n__conda_setup=\"$('/home/j0XXXX/miniforge3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)\"\nif [ $? -eq 0 ]; then\n    eval \"$__conda_setup\"\nelse\n    if [ -f \"/home/j0XXXX/miniforge3/etc/profile.d/conda.sh\" ]; then\n        . \"/home/j0XXXX/miniforge3/etc/profile.d/conda.sh\"\n    else\n        export PATH=\"/home/j0XXXX/miniforge3/bin:$PATH\"\n    fi\nfi\nunset __conda_setup\n# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;\n\n\n\n\n\n\nImportant\n\n\n\nEICでは，上記の設定をしても，ターミナルからSSHでログインしたときには自動でこの設定が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．\nもし，ターミナルから conda や mamba を有効にしたいときには，\nsource ~/.bashrc\nというコマンドで， .bashrc ファイルの設定を読み込ませてください．あるいは，~/.bash_profile というファイル（なければ作る）に上記 source コマンドを記述しておくと，ログイン時に直接 conda が使えるようになります．",
     "crumbs": [
       "スパコン利用法",
       "EIC-2025",
@@ -1026,7 +1086,7 @@
     "href": "HPC/EIC-2025/EIC2025-03-environment.html#conda仮想環境の作成",
     "title": "解析環境の構築",
     "section": "Conda仮想環境の作成",
-    "text": "Conda仮想環境の作成\nMiniforgeが有効になっていると，EICのプロンプトが\n(base) -bash-4.2$ \nのように (base) とついたものに変更されているはずです． これはcondaの環境名で，初期状態 base が有効になっているという印です．もしそうなっていなかったら， source ~/.bashrc コマンドを実行して conda を有効化してください．\nこの状態では，システムに入っているPythonよりも，Miniforgeで自分がインストールしたPythonのほうが優先されます．たとえば，python コマンドの場所を調べてみると，\n$ which python\n~/miniforge3/bin/python\nと表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下にpython本体が入っていること，それがシステムのpythonよりも優先されていることがわかります．\nMiniforgeでは，Python本体と関連ライブラリを丸ごとまとめた 仮想環境をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 seismo26 を作成してみます．\n$ conda create --name seismo26 --channel conda-forge \\\n  ipykernel marimo numba pygmt obspy netcdf4 matplotlib ffmpeg \n画面の幅の都合上複数行に分かれていますが，これで1つのコマンドです．\n\n\n\n\n\n\nTip\n\n\n\nLinuxのターミナルでは，行末にバックスラッシュ \\ を打つことで，1つのコマンドを複数行に分割できます．\n\n\nここで，1行目はおもにオプション，2行目以降がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．\n\n--name seismo26 仮想環境の名前を seismo26 に指定します．もちろん名前はお好みで変えていただいて構いません．\n--channel conda-forge パッケージの検索・インストールをする提供元を指定します．conda-forge には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．\n\nインストールに指定したライブラリは以下のとおりです．conda createでは指定したもの以外にも非常にたくさんの関連ライブラリがインストールされますが，その中で特に直接使用する可能性があるものも以下の表にリストアップしています．\n\n\n\nライブラリ\n内容\n\n\n\n\nipykernel\nVSCodeなどからJupyter Notebookを通じてPythonコードを実行するために必要なフロントエンド\n\n\nmarimo\nJupyter Notebook よりも再現性に優れた新しいノートブック環境\n\n\nnumba\nPythonとNumpyのコードを高速実行するためのJust-in-Time (JIT)コンパイラ\n\n\npygmt\n可視化ツール群Generic Mapping Tools (GMT)のPythonインターフェース\n\n\nobspy\n地震波データ解析のためのパッケージ\n\n\nnetcdf4\n標高データ等の地理情報のデータフォーマットNetCDFをPythonから扱う公式パッケージ\n\n\nmatplotlib\nPython上の可視化ツールのデファクトスタンダード\n\n\nffmpeg\n動画作成のためのコマンドラインツール\n\n\ngmt\nPyGMTが呼び出すGeneric Mapping Tools 本体．もちろん単独でも使える\n\n\npandas\nPython上で表形式データを扱うためのライブラリ\n\n\nscipy\n科学技術計算のためのさまざまなライブラリの集合体\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nまずパッケージなしで conda create により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます．\nしかし，そのやり方ではバージョンの競合の問題が発生しやすいようです． 必要なパッケージをまとめて指定しておくことで，全パッケージが動作するよう，自動的にバージョンが調整されます．\n\n\nconda create を実行すると，\nProceed ([y]/n)? \nと訊かれますので，y を入力します．すると，しばらく端末上にインストールの経過が表示されます．インストールには多少の時間がかかります．しばらくすると，\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done\n#\n# To activate this environment, use\n#\n#     $ conda activate seismo26\n#\n# To deactivate an active environment, use \n# \n#     $ conda deactivate\nと表示され，インストール完了です．このメッセージの通り，condaが有効になった状態で，\n(base) [j0XXXX@eic ~]$ conda activate seismo26 # seismo26環境を有効化\n(seismo26) [j0XXXX@eic ~]$ conda deactivate    # seismo26環境を無効化\n(base) [j0XXXX@eic ~]$ conda deactivate        # conda自体を無効化\n-bash-4.2$\nというように，conda activate と conda deactivate で有効，無効を切り替えられます． さらに base 環境で conda deactivate すると，conda 自体を無効化できます．\nともあれ，これで一通りのツールが使えるようになりました．\nPyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，EICリモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．\n\n上図は，VSCodeでEICに接続し，そこで上述の環境でJupyter Notebookを利用し，PyGMTにより地図を描画したものです．このような環境を整備しておくと，EIC上実施した数値シミュレーションの可視化や事後解析をEIC上でそのまま実施できて，便利になることでしょう．\n本稿で説明した仮想環境の設定にはEIC特有のものは多くなく，特にminicondaのインストールと仮想環境の構築は他のLinuxやmacOS，WindowsにおけるWSLなどの互換環境においても全く同様に使えるはずです．",
+    "text": "Conda仮想環境の作成\nMiniforgeが有効になっていると，EICのプロンプトが\n(base) -bash-4.2$ \nのように (base) とついたものに変更されているはずです． これはcondaの環境名で，初期状態 base が有効になっているという印です．もしそうなっていなかったら， source ~/.bashrc コマンドを実行して conda を有効化してください．\nこの状態では，システムに入っているPythonよりも，Miniforgeで自分がインストールしたPythonのほうが優先されます．たとえば，python コマンドの場所を調べてみると，\n$ which python\n~/miniforge3/bin/python\nと表示され，自分のホームディレクトリ以下，Miniforgeをインストールしたディレクトリの下にpython本体が入っていること，それがシステムのpythonよりも優先されていることがわかります．\nMiniforgeでは，Python本体と関連ライブラリを丸ごとまとめた 仮想環境をいくつも作り，必要に応じて切り替えて使うことができます．ここでは，地震波の解析に必要なライブラリを入れた仮想環境 seismo26 を作成してみます．\n$ conda create --name seismo26 --channel conda-forge \\\n  ipykernel numba pygmt obspy netcdf4 matplotlib ffmpeg pandas cartopy\n画面の幅の都合上複数行に分かれていますが，これで1つのコマンドです．\n\n\n\n\n\n\nTip\n\n\n\nLinuxのターミナルでは，行末にバックスラッシュ \\ を打つことで，1つのコマンドを複数行に分割できます．\n\n\nここで，1行目はおもにオプション，2行目以降がインストールしたいパッケージ（ライブラリ）名です．指定したオプションの意味は以下のとおりです．\n\n--name seismo26 仮想環境の名前を seismo26 に指定します．もちろん名前はお好みで変えていただいて構いません．\n--channel conda-forge パッケージの検索・インストールをする提供元を指定します．conda-forge には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．\n\nインストールに指定したライブラリは以下のとおりです．conda create では指定したもの以外にも非常にたくさんの関連ライブラリがインストールされますが，その中で特に直接使用する可能性があるものも以下の表にリストアップしています．\n\n\n\nライブラリ\n内容\n\n\n\n\nipykernel\nVSCodeなどからJupyter Notebookを通じてPythonコードを実行するために必要なフロントエンド\n\n\nnumba\nPythonとNumpyのコードを高速実行するためのJust-in-Time (JIT)コンパイラ\n\n\npygmt\n可視化ツール群Generic Mapping Tools (GMT)のPythonインターフェース\n\n\nobspy\n地震波データ解析のためのパッケージ\n\n\nnetcdf4\n標高データ等の地理情報のデータフォーマットNetCDFをPythonから扱う公式パッケージ\n\n\nmatplotlib\nPython上の可視化ツールのデファクトスタンダード\n\n\nffmpeg\n動画作成のためのコマンドラインツール\n\n\ngmt\nPyGMTが呼び出すGeneric Mapping Tools 本体．もちろん単独でも使える\n\n\npandas\nPython上で表形式データを扱うためのライブラリ\n\n\nscipy\n科学技術計算のためのさまざまなライブラリの集合体\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nまずパッケージなしで conda create により環境だけつくり，ひとつひとつのパッケージを後から追加していくこともできます．\nしかし，そのやり方ではバージョンの競合の問題が発生しやすいようです． 必要なパッケージをまとめて指定しておくことで，全パッケージが動作するよう，自動的にバージョンが調整されます．\n\n\nconda create を実行すると，\nProceed ([y]/n)? \nと訊かれますので，y を入力します．すると，しばらく端末上にインストールの経過が表示されます．インストールには多少の時間がかかります．しばらくすると，\nPreparing transaction: done\nVerifying transaction: done\nExecuting transaction: done\n#\n# To activate this environment, use\n#\n#     $ conda activate seismo26\n#\n# To deactivate an active environment, use \n# \n#     $ conda deactivate\nと表示され，インストール完了です．このメッセージの通り，condaが有効になった状態で，\n(base) [j0XXXX@eic ~]$ conda activate seismo26 # seismo26環境を有効化\n(seismo26) [j0XXXX@eic ~]$ conda deactivate    # seismo26環境を無効化\n(base) [j0XXXX@eic ~]$ conda deactivate        # conda自体を無効化\n-bash-4.2$\nというように，conda activate と conda deactivate で有効，無効を切り替えられます． さらに base 環境で conda deactivate すると，conda 自体を無効化できます．\nともあれ，これで一通りのツールが使えるようになりました．\nPyGMTやObsPyの初回インポートには多少の時間がかかりますが，初期化にともなうもののようです． VSCodeで接続した場合は，EICリモート環境にPython+Jupyterの拡張機能をインストールすれば，ipynbファイルの編集経由でインストールしたKernelを指定して利用できます．\n\n上図は，VSCodeでEICに接続し，そこで上述の環境でJupyter Notebookを利用し，PyGMTにより地図を描画したものです．このような環境を整備しておくと，EIC上実施した数値シミュレーションの可視化や事後解析をEIC上でそのまま実施できて，便利になることでしょう．\n本稿で説明した仮想環境の設定にはEIC特有のものは多くなく，特にminicondaのインストールと仮想環境の構築は他のLinuxやmacOS，WindowsにおけるWSLなどの互換環境においても全く同様に使えるはずです．",
     "crumbs": [
       "スパコン利用法",
       "EIC-2025",

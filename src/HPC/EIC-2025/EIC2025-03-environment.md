@@ -62,9 +62,11 @@ modified      /home/j0XXXX/.bashrc
 ```
 
 ただし，`j0XXXX` はユーザー名です．`python3.YY`の`YY`にはインストールされたpythonのバージョンが表示されます．
+
 :::{.callout-note}
-これはminiforgeのデフォルト環境でのPythonのバージョンであり，以下で作成する仮想環境では，その仮想環境で利用するPythonのバージョンを別途指定することもできます．
+これはminiforgeのデフォルト環境でのPythonのバージョンであり，以下で作成する仮想環境では，必要があればその仮想環境で利用するPythonのバージョンを指定できます．
 :::
+
 表示されたとおり，初期設定ファイル `.bashrc` に `conda` コマンドの設定が書き込まれます．
 
 ```bash
@@ -87,7 +89,7 @@ unset __conda_setup
 ::: {.callout-important}
 EICでは，上記の設定をしても，ターミナルからSSHでログインしたときには自動でこの設定が有効にはなりません．VSCode経由でのSSH接続では有効化されるようです．
 
-もし，ターミナルから `conda`や`mamba` を有効にしたいときには，
+もし，ターミナルから `conda` や `mamba` を有効にしたいときには，
 
 ```bash
 source ~/.bashrc
@@ -120,7 +122,7 @@ Miniforgeでは，Python本体と関連ライブラリを丸ごとまとめた *
 
 ```bash
 $ conda create --name seismo26 --channel conda-forge \
-  ipykernel marimo numba pygmt obspy netcdf4 matplotlib ffmpeg 
+  ipykernel numba pygmt obspy netcdf4 matplotlib ffmpeg pandas cartopy
 ```
 
 画面の幅の都合上複数行に分かれていますが，これで1つのコマンドです．
@@ -134,12 +136,11 @@ Linuxのターミナルでは，行末にバックスラッシュ `\` を打つ�
 - `--name seismo26` 仮想環境の名前を `seismo26` に指定します．もちろん名前はお好みで変えていただいて構いません．
 - `--channel conda-forge` パッケージの検索・インストールをする提供元を指定します．`conda-forge` には非商用のパッケージがたくさん集まっており，常にここを指定しておけば間違いありません．
 
-インストールに指定したライブラリは以下のとおりです．`conda create`では指定したもの以外にも非常にたくさんの関連ライブラリがインストールされますが，その中で特に直接使用する可能性があるものも以下の表にリストアップしています．
+インストールに指定したライブラリは以下のとおりです．`conda create` では指定したもの以外にも非常にたくさんの関連ライブラリがインストールされますが，その中で特に直接使用する可能性があるものも以下の表にリストアップしています．
 
 | ライブラリ |内容 |
 | ---- | ---- |
 | [ipykernel](https://github.com/ipython/ipykernel) | VSCodeなどからJupyter Notebookを通じてPythonコードを実行するために必要なフロントエンド |
-| [marimo](https://marimo.io) | Jupyter Notebook よりも再現性に優れた新しいノートブック環境 |
 | [numba](https://numba.pydata.org) | PythonとNumpyのコードを高速実行するためのJust-in-Time (JIT)コンパイラ | 
 | [pygmt](https://www.pygmt.org) | 可視化ツール群Generic Mapping Tools (GMT)のPythonインターフェース|
 | [obspy](https://docs.obspy.org) | 地震波データ解析のためのパッケージ |
