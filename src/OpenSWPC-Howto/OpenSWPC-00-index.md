@@ -4,7 +4,7 @@ date: 2024-08-27
 abstract: "OpenSWPC [@Maeda_2017] の[公式マニュアル](https://OpenSWPC.github.io)では扱いきれないTips/Tricksを紹介します．"
 ---
 
-このページは，今後 [講習会](../FDM-Workshop/fdm-workshop.md) 等でうけた質問・議論等を踏まえて更新していきます．
+このページは，今後 [講習会](../FDM-Workshop/index.md) 等でうけた質問・議論等を踏まえて更新していきます．
 
 ::: {.callout-note}
 

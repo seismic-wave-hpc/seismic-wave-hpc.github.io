@@ -28,7 +28,7 @@ website:
       - text: "講習会"
         href: FDM-Workshop/index.md
  
-      - text: "OpenSWPC関連情報"
+      - text: "OpenSWPC"
         href: OpenSWPC-Howto/OpenSWPC-00-index.md
 
          

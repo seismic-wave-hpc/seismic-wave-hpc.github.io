@@ -506,7 +506,7 @@
     "section": "",
     "text": "公式マニュアルにも記載のとおり，OpenSWPCは\n\nFortran2008 対応のコンパイラ\nMPIライブラリ\nNetCDFライブラリ\n\nがあれば動作します． 利用する環境によってこれらのインストール先が異なるため，src/shared/makefile.arch ファイルにコンパイルのための設定を記載する方式を採用しています．\nここでは，動作を確認したいくつかの環境について，関連ライブラリのインストールと makefile.arch ファイルの設定について記載します．",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド"
     ]
   },
@@ -517,7 +517,7 @@
     "section": "AlmaLinux",
     "text": "AlmaLinux\nAlmaLinux は，いわゆるRedHat系のLinuxディストリビューションです．Red Hat Enterprise Linux (RHEL) は非常に有名なLinuxディストリビューションで，商用（有償）ですがその分サポートがつくということもあり，業務系のシステムで多く使われているようです．\n一方，LinuxのカーネルパッケージはGPL (GNU General Public License) のもとで開発されているため，ライセンスの定めるところにより，RHELもまたそのソースコードが公開されていました．その公開されたソースコードを元にして，数多くのオープンソースのLinuxディストリビューションが開発されてきました．そのような一連のディストリビューションは，Red Hat系ディストリビューションと呼ばれています．\n数多くのRed Hat系ディストリビューションのなかで，CentOS が長らくもっとも広く使われるディストリビューションであり続けました．しかし，2020年12月にCentOSの開発停止がアナウンスされ，2024年6月30日にはCentOS 7のサポートが終了しました．CentOSグループは新たにCentOS Streamというディストリビューションを公開していますが，これはRHELのテスト版のような位置づけであり，安定性に欠くため日常的な利用目的にはあまり推奨できません．\nこのような（やや混乱した）状況を受けて，CentOSサポート終了後の後継とみなされているRHEL互換のLinuxディストリビューションの一つがAlma Linuxです．以下ではAlmaLinux9.5で動作確認をしたビルド方法を紹介しますが，多くおRed Hat系のディストリビューションで同様にビルドできると期待されます．\n\nAlmaLinuxにおけるビルド\nAlmaLinuxのパッケージ管理システムは yum と dnf ですが，デフォルトのパッケージ一覧の中には科学技術計算に関するライブラリ群が十分に含まれていません．そこで，まず Extra Packages for Enterprise Linux (EPEL) リポジトリを有効化します．これはRHEL系ディストリビューションの一つであるFedora Projectで開発された追加パッケージの一覧です．\nsudo dnf config-manager --set-enabled crb \nsudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm\nsudo dnf update\nそのうえで関連パッケージをインストールします．\n\n\n\n\n\n\nNote\n\n\n\n昔からのRHEL系ディストリビューションのユーザーは yum コマンドに慣れ親しんでいるかと思います．dnf は yum の後継として開発されたパッケージ管理コマンドで，2025年時点ではyumもdnfもどちらもコマンドとしては有効になっていますが，実際には yum は dnf のシンボリックリンクになっていて，パッケージ管理コマンドは事実上 dnf に一本化されているようです．\n\n\nその後で関連ライブラリのインストールをします．\nsudo yum install gfortran\nsudo yum install openmpi openmpi-devel\nsudo yum install netcdf netcdf-fortran netcdf-devel netcdf-fortran-devel\nsudo yum install git curl\nUbuntu Linuxと同様に，openmpiやnetcdfの本体と開発用のライブラリは別パッケージとなっていますので，ご注意ください．\nなお，AlmaLinuxではOpenMPIはインストールしても mpif90 や mpirun 等のコマンドにPATHが通らないようです．そのため，.bashrc ファイル等に以下のようにインストール先 /usr/lib64/openmpi/bin/ にPATHを設定するコマンドを記述するか，あるいはコンパイルおよび実行時にPATHつきでコマンドを実行することになります．\n# この設定を ~/.bashrc に記載する\nexport PATH=${PATH}:/usr/lib64/openmpi/bin/\nOpenSWPCのビルドでは，（少なくとも v25.01時点では）デフォルト設定にAlmaLinuxが含まれていないため，自分で makefile.arch を編集する必要があります．\n\n\nsrc/shared/makefile.arch\n\nifeq ($(arch), almalinux)\n    FC     = /usr/lib64/openmpi/bin/mpif90\n    FFLAGS = -O2 -ffast-math -fopenmp -cpp\n    NCLIB  = -L/usr/lib64\n    NCINC  = -I/usr/lib64/gfortran/modules\n    NETCDF = -lnetcdf -netcdff\nendif\n\n\n\nsrc/shared/makefile-tools.arch\n\nifeq ($(arch), almalinux)\n    FC     = gfortran\n    FFLAGS = -O2 -ffast-math -fopenmp -cpp\n    NCLIB  = -L/usr/lib64\n    NCINC  = -I/usr/lib64/gfortran/modules\n    NETCDF = -lnetcdf -netcdff\nendif\n\nmakefile.archとmakefile-tools.archそれぞれを上記のように編集してから\ncd src\nmake arch=almalinux\nとすることでビルドできます．\nswpc_sh.x, swpc_psv.x, swpc_3d.x をMPI実行する場合には，前述の export PATH... 設定をしておくか，あるいは実行時に\n/usr/lib64/openmpi/bin/mpirun -np 4 ./bin/swpc_3d.x -i example/input.inf\nのように mpirun コマンドを場所つきで指定する必要があります．",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "AlmaLinux"
     ]
@@ -529,7 +529,7 @@
     "section": "macOS (Apple Silicon)",
     "text": "macOS (Apple Silicon)\nmacOS はAppleのMac製品のためのオペレーティングシステムです．BSD系とよばれる一種のUnixをベースに開発されており，Mac OS X 10.5 (Leopard) からは公式にUNIXの一種として認証されています．そのため，Terminal.app を通じてUnixコマンドを動作させることができます．\nそれに加えて，パッケージ管理システム Homebrew を用いてOpenSWPCに必要なソフトウェア一式を簡単に導入することができます．そのため，配布パッケージに Homebrewの利用を前提とした macOS でのビルドオプションが用意されています．\n\n\n\n\n\n\nNote\n\n\n\nmacOSのパッケージ管理ツールには，ほかに Fink や MacPorts などがあります．いずれもHomebrewが流行するより前にメジャーだったパッケージツールで，現在も開発やメンテナンスが続いているようです．ただし，macOSにおけるOpenSWPCのビルドはあくまでもHomebrewの利用を前提としています．\n\n\n\nmacOSにおけるビルド\n# Homebrewのインストール（途中で管理者パスワードを要求される）\n$ /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n# brewの動作確認\n$ brew doctor\nbrew install gcc             # gfortranがこの中に含まれる\nbrew install open-mpi        # MPIのライブラリと実行環境\nbrew install netcdf          # NetCDFライブラリ本体\nbrew install netcdf-fortran  # FortranからNetCDFを利用するためにこちらも必要\nここまでで，/opt/homebrew/bin に gfortran や mpif90 などの実行ファイルが，/opt/homebrew/lib にライブラリ，/opt/homebrew/include にインクルードファイル（この場合は netcdf.mod というFortranからNetCDFを利用するためのモジュール情報ファイル）がインストールされているはずです．また，Homebrewが正常にインストールされていれば，/opt/homebrew/bin には PATHが通っており，その下のファイルはコマンド名だけでどこからでも実行できるはずです．\n# curlコマンドでダウンロードし，unzipで展開．\n# もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない\n$ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip\n$ unzip 25.01.zip\n# ソースコードディレクトリに移動してビルド\n$ cd OpenSWPC-25.01/src\n$ make arch=apple\nこれですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると ./bin/ ディレクトリ以下に実行ファイルが生成されます．",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "macOS (Apple Silicon)"
     ]
@@ -551,7 +551,7 @@
     "href": "FDM-Workshop/workshop-2026.html#中級編",
     "title": "2026年度講習会",
     "section": "中級編",
-    "text": "中級編\n\n日時\n2025年12月3日（木）15:00〜17:30\n\n\n開催方式\nZoom\n\n\n内容\n差分法による地震波動伝播数値シミュレーション手法の概略を紹介したのち，オープンソースソフトウェアOpenSWPCを用いた数値シミュレーションについて，クラウド環境を用いた実演および実習を通じて学びます．インストールからパラメタの設定とシミュレーション実行，可視化処理までを体験し，今後の研究活動に活用するための第一歩を踏み出すことが目標です．\n\n\nおもな対象\n地震波動伝播数値シミュレーションやそれを用いた研究・教育に興味がある学生や研究者の方．\n\n\n定員\n30名（先着順）\n\n\nご注意\n\n地震波動伝播の差分法による数値シミュレーションの原理についての基礎的理解が必要です．講習会中でも簡単に解説をしますが，詳細な説明が必要なかたには初級編の受講をお勧めします．\nLinuxなどにおけるコマンドライン操作の経験がある，必須ではありません．\n解説するソフトウェアはFortranで記述されていますが，この講習会の内容に限ればFortranの利用経験は必要としません．\n講習会中に実施するハンズオン（実習）ではGoogleのクラウド環境であるGoogle Colaboratoryを用います．講習会の参加にあたり，参加者が計算機環境を用意する必要はありませんが，Googleアカウントをご準備いただく必要があります．なお，開催者がGoogleアカウント情報を収集することはありません．\n講習会は日本語で実施します．\n講習会は録画し，終了後に参加登録者が一定期間視聴できるようにする予定です．",
+    "text": "中級編\n\n日時\n2025年12月3日（木）15:00〜17:30\n\n\n開催方式\nZoom\n\n\n内容\n差分法による地震波動伝播数値シミュレーション手法の概略を紹介したのち，オープンソースソフトウェアOpenSWPCを用いた数値シミュレーションについて，クラウド環境を用いた実演および実習を通じて学びます．インストールからパラメタの設定とシミュレーション実行，可視化処理までを体験し，今後の研究活動に活用するための第一歩を踏み出すことが目標です．\n\n\nおもな対象\n地震波動伝播数値シミュレーションやそれを用いた研究・教育に興味がある学生や研究者の方．\n\n\n定員\n30名（先着順）\n\n\nご注意\n\n地震波動伝播の差分法による数値シミュレーションの原理についての基礎的理解が必要です．講習会中でも簡単に解説をしますが，詳細な説明が必要なかたには初級編の受講をお勧めします．\nLinuxなどにおけるコマンドライン操作の経験があることが望ましいですが，必須ではありません．講習会中で説明しながら進めます．\n解説するソフトウェアはFortranで記述されています．ただし，この講習会の内容に限ればFortranの利用経験は必要ではありません．\n講習会中に実施するハンズオン（実習）ではGoogleのクラウド環境であるGoogle Colaboratoryを用います．講習会の参加にあたり，参加者が計算機環境を用意する必要はありませんが，Googleアカウントをご準備いただく必要があります．なお，開催者がGoogleアカウント情報を収集することはありません．\n講習会は日本語で実施します．\n講習会は録画し，終了後に参加登録者が一定期間視聴できるようにする予定です．",
     "crumbs": [
       "講習会",
       "数値シミュレーション講習会",
@@ -563,7 +563,7 @@
     "href": "FDM-Workshop/workshop-2026.html#参加申し込み",
     "title": "2026年度講習会",
     "section": "参加申し込み",
-    "text": "参加申し込み\n2026年9月から受付開始予定です．",
+    "text": "参加申し込み\n申し込みはこちらのFormからお願いします．",
     "crumbs": [
       "講習会",
       "数値シミュレーション講習会",
@@ -587,7 +587,7 @@
     "href": "FDM-Workshop/index.html#年度講習会",
     "title": "数値シミュレーション講習会",
     "section": "2026年度講習会",
-    "text": "2026年度講習会\n\n2026年度講習会 2026年9月受付開始予定",
+    "text": "2026年度講習会\n\n2026年度講習会 参加申し込み受付中",
     "crumbs": [
       "講習会",
       "数値シミュレーション講習会"
@@ -611,7 +611,7 @@
     "section": "Ubuntu Linux + gfortran",
     "text": "Ubuntu Linux + gfortran\nUbuntu Linux は，Debian GNU/Linuxから派生したLinuxディストリビューションです．使いやすさが重視されたディストリビューションで，Linuxの数多くのディストリビューションのなかでも特に利用者の多いディストリビューションのようです．Microsoft WindowsでLinuxを動作させるWindows Subsystem for Linux 2 (WSL2) のデフォルトディストリビューションでもあります．\nUbuntu LinuxはDebianの派生であり，またUbuntuからさらに派生したディストリビューションも多数あります．有名で利用者が多いものに，DebianのほかLinux Mintが挙げられます．それら関連ディストリビューションでは，同じ apt コマンドによるパッケージ管理システムが導入されている場合が多く，以下のビルド方法がそのまま使える必要があります．\n\nUbuntuにおけるビルド\napt コマンドによる関連パッケージのインストールには管理者権限が必要です．Ubuntu Linuxでは sudo コマンドにより管理者としてコマンドを実行します．\n# まずパッケージ一覧を最新の状態にする\n$ sudo apt update\n# 関連ライブラリ \n$ sudo apt install gfortran\n$ sudo apt install openmpi-bin libopenmpi-dev\n$ sudo apt install netcdf-bin libnetcdf-dev libnetcdff-dev\nUbuntuにおいては，MPIライブラリであるOpenMPIやNetCDFが，実行ファイルのパッケージ（**-bin）とコンパイル時にリンクするライブラリ群（lib**-dev）に分かれています．原則として両方のインストールをお勧めします．\n\n\n\n\n\n\nNote\n\n\n\n実はnetcdf-bin はNetCDFファイルに関する実行プログラムで，OpenSWPCのビルドそのものには不要です．ですが，OpenSWPCの入出力ファイルであるnetcdfファイルの内容を確認できる ncdump コマンドが含まれるため，これもあわせてインストールしておくことをお勧めします．\n\n\n# curlコマンドでダウンロードし，unzipで展開．\n# もちろんブラウザからダウンロードしてダブルクリックして展開しても構わない\n$ curl -OL https://github.com/OpenSWPC/OpenSWPC/archive/refs/tags/25.01.zip\n$ unzip 25.01.zip\n# ソースコードディレクトリに移動してビルド\n$ cd OpenSWPC-25.01/src\n$ make arch=ubuntu-gfortran\nこれですべてのシミュレーションコードと関連ツールに関するビルドが走り，しばらくすると ./bin/ ディレクトリ以下に実行ファイルが生成されます．",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "Ubuntu Linux + gfortran"
     ]
@@ -623,7 +623,7 @@
     "section": "",
     "text": "NVIDIA DGX Spark はコンパクトなデスクトップマシンで，NVIDIAのARMベースのGrace CPUとBlackwell GPUを統合したGB10 Grace Blackwell Superchipを搭載したマシンです． 多くのGPU計算環境では，CPUとGPUは物理的に独立したメモリを持ちますが，DGX SparkではCPUからもGPUからも共通で使える広帯域のユニファイドメモリが128GB搭載されています（2025年発売当時のスペックです）．\n世間では大規模言語モデル（LLM）をローカルで動かすことのできるマシンとして有名になりましたが，OSがLinuxベースということもあり，GPUを活用した科学技術計算向けのマシンとしても使いやすく優れたスペックを持ちます．一方，OpenSWPCを含む普通のGPUを用いた計算のコードはCPUとGPUのメモリが分かれていることを前提として書かれているため，コンパイル時のオプションに注意が必要です．また，CPUがIntelではなくARMベースであることや，その性能を引き出すためにはNVIDIAコンパイラの導入が必須であることなど，使い始めるまでの準備が少々必要です．ここでは，OpenSWPCを動かすための最小限の準備について説明します．\nこの記事の記載事項は，ユニファイドメモリの利用以外の部分については，Intel/AMDのCPUマシンでGPUを用いる際にも参考になるものと思います．",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "NVIDIA DGX Spark"
     ]
@@ -635,7 +635,7 @@
     "section": "開発環境の準備",
     "text": "開発環境の準備\nDGX SparkにはNVIDIA DGX OSが搭載されています．独自OSではありますが，Ubuntu Linuxがベースであり，操作方法も多くが共通です．\n\n関連ツールとライブラリのインストール\nまずは必要なツール群を apt によりインストールします．\n# まずパッケージ一覧を最新の状態にする\n$ sudo apt update\n# GNU コンパイラ\n$ sudo apt install build-essential g++ gfortran libtool\n# NetCDF（Cライブラリのみ）\n$ sudo apt install libnetcdf-dev\nMPIライブラリとNetCDFのFortranライブラリはインストール不要です．前者はNVIDIAの開発環境に含まれており，後者はNVIDIAのコンパイラを用いて自力でビルドする必要があります．\n\n\nHPC SDKのインストール\nNVIDIAの開発環境であるNVIDIA HPC SDKをインストールします．公式ページのDownloadsページでライセンスに同意すると，各種プラットフォーム向けのインストーラの説明のリンクが表示されます．Linux Arm Serverを選ぶと，Bundled with CUDA version 13.2 と Bundled with CUDA versions 13.2 and 12.9 の2種類があります．OpenSWPCのビルドには最新版だけで十分ですので，ここでは13.2のみのバージョンを選び，Linux Arm Server Ubuntu (apt)のリンクをクリックします．\n\n\n\n\n\n\nTip\n\n\n\nここではARMベースのNVIDIA Grace CPUを搭載するDGX Spark用のインストーラが目的ですから，Linux x86_64を選んではいけないことにご注意ください．\n\n\nするとInstallation Instsructionsが表示されますから，そのコマンドをそのままコピーしてDGX Spark上で実行するとインストール完了です．ただし，インストールしただけではPATHが通っていません．ホームディレクトリのシェル設定ファイル（~/.bashrc）に以下の内容を追記し，source ~/.bashrc で有効化するか，再ログインします．\n### NVIDIA HPC SDK\nexport NVARCH=Linux_aarch64\nexport NVCOMPILERS=/opt/nvidia/hpc_sdk\nexport PATH=$NVCOMPILERS/$NVARCH/26.5/compilers/bin:$PATH\nexport PATH=$NVCOMPILERS/$NVARCH/26.5/comm_libs/mpi/bin:$PATH\n上記の設定に書かれているとおり，HPC SDKは/opt/nvidia/hpc_sdk以下にインストールされます．PATHの設定が有効になれば，以下のようにwhich コマンドでFortranコンパイラnvfortranとMPIコンパイラmpifortが見えるはずです．\n$ which nvfortran\n/opt/nvidia/hpc_sdk/Linux_aarch64/26.5/compilers/bin/nvfortran\n$ which mpifort\n/opt/nvidia/hpc_sdk/Linux_aarch64/26.5/comm_libs/mpi/bin/mpifort\n\n\nNetCDF-Fortranのビルド\nFortranのモジュールを使うときに必要となるモジュール情報ファイル（*.mod）はコンパイラ依存のバイナリファイルのため，OpenSWPC本体をビルドするコンパイラ（nvfortran）でビルドしなければいけません．apt install でインストールされるものはGNU gfortranでビルドされたもののため，ここでは使いません．\nここでは，執筆当時最新版のnetcdf-fortran v4.6.4をビルドします．まずは適当なディレクトリでソースコードをダウンロードし，展開します．\n# ダウンロード\n$ wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.4.tar.gz\n# 展開して移動\n$ tar xvf v4.6.4.tar.gz\n$ cd netcdf-fortran-4.6.4\nインストール先は /opt/netcdf-nv とします．./configureスクリプトでmakefileを生成します．その際，変数FC, CC に利用するNVIDIAのコンパイラ名を，また必要なコンパイルオプションも**FLAGS変数に設定しておきます．さらに，--prefixオプションでインストール先を指定します．\n$ export NFDIR=/opt/netcdf-nv\n$ FC=nvfortran CC=nvcc FFLAGS=-fPIC FCFLAGS=-fPIC CPPFLAGS=\"-I/usr/include\" LDFLAGS=-L/usr/lib/aarch64-linux-gnu/ ./configure --prefix=${NFDIR}\nあとはmake, sudo make installするだけです．\n# -j10 により最大10並列でコンパイルする（必須ではない）\n$ make -j10\n$ sudo make install\nインストールされる nf-configにより，コンパイル時に必要なオプションを調べることができます．\n$ /opt/netcdf-nv/bin/nf-config  --all\n\nThis netCDF-Fortran 4.6.4 has been built with the following features: \n\n  --cc        -&gt; nvcc\n  --cflags    -&gt; -I/opt/netcdf-nv/include -I/usr/include\n\n  --fc        -&gt; nvfortran\n  --fflags    -&gt; -I/opt/netcdf-nv/include -I/opt/netcdf-nv/include\n  --flibs     -&gt; -L/opt/netcdf-nv/lib -lnetcdff -L/usr/lib/aarch64-linux-gnu/ -lnetcdf -lnetcdf -lm \n  --has-f90   -&gt; \n  --has-f03   -&gt; yes\n\n  --has-nc2   -&gt; yes\n  --has-nc4   -&gt; yes\n\n  --prefix    -&gt; /opt/netcdf-nv\n  --includedir-&gt; /opt/netcdf-nv/include\n  --version   -&gt; netCDF-Fortran 4.6.4",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "NVIDIA DGX Spark"
     ]
@@ -647,7 +647,7 @@
     "section": "OpenSWPCのビルド",
     "text": "OpenSWPCのビルド\nOpenSWPC 26.0 系1にはコンパイルオプションarch=dgx-sparkが含まれますから，それを使うだけです．参考までオプションの一覧を記載しておきます．\n# NVIDIA dgx-spark\nifeq ($(arch), dgx-spark)\n  FC      = mpifort\n  FFLAGS  = -fast -Minfo=all -acc -cpp -mp \\\n            -gpu=cc121,mem:unified\n  NCLIB   = -L/opt/netcdf-nv/lib \\\n            -Wl,-rpath,/opt/netcdf-nv/lib\n  NCINC   = -I/opt/netcdf-nv/include\n  NETCDF  = -lnetcdff -lnetcdf\nendif\nNetCDFライブラリ関係の変数は，基本的には前項のnf-configの出力に沿って設定されています．ただし，NCLIBでは-Wl,-rpath,/opt/netcdf-nv/libとすることで，実行時に参照される動的ライブラリの場所を指定しています．これがあることで，実行時に環境変数$LD_LIBRARY_PATHの設定が不要になります．\nもしnetcdf-fortranライブラリの導入場所が異なる場合にはNCLIB, NCINCの設定を適宜変更します．\nDGX Sparkはユニファイドメモリが採用されていますので，-gpu=mem:unifiedの指定が大変重要です．これがないと，同じ配列に対してCPUとGPUがそれぞれ個別にメモリを確保してしまうため，結果的に必要メモリサイズが倍になってしまいます．\nなお，FFLAGSの-gpu=cc121というオプションは，Computational Capabilityと呼ばれ，NVIDIAのGPUの世代を区別するバージョン番号です．この番号は使うGPUによって異なりますが，nvaccelinfoコマンドで知ることができます．\n$ nvaccelinfo\n\nCUDA Driver Version:           13000\nNVRM version:                  NVIDIA UNIX Open Kernel Module for aarch64  580.173.02  Release Build  (dvs-builder@U22-A24-5-4)  Tue Jun\n 23 08:34:19 UTC 2026\n\nDevice Number:                 0\nDevice Name:                   NVIDIA GB10\nDevice Revision Number:        12.1\n\n（中略）\n\nMemory Models Flags:           -gpu=mem:separate, -gpu=mem:managed, -gpu=mem:unified\nDefault Target:                cc121\n最後の2行にccの値と，指定できるメモリ利用形態のオプションが記載されています．\nOpenSWPCの実行時は通常どおり mpirun -np XX ./bin/swpc_XX.x で問題ありません．並列計算ですが，DGX Spark1台で計算する場合にMPI分割を行なう積極的なメリットはあまりありません．モデルが小さい場合には分割したほうが若干高速になるケースもあるようですが，-np 1が第1選択肢になると思ってよいでしょう．また，計算を始める前のモデル準備にはOpenMPも使いますから，export OMP_NUM_THREADS=10のように利用コア数を設定しておくとよいでしょう．",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "NVIDIA DGX Spark"
     ]
@@ -659,7 +659,7 @@
     "section": "Footnotes",
     "text": "Footnotes\n\n\n2026年夏公開予定↩︎",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPCのビルド",
       "NVIDIA DGX Spark"
     ]
@@ -671,7 +671,7 @@
     "section": "",
     "text": "このページは，今後 講習会 等でうけた質問・議論等を踏まえて更新していきます．\n\n\n\n\n\n\nNote質問募集\n\n\n\nOpenSWPCの利用に関する質問・疑問等があれば，遠慮なくお寄せください．その内容は，匿名化したうえで本Webサイトや（ゆくゆくは）公式マニュアルに反映される場合があります．\n\n\n\n\n\n\nReferences\n\nMaeda, T., Takemura, S., & Furumura, T. (2017). OpenSWPC: An open-source integrated parallel simulation code for modeling seismic wave propagation in 3D heterogeneous viscoelastic media. Earth, Planets and Space, 69(1), 102. https://doi.org/10.1186/s40623-017-0687-2",
     "crumbs": [
-      "OpenSWPC関連情報",
+      "OpenSWPC",
       "OpenSWPC 関連情報"
     ]
   },
