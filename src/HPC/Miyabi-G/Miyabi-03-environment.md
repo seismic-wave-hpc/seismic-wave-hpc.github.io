@@ -1,8 +1,7 @@
 ---
 title: 解析環境の構築
 date: 2025-05-11
-date-modified: 2025-05-13
-draft: true
+date-modified: 2026-09-04
 abstract: "Miyabi-Gのログインノードで研究開発をするための環境を整備します．"
 ---
 

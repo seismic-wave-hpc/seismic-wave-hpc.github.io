@@ -1,14 +1,14 @@
 ---
 title: ログインと初期設定
 date: 2024-08-26
-date-modified: 2025-05-11
+date-modified: 2026-09-04
 abstract: "アカウントの申請方法は種々あるため，ここではアカウント作成後のログイン方法について詳述します．"
 ---
 
 ## ログインまで
 
 Wisteria/BDECへのログインは公開鍵方式です．
-公開鍵の作成方法の詳細は[こちら](../Common/Common-01-keys.md) をご覧ください．
+公開鍵の作成方法の詳細は [こちら](../共通知識/Common-01-keys.md) をご覧ください．
 
 - 最初の公開鍵は [利用支援ポータル](https://wisteria-www.cc.u-tokyo.ac.jp/) からアップロードします．
 - ログインのための接続先は `wisteria.cc.u-tokyo.ac.jp` です．
